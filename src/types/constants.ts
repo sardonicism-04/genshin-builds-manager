@@ -1,0 +1,285 @@
+export const ArtifactSets = [
+  "Adventurer",
+  "ArchaicPetra",
+  "Berserker",
+  "BlizzardStrayer",
+  "BloodstainedChivalry",
+  "BraveHeart",
+  "CrimsonWitchOfFlames",
+  "DefendersWill",
+  "EchoesOfAnOffering",
+  "EmblemOfSeveredFate",
+  "Gambler",
+  "GladiatorsFinale",
+  "HeartOfDepth",
+  "HuskOfOpulentDreams",
+  "Instructor",
+  "Lavawalker",
+  "LuckyDog",
+  "MaidenBeloved",
+  "MartialArtist",
+  "NoblesseOblige",
+  "OceanHuedClam",
+  "PaleFlame",
+  "PrayersForDestiny",
+  "PrayersForIllumination",
+  "PrayersForWisdom",
+  "PrayersToSpringtime",
+  "ResolutionOfSojourner",
+  "RetracingBolide",
+  "Scholar",
+  "ShimenawasReminiscence",
+  "TenacityOfTheMillelith",
+  "TheExile",
+  "ThunderingFury",
+  "Thundersoother",
+  "TinyMiracle",
+  "TravelingDoctor",
+  "VermillionHereafter",
+  "ViridescentVenerer",
+  "WanderersTroupe",
+] as const;
+export const Characters = [
+  "Albedo",
+  "Amber",
+  "Barbara",
+  "Beidou",
+  "Bennett",
+  "Chongyun",
+  "Diluc",
+  "Diona",
+  "Fischl",
+  "Ganyu",
+  "HuTao",
+  "Jean",
+  "Kaeya",
+  "Keqing",
+  "Klee",
+  "KujouSara",
+  "KukiShinobu",
+  "Lisa",
+  "Mona",
+  "Ningguang",
+  "Noelle",
+  "Qiqi",
+  "Razor",
+  "Sucrose",
+  "Tartaglia",
+  "Traveler",
+  "RaidenShogun",
+  "Venti",
+  "Xiangling",
+  "Xiao",
+  "Xingqiu",
+  "Xinyan",
+  "Rosaria",
+  "Yanfei",
+  "Eula",
+  "KaedeharaKazuha",
+  "KamisatoAyaka",
+  "Sayu",
+  "Shenhe",
+  "Yoimiya",
+  "Aloy",
+  "SangonomiyaKokomi",
+  "Thoma",
+  "Gorou",
+  "AratakiItto",
+  "YaeMiko",
+  "YunJin",
+  "Zhongli",
+  "KamisatoAyato",
+  "Yelan",
+  "ShikanoinHeizou",
+] as const;
+
+export const allWeaponSwordKeys = [
+  "AmenomaKageuchi",
+  "AquilaFavonia",
+  "BlackcliffLongsword",
+  "CinnabarSpindle",
+  "CoolSteel",
+  "KagotsurubeIsshin",
+  "DarkIronSword",
+  "DullBlade",
+  "FavoniusSword",
+  "FesteringDesire",
+  "FilletBlade",
+  "FreedomSworn",
+  "HaranGeppakuFutsu",
+  "HarbingerOfDawn",
+  "IronSting",
+  "LionsRoar",
+  "MistsplitterReforged",
+  "PrimordialJadeCutter",
+  "PrototypeRancour",
+  "RoyalLongsword",
+  "SacrificialSword",
+  "SilverSword",
+  "SkyriderSword",
+  "SkywardBlade",
+  "SummitShaper",
+  "SwordOfDescension",
+  "TheAlleyFlash",
+  "TheBlackSword",
+  "TheFlute",
+  "TravelersHandySword",
+] as const;
+export type WeaponSwordKey = typeof allWeaponSwordKeys[number];
+
+export const allWeaponClaymoreKeys = [
+  "Akuoumaru",
+  "BlackcliffSlasher",
+  "BloodtaintedGreatsword",
+  "DebateClub",
+  "FavoniusGreatsword",
+  "FerrousShadow",
+  "KatsuragikiriNagamasa",
+  "LithicBlade",
+  "LuxuriousSeaLord",
+  "OldMercsPal",
+  "PrototypeArchaic",
+  "Rainslasher",
+  "RedhornStonethresher",
+  "RoyalGreatsword",
+  "SacrificialGreatsword",
+  "SerpentSpine",
+  "SkyriderGreatsword",
+  "SkywardPride",
+  "SnowTombedStarsilver",
+  "SongOfBrokenPines",
+  "TheBell",
+  "TheUnforged",
+  "WasterGreatsword",
+  "Whiteblind",
+  "WhiteIronGreatsword",
+  "WolfsGravestone",
+] as const;
+export type WeaponClaymoreKey = typeof allWeaponClaymoreKeys[number];
+
+export const allWeaponPolearmKeys = [
+  "BeginnersProtector",
+  "BlackcliffPole",
+  "BlackTassel",
+  "CalamityQueller",
+  "CrescentPike",
+  "Deathmatch",
+  "DragonsBane",
+  "DragonspineSpear",
+  "EngulfingLightning",
+  "FavoniusLance",
+  "Halberd",
+  "IronPoint",
+  "KitainCrossSpear",
+  "LithicSpear",
+  "PrimordialJadeWingedSpear",
+  "PrototypeStarglitter",
+  "RoyalSpear",
+  "SkywardSpine",
+  "StaffOfHoma",
+  "TheCatch",
+  "VortexVanquisher",
+  "WavebreakersFin",
+  "WhiteTassel",
+] as const;
+export type WeaponPoleArmKey = typeof allWeaponPolearmKeys[number];
+
+export const allWeaponBowKeys = [
+  "AlleyHunter",
+  "AmosBow",
+  "AquaSimulacra",
+  "BlackcliffWarbow",
+  "CompoundBow",
+  "ElegyForTheEnd",
+  "FadingTwilight",
+  "FavoniusWarbow",
+  "Hamayumi",
+  "HuntersBow",
+  "Messenger",
+  "MitternachtsWaltz",
+  "MouunsMoon",
+  "PolarStar",
+  "Predator",
+  "PrototypeCrescent",
+  "RavenBow",
+  "RecurveBow",
+  "RoyalBow",
+  "Rust",
+  "SacrificialBow",
+  "SeasonedHuntersBow",
+  "SharpshootersOath",
+  "SkywardHarp",
+  "Slingshot",
+  "TheStringless",
+  "TheViridescentHunt",
+  "ThunderingPulse",
+  "WindblumeOde",
+] as const;
+export type WeaponBowKey = typeof allWeaponBowKeys[number];
+
+export const allWeaponCatalystKeys = [
+  "ApprenticesNotes",
+  "BlackcliffAgate",
+  "DodocoTales",
+  "EmeraldOrb",
+  "EverlastingMoonglow",
+  "EyeOfPerception",
+  "FavoniusCodex",
+  "Frostbearer",
+  "HakushinRing",
+  "KagurasVerity",
+  "LostPrayerToTheSacredWinds",
+  "MagicGuide",
+  "MappaMare",
+  "MemoryOfDust",
+  "OathswornEye",
+  "OtherworldlyStory",
+  "PocketGrimoire",
+  "PrototypeAmber",
+  "RoyalGrimoire",
+  "SacrificialFragments",
+  "SkywardAtlas",
+  "SolarPearl",
+  "TheWidsith",
+  "ThrillingTalesOfDragonSlayers",
+  "TwinNephrite",
+  "WineAndSong",
+] as const;
+export type WeaponCatalystKey = typeof allWeaponCatalystKeys[number];
+
+export const allWeaponKeys = [
+  ...allWeaponSwordKeys,
+  ...allWeaponClaymoreKeys,
+  ...allWeaponPolearmKeys,
+  ...allWeaponBowKeys,
+  ...allWeaponCatalystKeys,
+] as const;
+export type WeaponKey =
+  | WeaponSwordKey
+  | WeaponClaymoreKey
+  | WeaponPoleArmKey
+  | WeaponBowKey
+  | WeaponCatalystKey;
+
+export type StatKey =
+  | "hp" //HP
+  | "hp_" //HP%
+  | "atk" //ATK
+  | "atk_" //ATK%
+  | "def" //DEF
+  | "def_" //DEF%
+  | "eleMas" //Elemental Mastery
+  | "enerRech_" //Energy Recharge
+  | "heal_" //Healing Bonus
+  | "critRate_" //Crit Rate
+  | "critDMG_" //Crit DMG
+  | "physical_dmg_" //Physical DMG Bonus
+  | "anemo_dmg_" //Anemo DMG Bonus
+  | "geo_dmg_" //Geo DMG Bonus
+  | "electro_dmg_" //Electro DMG Bonus
+  | "hydro_dmg_" //Hydro DMG Bonus
+  | "pyro_dmg_" //Pyro DMG Bonus
+  | "cryo_dmg_"; //Cryo DMG Bonus
+
+export type ArtifactSetKey = typeof ArtifactSets[number];
+export type CharacterKey = typeof Characters[number];
