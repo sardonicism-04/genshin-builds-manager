@@ -1,3 +1,4 @@
+import DeleteForever from "@mui/icons-material/DeleteForever";
 import {
   Button,
   Card,
@@ -40,8 +41,9 @@ export const ArtifactSelector = ({
         onClick={() => setOpen(true)}
         variant="outlined"
         sx={{ height: "56px" }}
+        color={build.artifacts?.[slot] ? "success" : "info"}
       >
-        Select {slot}
+        {build.artifacts?.[slot] ? "Change" : "Select"} {slot}
       </Button>
       <Modal open={open} onClose={() => setOpen(false)}>
         <Paper
@@ -58,14 +60,37 @@ export const ArtifactSelector = ({
             overflow: "scroll",
           }}
         >
+          <Card sx={{ height: "450px", m: 1 }}>
+            <CardActionArea
+              sx={{ height: "100%" }}
+              onClick={() => {
+                setBuild({
+                  ...build,
+                  artifacts: { ...build.artifacts, [slot]: null },
+                });
+                setOpen(false);
+              }}
+            >
+              <CardContent
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <DeleteForever sx={{ fontSize: 256 }} />
+                <Typography>Clear Slot</Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
           {artifacts.map((arti) => {
             const id = artifactID(arti);
             return (
               <Card
                 sx={{
-                  height: "440px",
+                  height: "450px",
                   m: 1,
-                  // maxWidth: "320px",
                   backgroundColor:
                     build.artifacts?.[slot] === id ? "#515151" : "black",
                 }}
@@ -73,15 +98,16 @@ export const ArtifactSelector = ({
               >
                 <CardActionArea
                   sx={{ height: "100%" }}
-                  onClick={() =>
+                  onClick={() => {
                     setBuild({
                       ...build,
                       artifacts: {
                         ...build.artifacts,
                         [slot]: id,
                       },
-                    })
-                  }
+                    });
+                    setOpen(false);
+                  }}
                 >
                   <CardMedia
                     component="img"
@@ -90,10 +116,11 @@ export const ArtifactSelector = ({
                     alt="le artifact"
                   />
                   <CardContent>
-                    <Typography>
+                    <Typography gutterBottom>
                       <Chip size="small" label={`Lvl ${arti.level}`} />
                       <b> {ArtifactSetNames[arti.setKey] ?? "Unknown Set"}</b>
-                      <br />
+                    </Typography>
+                    <Typography>
                       {formatStat(arti.mainStatKey)}:{" "}
                       {getMainStat(arti).toFixed(1)}
                       {arti.mainStatKey.endsWith("_") ? "%" : ""}

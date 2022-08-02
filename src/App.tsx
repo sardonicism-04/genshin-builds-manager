@@ -104,7 +104,7 @@ function App() {
         </Stack>
       </Stack>
 
-      <Container sx={{ height: "100%" }} maxWidth="md">
+      <Container sx={{ height: "100%" }} maxWidth="lg">
         <Box
           display="flex"
           sx={{

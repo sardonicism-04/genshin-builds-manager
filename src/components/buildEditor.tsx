@@ -12,6 +12,7 @@ import {
   InputLabel,
   ListItemText,
   MenuItem,
+  Paper,
   Select,
   Stack,
   Table,
@@ -23,9 +24,9 @@ import {
 import { useSnackbar } from "notistack";
 import characters from "../data/characters";
 import { IArtifact } from "../types/artifact";
+import { ICharacter } from "../types/character";
 import { artifactID, getMainStat } from "../utils/artifactUtil";
 import { getCharacterBaseStats } from "../utils/characterUtil";
-import { ICharacter } from "../types/character";
 
 interface IProps {
   database: IGOOD;
@@ -73,7 +74,7 @@ const getBonusFromPercent = (
 
   allPercentStats.forEach((val) => (totalPercent += val));
   console.log(base);
-  return (totalPercent / 100) * base[stat.replace(/(atk|hp)_/g, "$1")];
+  return (totalPercent / 100) * (base[stat.replace(/(atk|hp)_/g, "$1")] ?? 1);
 };
 
 export const BuildEditor = ({
@@ -91,7 +92,7 @@ export const BuildEditor = ({
   );
 
   return (
-    <Stack spacing={2}>
+    <Stack component={Paper} spacing={2} sx={{ p: 2 }}>
       <TextField
         label="Build Name"
         variant="outlined"
