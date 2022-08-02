@@ -12,5 +12,7 @@ export const artifactID = (artifact: IArtifact): string => {
     .map((sub) => `${getUpperCaseChars(sub.key)}${sub.value}`)
     .join("");
   // Combine everything to return a mostly-unique artifact ID
-  return `${setNameAbbr}${getUpperCaseChars(artifact.mainStatKey)}${substatId}`;
+  return `${setNameAbbr}${artifact.rarity}${artifact.level}${getUpperCaseChars(
+    artifact.mainStatKey
+  )}${substatId}`;
 };
