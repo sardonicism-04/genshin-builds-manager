@@ -1,5 +1,5 @@
 import {
-  ArtifactSets,
+  ArtifactSetNames,
   Characters,
   WeaponsSword,
   WeaponsBow,
@@ -49,5 +49,6 @@ export type StatKey =
   | "cryo_dmg_" //Cryo DMG Bonus
   | "dendro_dmg_"; // Dendro DMG Bonus
 
-export type ArtifactSetKey = typeof ArtifactSets[number];
+const ArtifactSetKeys = [...Object.keys(ArtifactSetNames)] as const;
+export type ArtifactSetKey = typeof ArtifactSetKeys[number];
 export type CharacterKey = typeof Characters[number];

@@ -1,0 +1,45 @@
+{
+  "name": "Martial Artist",
+  "pieces": {
+    "goblet": {
+      "name": "MartialArtistsWineCup",
+      "id": 56110,
+      "icon": "UI_RelicIcon_10006_1",
+      "text_map_key": "65972244",
+      "slot": "goblet",
+      "set_id": 10006
+    },
+    "plume": {
+      "name": "MartialArtistsFeatherAccessory",
+      "id": 56120,
+      "icon": "UI_RelicIcon_10006_2",
+      "text_map_key": "1428344324",
+      "slot": "plume",
+      "set_id": 10006
+    },
+    "circlet": {
+      "name": "MartialArtistsBandana",
+      "id": 56130,
+      "icon": "UI_RelicIcon_10006_3",
+      "text_map_key": "2391349164",
+      "slot": "circlet",
+      "set_id": 10006
+    },
+    "flower": {
+      "name": "MartialArtistsRedFlower",
+      "id": 56140,
+      "icon": "UI_RelicIcon_10006_4",
+      "text_map_key": "1259933548",
+      "slot": "flower",
+      "set_id": 10006
+    },
+    "sands": {
+      "name": "MartialArtistsWaterHourglass",
+      "id": 56150,
+      "icon": "UI_RelicIcon_10006_5",
+      "text_map_key": "1312221300",
+      "slot": "sands",
+      "set_id": 10006
+    }
+  }
+}

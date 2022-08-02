@@ -1,0 +1,45 @@
+{
+  "name": "Tenacity Of The Millelith",
+  "pieces": {
+    "goblet": {
+      "name": "NoblesPledgingVessel",
+      "id": 91310,
+      "icon": "UI_RelicIcon_15017_1",
+      "text_map_key": "874573532",
+      "slot": "goblet",
+      "set_id": 15017
+    },
+    "plume": {
+      "name": "CeremonialWar-Plume",
+      "id": 91320,
+      "icon": "UI_RelicIcon_15017_2",
+      "text_map_key": "298622532",
+      "slot": "plume",
+      "set_id": 15017
+    },
+    "circlet": {
+      "name": "GeneralsAncientHelm",
+      "id": 91330,
+      "icon": "UI_RelicIcon_15017_3",
+      "text_map_key": "2235788284",
+      "slot": "circlet",
+      "set_id": 15017
+    },
+    "flower": {
+      "name": "FlowerofAccolades",
+      "id": 91340,
+      "icon": "UI_RelicIcon_15017_4",
+      "text_map_key": "2374569956",
+      "slot": "flower",
+      "set_id": 15017
+    },
+    "sands": {
+      "name": "OrichalceousTime-Dial",
+      "id": 91350,
+      "icon": "UI_RelicIcon_15017_5",
+      "text_map_key": "2532545548",
+      "slot": "sands",
+      "set_id": 15017
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Prayers For Wisdom",
+  "pieces": {
+    "circlet": {
+      "name": "TiaraofThunder",
+      "id": 85330,
+      "icon": "UI_RelicIcon_15011_3",
+      "text_map_key": "3081896228",
+      "slot": "circlet",
+      "set_id": 15011
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Gladiator's Finale",
+  "pieces": {
+    "goblet": {
+      "name": "GladiatorsIntoxication",
+      "id": 75310,
+      "icon": "UI_RelicIcon_15001_1",
+      "text_map_key": "1160889444",
+      "slot": "goblet",
+      "set_id": 15001
+    },
+    "plume": {
+      "name": "GladiatorsDestiny",
+      "id": 75320,
+      "icon": "UI_RelicIcon_15001_2",
+      "text_map_key": "3775459988",
+      "slot": "plume",
+      "set_id": 15001
+    },
+    "circlet": {
+      "name": "GladiatorsTriumphus",
+      "id": 75330,
+      "icon": "UI_RelicIcon_15001_3",
+      "text_map_key": "3380011260",
+      "slot": "circlet",
+      "set_id": 15001
+    },
+    "flower": {
+      "name": "GladiatorsNostalgia",
+      "id": 75340,
+      "icon": "UI_RelicIcon_15001_4",
+      "text_map_key": "1800041716",
+      "slot": "flower",
+      "set_id": 15001
+    },
+    "sands": {
+      "name": "GladiatorsLonging",
+      "id": 75350,
+      "icon": "UI_RelicIcon_15001_5",
+      "text_map_key": "2889861500",
+      "slot": "sands",
+      "set_id": 15001
+    }
+  }
+}

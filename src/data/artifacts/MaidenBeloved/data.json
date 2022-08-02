@@ -1,0 +1,45 @@
+{
+  "name": "Maiden Beloved",
+  "pieces": {
+    "goblet": {
+      "name": "MaidensFleetingLeisure",
+      "id": 74310,
+      "icon": "UI_RelicIcon_14004_1",
+      "text_map_key": "2942754732",
+      "slot": "goblet",
+      "set_id": 14004
+    },
+    "plume": {
+      "name": "MaidensHeart-strickenInfatuation",
+      "id": 74320,
+      "icon": "UI_RelicIcon_14004_2",
+      "text_map_key": "1894154524",
+      "slot": "plume",
+      "set_id": 14004
+    },
+    "circlet": {
+      "name": "MaidensFadingBeauty",
+      "id": 74330,
+      "icon": "UI_RelicIcon_14004_3",
+      "text_map_key": "2752169068",
+      "slot": "circlet",
+      "set_id": 14004
+    },
+    "flower": {
+      "name": "MaidensDistantLove",
+      "id": 74340,
+      "icon": "UI_RelicIcon_14004_4",
+      "text_map_key": "1891145604",
+      "slot": "flower",
+      "set_id": 14004
+    },
+    "sands": {
+      "name": "MaidensPassingYouth",
+      "id": 74350,
+      "icon": "UI_RelicIcon_14004_5",
+      "text_map_key": "2443198244",
+      "slot": "sands",
+      "set_id": 14004
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Echoes Of An Offering",
+  "pieces": {
+    "goblet": {
+      "name": "ChaliceoftheFont",
+      "id": 98412,
+      "icon": "UI_RelicIcon_15024_1",
+      "text_map_key": "2032060660",
+      "slot": "goblet",
+      "set_id": 15024
+    },
+    "plume": {
+      "name": "JadeLeaf",
+      "id": 98422,
+      "icon": "UI_RelicIcon_15024_2",
+      "text_map_key": "131415972",
+      "slot": "plume",
+      "set_id": 15024
+    },
+    "circlet": {
+      "name": "FlowingRings",
+      "id": 98432,
+      "icon": "UI_RelicIcon_15024_3",
+      "text_map_key": "1869722260",
+      "slot": "circlet",
+      "set_id": 15024
+    },
+    "flower": {
+      "name": "SoulscentBloom",
+      "id": 98442,
+      "icon": "UI_RelicIcon_15024_4",
+      "text_map_key": "2279084284",
+      "slot": "flower",
+      "set_id": 15024
+    },
+    "sands": {
+      "name": "SymbolofFelicitation",
+      "id": 98452,
+      "icon": "UI_RelicIcon_15024_5",
+      "text_map_key": "4008135244",
+      "slot": "sands",
+      "set_id": 15024
+    }
+  }
+}

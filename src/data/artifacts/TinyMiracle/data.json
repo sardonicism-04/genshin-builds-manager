@@ -1,0 +1,45 @@
+{
+  "name": "Tiny Miracle",
+  "pieces": {
+    "goblet": {
+      "name": "TinyMiraclesGoblet",
+      "id": 54110,
+      "icon": "UI_RelicIcon_10004_1",
+      "text_map_key": "2683140980",
+      "slot": "goblet",
+      "set_id": 10004
+    },
+    "plume": {
+      "name": "TinyMiraclesFeather",
+      "id": 54120,
+      "icon": "UI_RelicIcon_10004_2",
+      "text_map_key": "569980612",
+      "slot": "plume",
+      "set_id": 10004
+    },
+    "circlet": {
+      "name": "TinyMiraclesEarrings",
+      "id": 54130,
+      "icon": "UI_RelicIcon_10004_3",
+      "text_map_key": "1744296068",
+      "slot": "circlet",
+      "set_id": 10004
+    },
+    "flower": {
+      "name": "TinyMiraclesFlower",
+      "id": 54140,
+      "icon": "UI_RelicIcon_10004_4",
+      "text_map_key": "3110660540",
+      "slot": "flower",
+      "set_id": 10004
+    },
+    "sands": {
+      "name": "TinyMiraclesHourglass",
+      "id": 54150,
+      "icon": "UI_RelicIcon_10004_5",
+      "text_map_key": "3107502420",
+      "slot": "sands",
+      "set_id": 10004
+    }
+  }
+}

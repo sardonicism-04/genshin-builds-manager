@@ -1,0 +1,45 @@
+{
+  "name": "Defender's Will",
+  "pieces": {
+    "goblet": {
+      "name": "GuardiansVessel",
+      "id": 53110,
+      "icon": "UI_RelicIcon_10003_1",
+      "text_map_key": "235230780",
+      "slot": "goblet",
+      "set_id": 10003
+    },
+    "plume": {
+      "name": "GuardiansSigil",
+      "id": 53120,
+      "icon": "UI_RelicIcon_10003_2",
+      "text_map_key": "2944056820",
+      "slot": "plume",
+      "set_id": 10003
+    },
+    "circlet": {
+      "name": "GuardiansBand",
+      "id": 53130,
+      "icon": "UI_RelicIcon_10003_3",
+      "text_map_key": "101049580",
+      "slot": "circlet",
+      "set_id": 10003
+    },
+    "flower": {
+      "name": "GuardiansFlower",
+      "id": 53140,
+      "icon": "UI_RelicIcon_10003_4",
+      "text_map_key": "2752003612",
+      "slot": "flower",
+      "set_id": 10003
+    },
+    "sands": {
+      "name": "GuardiansClock",
+      "id": 53150,
+      "icon": "UI_RelicIcon_10003_5",
+      "text_map_key": "1281494740",
+      "slot": "sands",
+      "set_id": 10003
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Instructor",
+  "pieces": {
+    "goblet": {
+      "name": "InstructorsTeaCup",
+      "id": 57110,
+      "icon": "UI_RelicIcon_10007_1",
+      "text_map_key": "3922962156",
+      "slot": "goblet",
+      "set_id": 10007
+    },
+    "plume": {
+      "name": "InstructorsFeatherAccessory",
+      "id": 57120,
+      "icon": "UI_RelicIcon_10007_2",
+      "text_map_key": "3055914596",
+      "slot": "plume",
+      "set_id": 10007
+    },
+    "circlet": {
+      "name": "InstructorsCap",
+      "id": 57130,
+      "icon": "UI_RelicIcon_10007_3",
+      "text_map_key": "2672735756",
+      "slot": "circlet",
+      "set_id": 10007
+    },
+    "flower": {
+      "name": "InstructorsBrooch",
+      "id": 57140,
+      "icon": "UI_RelicIcon_10007_4",
+      "text_map_key": "3434716644",
+      "slot": "flower",
+      "set_id": 10007
+    },
+    "sands": {
+      "name": "InstructorsPocketWatch",
+      "id": 57150,
+      "icon": "UI_RelicIcon_10007_5",
+      "text_map_key": "458540388",
+      "slot": "sands",
+      "set_id": 10007
+    }
+  }
+}

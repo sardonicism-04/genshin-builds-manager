@@ -1,0 +1,45 @@
+{
+  "name": "Shimenawa's Reminiscence",
+  "pieces": {
+    "goblet": {
+      "name": "HopefulHeart",
+      "id": 93412,
+      "icon": "UI_RelicIcon_15019_1",
+      "text_map_key": "649020436",
+      "slot": "goblet",
+      "set_id": 15019
+    },
+    "plume": {
+      "name": "ShaftofRemembrance",
+      "id": 93422,
+      "icon": "UI_RelicIcon_15019_2",
+      "text_map_key": "4215220100",
+      "slot": "plume",
+      "set_id": 15019
+    },
+    "circlet": {
+      "name": "CapriciousVisage",
+      "id": 93432,
+      "icon": "UI_RelicIcon_15019_3",
+      "text_map_key": "1411200988",
+      "slot": "circlet",
+      "set_id": 15019
+    },
+    "flower": {
+      "name": "EntanglingBloom",
+      "id": 93442,
+      "icon": "UI_RelicIcon_15019_4",
+      "text_map_key": "3421259324",
+      "slot": "flower",
+      "set_id": 15019
+    },
+    "sands": {
+      "name": "MorningDewsMoment",
+      "id": 93452,
+      "icon": "UI_RelicIcon_15019_5",
+      "text_map_key": "1361580564",
+      "slot": "sands",
+      "set_id": 15019
+    }
+  }
+}

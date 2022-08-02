@@ -1,0 +1,45 @@
+{
+  "name": "Blizzard Strayer",
+  "pieces": {
+    "goblet": {
+      "name": "Frost-WeavedDignity",
+      "id": 71310,
+      "icon": "UI_RelicIcon_14001_1",
+      "text_map_key": "4095885972",
+      "slot": "goblet",
+      "set_id": 14001
+    },
+    "plume": {
+      "name": "IcebreakersResolve",
+      "id": 71320,
+      "icon": "UI_RelicIcon_14001_2",
+      "text_map_key": "1313955948",
+      "slot": "plume",
+      "set_id": 14001
+    },
+    "circlet": {
+      "name": "BrokenRimesEcho",
+      "id": 71330,
+      "icon": "UI_RelicIcon_14001_3",
+      "text_map_key": "2931704460",
+      "slot": "circlet",
+      "set_id": 14001
+    },
+    "flower": {
+      "name": "SnowsweptMemory",
+      "id": 71340,
+      "icon": "UI_RelicIcon_14001_4",
+      "text_map_key": "831881100",
+      "slot": "flower",
+      "set_id": 14001
+    },
+    "sands": {
+      "name": "FrozenHomelandsDemise",
+      "id": 71350,
+      "icon": "UI_RelicIcon_14001_5",
+      "text_map_key": "3743396924",
+      "slot": "sands",
+      "set_id": 14001
+    }
+  }
+}

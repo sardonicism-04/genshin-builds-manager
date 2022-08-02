@@ -1,0 +1,45 @@
+{
+  "name": "Ocean Hued Clam",
+  "pieces": {
+    "goblet": {
+      "name": "PearlCage",
+      "id": 96412,
+      "icon": "UI_RelicIcon_15022_1",
+      "text_map_key": "3110638860",
+      "slot": "goblet",
+      "set_id": 15022
+    },
+    "plume": {
+      "name": "DeepPalacesPlume",
+      "id": 96422,
+      "icon": "UI_RelicIcon_15022_2",
+      "text_map_key": "3899110204",
+      "slot": "plume",
+      "set_id": 15022
+    },
+    "circlet": {
+      "name": "CrownofWatatsumi",
+      "id": 96432,
+      "icon": "UI_RelicIcon_15022_3",
+      "text_map_key": "3554489260",
+      "slot": "circlet",
+      "set_id": 15022
+    },
+    "flower": {
+      "name": "Sea-DyedBlossom",
+      "id": 96442,
+      "icon": "UI_RelicIcon_15022_4",
+      "text_map_key": "2165032812",
+      "slot": "flower",
+      "set_id": 15022
+    },
+    "sands": {
+      "name": "CowryofParting",
+      "id": 96452,
+      "icon": "UI_RelicIcon_15022_5",
+      "text_map_key": "1444931908",
+      "slot": "sands",
+      "set_id": 15022
+    }
+  }
+}

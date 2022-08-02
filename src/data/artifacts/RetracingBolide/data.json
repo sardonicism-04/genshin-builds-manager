@@ -1,0 +1,45 @@
+{
+  "name": "Retracing Bolide",
+  "pieces": {
+    "goblet": {
+      "name": "SummerNightsWaterballoon",
+      "id": 89310,
+      "icon": "UI_RelicIcon_15015_1",
+      "text_map_key": "3142440124",
+      "slot": "goblet",
+      "set_id": 15015
+    },
+    "plume": {
+      "name": "SummerNightsFinale",
+      "id": 89320,
+      "icon": "UI_RelicIcon_15015_2",
+      "text_map_key": "2453726724",
+      "slot": "plume",
+      "set_id": 15015
+    },
+    "circlet": {
+      "name": "SummerNightsMask",
+      "id": 89330,
+      "icon": "UI_RelicIcon_15015_3",
+      "text_map_key": "1936039084",
+      "slot": "circlet",
+      "set_id": 15015
+    },
+    "flower": {
+      "name": "SummerNightsBloom",
+      "id": 89340,
+      "icon": "UI_RelicIcon_15015_4",
+      "text_map_key": "2702380420",
+      "slot": "flower",
+      "set_id": 15015
+    },
+    "sands": {
+      "name": "SummerNightsMoment",
+      "id": 89350,
+      "icon": "UI_RelicIcon_15015_5",
+      "text_map_key": "1946354604",
+      "slot": "sands",
+      "set_id": 15015
+    }
+  }
+}

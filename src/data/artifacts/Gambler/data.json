@@ -1,0 +1,45 @@
+{
+  "name": "Gambler",
+  "pieces": {
+    "goblet": {
+      "name": "GamblersDiceCup",
+      "id": 58210,
+      "icon": "UI_RelicIcon_10008_1",
+      "text_map_key": "2268972532",
+      "slot": "goblet",
+      "set_id": 10008
+    },
+    "plume": {
+      "name": "GamblersFeatherAccessory",
+      "id": 58220,
+      "icon": "UI_RelicIcon_10008_2",
+      "text_map_key": "3974717380",
+      "slot": "plume",
+      "set_id": 10008
+    },
+    "circlet": {
+      "name": "GamblersEarrings",
+      "id": 58230,
+      "icon": "UI_RelicIcon_10008_3",
+      "text_map_key": "3998773628",
+      "slot": "circlet",
+      "set_id": 10008
+    },
+    "flower": {
+      "name": "GamblersBrooch",
+      "id": 58240,
+      "icon": "UI_RelicIcon_10008_4",
+      "text_map_key": "670369980",
+      "slot": "flower",
+      "set_id": 10008
+    },
+    "sands": {
+      "name": "GamblersPocketWatch",
+      "id": 58250,
+      "icon": "UI_RelicIcon_10008_5",
+      "text_map_key": "2081258500",
+      "slot": "sands",
+      "set_id": 10008
+    }
+  }
+}

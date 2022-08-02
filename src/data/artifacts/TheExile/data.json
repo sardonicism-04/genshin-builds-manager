@@ -1,0 +1,45 @@
+{
+  "name": "The Exile",
+  "pieces": {
+    "goblet": {
+      "name": "ExilesGoblet",
+      "id": 59110,
+      "icon": "UI_RelicIcon_10009_1",
+      "text_map_key": "2501899244",
+      "slot": "goblet",
+      "set_id": 10009
+    },
+    "plume": {
+      "name": "ExilesFeather",
+      "id": 59120,
+      "icon": "UI_RelicIcon_10009_2",
+      "text_map_key": "1998163092",
+      "slot": "plume",
+      "set_id": 10009
+    },
+    "circlet": {
+      "name": "ExilesCirclet",
+      "id": 59130,
+      "icon": "UI_RelicIcon_10009_3",
+      "text_map_key": "583811308",
+      "slot": "circlet",
+      "set_id": 10009
+    },
+    "flower": {
+      "name": "ExilesFlower",
+      "id": 59140,
+      "icon": "UI_RelicIcon_10009_4",
+      "text_map_key": "2838508492",
+      "slot": "flower",
+      "set_id": 10009
+    },
+    "sands": {
+      "name": "ExilesPocketWatch",
+      "id": 59150,
+      "icon": "UI_RelicIcon_10009_5",
+      "text_map_key": "1410636292",
+      "slot": "sands",
+      "set_id": 10009
+    }
+  }
+}

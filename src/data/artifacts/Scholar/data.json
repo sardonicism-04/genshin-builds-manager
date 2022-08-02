@@ -1,0 +1,45 @@
+{
+  "name": "Scholar",
+  "pieces": {
+    "goblet": {
+      "name": "ScholarsInkCup",
+      "id": 62110,
+      "icon": "UI_RelicIcon_10012_1",
+      "text_map_key": "3508997436",
+      "slot": "goblet",
+      "set_id": 10012
+    },
+    "plume": {
+      "name": "ScholarsQuillPen",
+      "id": 62120,
+      "icon": "UI_RelicIcon_10012_2",
+      "text_map_key": "469721372",
+      "slot": "plume",
+      "set_id": 10012
+    },
+    "circlet": {
+      "name": "ScholarsLens",
+      "id": 62130,
+      "icon": "UI_RelicIcon_10012_3",
+      "text_map_key": "1229973572",
+      "slot": "circlet",
+      "set_id": 10012
+    },
+    "flower": {
+      "name": "ScholarsBookmark",
+      "id": 62140,
+      "icon": "UI_RelicIcon_10012_4",
+      "text_map_key": "492873164",
+      "slot": "flower",
+      "set_id": 10012
+    },
+    "sands": {
+      "name": "ScholarsClock",
+      "id": 62150,
+      "icon": "UI_RelicIcon_10012_5",
+      "text_map_key": "3829153404",
+      "slot": "sands",
+      "set_id": 10012
+    }
+  }
+}

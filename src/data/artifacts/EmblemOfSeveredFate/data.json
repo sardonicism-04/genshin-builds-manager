@@ -1,0 +1,45 @@
+{
+  "name": "Emblem Of Severed Fate",
+  "pieces": {
+    "goblet": {
+      "name": "ScarletVessel",
+      "id": 94412,
+      "icon": "UI_RelicIcon_15020_1",
+      "text_map_key": "4235719196",
+      "slot": "goblet",
+      "set_id": 15020
+    },
+    "plume": {
+      "name": "SunderedFeather",
+      "id": 94422,
+      "icon": "UI_RelicIcon_15020_2",
+      "text_map_key": "1318924932",
+      "slot": "plume",
+      "set_id": 15020
+    },
+    "circlet": {
+      "name": "OrnateKabuto",
+      "id": 94432,
+      "icon": "UI_RelicIcon_15020_3",
+      "text_map_key": "2600126940",
+      "slot": "circlet",
+      "set_id": 15020
+    },
+    "flower": {
+      "name": "MagnificentTsuba",
+      "id": 94442,
+      "icon": "UI_RelicIcon_15020_4",
+      "text_map_key": "2789860524",
+      "slot": "flower",
+      "set_id": 15020
+    },
+    "sands": {
+      "name": "StormCage",
+      "id": 94452,
+      "icon": "UI_RelicIcon_15020_5",
+      "text_map_key": "899616420",
+      "slot": "sands",
+      "set_id": 15020
+    }
+  }
+}

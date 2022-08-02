@@ -1,0 +1,45 @@
+{
+  "name": "Viridescent Venerer",
+  "pieces": {
+    "goblet": {
+      "name": "ViridescentVenerersVessel",
+      "id": 76310,
+      "icon": "UI_RelicIcon_15002_1",
+      "text_map_key": "988418652",
+      "slot": "goblet",
+      "set_id": 15002
+    },
+    "plume": {
+      "name": "ViridescentArrowFeather",
+      "id": 76320,
+      "icon": "UI_RelicIcon_15002_2",
+      "text_map_key": "3047752436",
+      "slot": "plume",
+      "set_id": 15002
+    },
+    "circlet": {
+      "name": "ViridescentVenerersDiadem",
+      "id": 76330,
+      "icon": "UI_RelicIcon_15002_3",
+      "text_map_key": "3484637620",
+      "slot": "circlet",
+      "set_id": 15002
+    },
+    "flower": {
+      "name": "InRemembranceofViridescentFields",
+      "id": 76340,
+      "icon": "UI_RelicIcon_15002_4",
+      "text_map_key": "3140236764",
+      "slot": "flower",
+      "set_id": 15002
+    },
+    "sands": {
+      "name": "ViridescentVenerersDetermination",
+      "id": 76350,
+      "icon": "UI_RelicIcon_15002_5",
+      "text_map_key": "766258124",
+      "slot": "sands",
+      "set_id": 15002
+    }
+  }
+}

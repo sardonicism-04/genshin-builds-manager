@@ -1,0 +1,45 @@
+{
+  "name": "Traveling Doctor",
+  "pieces": {
+    "goblet": {
+      "name": "TravelingDoctorsMedicinePot",
+      "id": 63110,
+      "icon": "UI_RelicIcon_10013_1",
+      "text_map_key": "3874090700",
+      "slot": "goblet",
+      "set_id": 10013
+    },
+    "plume": {
+      "name": "TravelingDoctorsOwlFeather",
+      "id": 63120,
+      "icon": "UI_RelicIcon_10013_2",
+      "text_map_key": "2294600964",
+      "slot": "plume",
+      "set_id": 10013
+    },
+    "circlet": {
+      "name": "TravelingDoctorsHandkerchief",
+      "id": 63130,
+      "icon": "UI_RelicIcon_10013_3",
+      "text_map_key": "2038307524",
+      "slot": "circlet",
+      "set_id": 10013
+    },
+    "flower": {
+      "name": "TravelingDoctorsSilverLotus",
+      "id": 63140,
+      "icon": "UI_RelicIcon_10013_4",
+      "text_map_key": "3220052996",
+      "slot": "flower",
+      "set_id": 10013
+    },
+    "sands": {
+      "name": "TravelingDoctorsPocketWatch",
+      "id": 63150,
+      "icon": "UI_RelicIcon_10013_5",
+      "text_map_key": "2739386988",
+      "slot": "sands",
+      "set_id": 10013
+    }
+  }
+}

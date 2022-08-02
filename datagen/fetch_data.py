@@ -12,17 +12,17 @@
 # - Artifact Scaling Data: https://github.com/Dimbreath/GenshinData/blob/master/ExcelBinOutput/ReliquaryLevelExcelConfigData.json
 
 from __future__ import annotations
-from collections import defaultdict
 
 import pathlib
+from collections import defaultdict
 from typing import TYPE_CHECKING
 
 import requests
 
-from constants import DataFileBase
+from constants import SLOT_MAPPING, STAT_MAPPING, DataFileBase
 
 if TYPE_CHECKING:
-    from _types import CharacterData, CharacterBases
+    from _types import ArtifactData, CharacterBases, CharacterData
 
 OUTPUT_DIR = pathlib.Path("./output")
 
@@ -127,3 +127,45 @@ def get_ascension_values() -> dict[int, dict[int, CharacterBases]]:
             "def_": find(props, propType="FIGHT_PROP_BASE_DEFENSE").get("value", 0),
         }
     return ascension_data  # type: ignore
+
+
+def get_artifact_data() -> list[ArtifactData]:
+    resp = requests.get(
+        str(DataFileBase / "ExcelBinOutput" / "ReliquaryExcelConfigData.json")
+    )
+    data = resp.json()
+
+    output = []
+    for obj in data:
+        try:
+            min_data: ArtifactData = {
+                "id": obj["id"],
+                "icon": obj["icon"],
+                "text_map_key": str(obj["nameTextMapHash"]),
+                "slot": SLOT_MAPPING[obj["equipType"]],
+                "set_id": obj["setId"]
+            }
+        except KeyError:
+            continue
+        else:
+            output.append(min_data)
+
+    return output
+
+
+def get_artifact_scaling():
+    resp = requests.get(
+        str(DataFileBase / "ExcelBinOutput" / "ReliquaryLevelExcelConfigData.json")
+    )
+    data = resp.json()
+
+    scaling = {0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}}
+    for promotion in data:
+        props = promotion["addProps"]
+        scaling[promotion.get("rank", 0)][promotion.get("level", 1) - 1] = {
+            STAT_MAPPING[prop["propType"]]: prop["value"]
+            for prop in props
+            if prop["propType"] in STAT_MAPPING
+        }
+
+    return scaling

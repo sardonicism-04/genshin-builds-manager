@@ -1,0 +1,45 @@
+{
+  "name": "Heart Of Depth",
+  "pieces": {
+    "goblet": {
+      "name": "GobletofThunderingDeep",
+      "id": 90310,
+      "icon": "UI_RelicIcon_15016_1",
+      "text_map_key": "1240815132",
+      "slot": "goblet",
+      "set_id": 15016
+    },
+    "plume": {
+      "name": "GustofNostalgia",
+      "id": 90320,
+      "icon": "UI_RelicIcon_15016_2",
+      "text_map_key": "202451868",
+      "slot": "plume",
+      "set_id": 15016
+    },
+    "circlet": {
+      "name": "Wine-StainedTricorne",
+      "id": 90330,
+      "icon": "UI_RelicIcon_15016_3",
+      "text_map_key": "3283302740",
+      "slot": "circlet",
+      "set_id": 15016
+    },
+    "flower": {
+      "name": "GildedCorsage",
+      "id": 90340,
+      "icon": "UI_RelicIcon_15016_4",
+      "text_map_key": "4197393380",
+      "slot": "flower",
+      "set_id": 15016
+    },
+    "sands": {
+      "name": "CopperCompass",
+      "id": 90350,
+      "icon": "UI_RelicIcon_15016_5",
+      "text_map_key": "481017500",
+      "slot": "sands",
+      "set_id": 15016
+    }
+  }
+}

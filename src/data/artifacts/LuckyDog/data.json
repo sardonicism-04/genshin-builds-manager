@@ -1,0 +1,45 @@
+{
+  "name": "Lucky Dog",
+  "pieces": {
+    "goblet": {
+      "name": "LuckyDogsGoblet",
+      "id": 61110,
+      "icon": "UI_RelicIcon_10011_1",
+      "text_map_key": "1734027908",
+      "slot": "goblet",
+      "set_id": 10011
+    },
+    "plume": {
+      "name": "LuckyDogsEagleFeather",
+      "id": 61120,
+      "icon": "UI_RelicIcon_10011_2",
+      "text_map_key": "2986717660",
+      "slot": "plume",
+      "set_id": 10011
+    },
+    "circlet": {
+      "name": "LuckyDogsSilverCirclet",
+      "id": 61130,
+      "icon": "UI_RelicIcon_10011_3",
+      "text_map_key": "4284905668",
+      "slot": "circlet",
+      "set_id": 10011
+    },
+    "flower": {
+      "name": "LuckyDogsClover",
+      "id": 61140,
+      "icon": "UI_RelicIcon_10011_4",
+      "text_map_key": "4114113236",
+      "slot": "flower",
+      "set_id": 10011
+    },
+    "sands": {
+      "name": "LuckyDogsHourglass",
+      "id": 61150,
+      "icon": "UI_RelicIcon_10011_5",
+      "text_map_key": "901976724",
+      "slot": "sands",
+      "set_id": 10011
+    }
+  }
+}

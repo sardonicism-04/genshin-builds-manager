@@ -1,0 +1,45 @@
+{
+  "name": "Crimson Witch Of Flames",
+  "pieces": {
+    "goblet": {
+      "name": "WitchsHeartFlames",
+      "id": 80310,
+      "icon": "UI_RelicIcon_15006_1",
+      "text_map_key": "3282801820",
+      "slot": "goblet",
+      "set_id": 15006
+    },
+    "plume": {
+      "name": "WitchsEver-BurningPlume",
+      "id": 80320,
+      "icon": "UI_RelicIcon_15006_2",
+      "text_map_key": "852500780",
+      "slot": "plume",
+      "set_id": 15006
+    },
+    "circlet": {
+      "name": "WitchsScorchingHat",
+      "id": 80330,
+      "icon": "UI_RelicIcon_15006_3",
+      "text_map_key": "1916183716",
+      "slot": "circlet",
+      "set_id": 15006
+    },
+    "flower": {
+      "name": "WitchsFlowerofBlaze",
+      "id": 80340,
+      "icon": "UI_RelicIcon_15006_4",
+      "text_map_key": "1048327996",
+      "slot": "flower",
+      "set_id": 15006
+    },
+    "sands": {
+      "name": "WitchsEndTime",
+      "id": 80350,
+      "icon": "UI_RelicIcon_15006_5",
+      "text_map_key": "1745274132",
+      "slot": "sands",
+      "set_id": 15006
+    }
+  }
+}

@@ -49,4 +49,5 @@ import Zhongli from './Zhongli';
 import KamisatoAyato from './KamisatoAyato';
 import Yelan from './Yelan';
 import ShikanoinHeizou from './ShikanoinHeizou';
-export { Albedo, Amber, Barbara, Beidou, Bennett, Chongyun, Diluc, Diona, Fischl, Ganyu, HuTao, Jean, Kaeya, Keqing, Klee, KujouSara, KukiShinobu, Lisa, Mona, Ningguang, Noelle, Qiqi, Razor, Sucrose, Tartaglia, Traveler, RaidenShogun, Venti, Xiangling, Xiao, Xingqiu, Xinyan, Rosaria, Yanfei, Eula, KaedeharaKazuha, KamisatoAyaka, Sayu, Shenhe, Yoimiya, Aloy, SangonomiyaKokomi, Thoma, Gorou, AratakiItto, YaeMiko, YunJin, Zhongli, KamisatoAyato, Yelan, ShikanoinHeizou };
+const characters = { Albedo, Amber, Barbara, Beidou, Bennett, Chongyun, Diluc, Diona, Fischl, Ganyu, HuTao, Jean, Kaeya, Keqing, Klee, KujouSara, KukiShinobu, Lisa, Mona, Ningguang, Noelle, Qiqi, Razor, Sucrose, Tartaglia, Traveler, RaidenShogun, Venti, Xiangling, Xiao, Xingqiu, Xinyan, Rosaria, Yanfei, Eula, KaedeharaKazuha, KamisatoAyaka, Sayu, Shenhe, Yoimiya, Aloy, SangonomiyaKokomi, Thoma, Gorou, AratakiItto, YaeMiko, YunJin, Zhongli, KamisatoAyato, Yelan, ShikanoinHeizou };
+export default characters;

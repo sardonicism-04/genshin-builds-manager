@@ -1,0 +1,45 @@
+{
+  "name": "Husk Of Opulent Dreams",
+  "pieces": {
+    "goblet": {
+      "name": "CalabashofAwakening",
+      "id": 95412,
+      "icon": "UI_RelicIcon_15021_1",
+      "text_map_key": "2291977340",
+      "slot": "goblet",
+      "set_id": 15021
+    },
+    "plume": {
+      "name": "PlumeofLuxury",
+      "id": 95422,
+      "icon": "UI_RelicIcon_15021_2",
+      "text_map_key": "2643392284",
+      "slot": "plume",
+      "set_id": 15021
+    },
+    "circlet": {
+      "name": "SkeletalHat",
+      "id": 95432,
+      "icon": "UI_RelicIcon_15021_3",
+      "text_map_key": "420762140",
+      "slot": "circlet",
+      "set_id": 15021
+    },
+    "flower": {
+      "name": "BloomTimes",
+      "id": 95442,
+      "icon": "UI_RelicIcon_15021_4",
+      "text_map_key": "1854905796",
+      "slot": "flower",
+      "set_id": 15021
+    },
+    "sands": {
+      "name": "SongofLife",
+      "id": 95452,
+      "icon": "UI_RelicIcon_15021_5",
+      "text_map_key": "2465380076",
+      "slot": "sands",
+      "set_id": 15021
+    }
+  }
+}

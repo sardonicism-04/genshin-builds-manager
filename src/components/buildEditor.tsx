@@ -10,6 +10,7 @@ import {
   Button,
   FormControl,
   InputLabel,
+  ListItemText,
   MenuItem,
   Select,
   Stack,
@@ -17,12 +18,14 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TextField
+  TextField,
 } from "@mui/material";
 import { useSnackbar } from "notistack";
-import { Ganyu } from "../data/characters/Ganyu";
+import characters from "../data/characters";
 import { IArtifact } from "../types/artifact";
-import { artifactID } from "../utils/artifactID";
+import { artifactID, getMainStat } from "../utils/artifactUtil";
+import { getCharacterBaseStats } from "../utils/characterUtil";
+import { ICharacter } from "../types/character";
 
 interface IProps {
   database: IGOOD;
@@ -38,7 +41,11 @@ const DefaultBuild: IBuild = {
 const getStatSum = (artifacts: IArtifact[], stat: StatKey): number => {
   const allStats = artifacts
     .map((arti) => [
-      /* TODO: main stats */ ...arti.substats
+      arti.mainStatKey === stat &&
+      !["hp_", "atk_", "def_"].includes(arti.mainStatKey)
+        ? getMainStat(arti)
+        : 0,
+      ...arti.substats
         .filter((substat) => substat.key === stat)
         .map((substat) => substat.value),
     ])
@@ -46,6 +53,27 @@ const getStatSum = (artifacts: IArtifact[], stat: StatKey): number => {
   let total = 0;
   allStats.forEach((val) => (total += val));
   return total;
+};
+
+const getBonusFromPercent = (
+  artifacts: IArtifact[],
+  stat: "hp_" | "atk_" | "def_",
+  character?: ICharacter
+): number => {
+  const base = getCharacterBaseStats(character);
+  let totalPercent = 0;
+  const allPercentStats = artifacts
+    .map((arti) => [
+      arti.mainStatKey === stat ? getMainStat(arti) : 0,
+      ...arti.substats
+        .filter((substat) => substat.key === stat)
+        .map((substat) => substat.value),
+    ])
+    .flat(2);
+
+  allPercentStats.forEach((val) => (totalPercent += val));
+  console.log(base);
+  return (totalPercent / 100) * base[stat.replace(/(atk|hp)_/g, "$1")];
 };
 
 export const BuildEditor = ({
@@ -86,12 +114,21 @@ export const BuildEditor = ({
                 character: evt.target.value as CharacterKey,
               })
             }
+            sx={{ maxHeight: "56px" }}
           >
             <MenuItem value="">Select a character</MenuItem>
             {database.characters!.map((char) => (
               <MenuItem value={char.key} key={char.key}>
-                <img src={Ganyu} alt="a" height="16px" width="16px" />{" "}
-                {char.key}
+                <Stack direction="row" alignItems="center">
+                  <img
+                    src={characters[char.key].avatar}
+                    alt={char.key}
+                    height="32px"
+                    width="32px"
+                    style={{ marginRight: 8 }}
+                  />
+                  <ListItemText>{characters[char.key].data.name}</ListItemText>
+                </Stack>
               </MenuItem>
             ))}
           </Select>
@@ -99,41 +136,99 @@ export const BuildEditor = ({
             <TableHead>
               <TableRow>
                 <TableCell>CRIT Rate</TableCell>
-                <TableCell>+{getStatSum(artifacts, "critRate_")}%</TableCell>
+                <TableCell>
+                  +{getStatSum(artifacts, "critRate_").toFixed(1)}%
+                </TableCell>
                 <TableCell>ATK</TableCell>
-                {/* TODO: Calculate in ATK% stats */}
-                <TableCell>+{getStatSum(artifacts, "atk")}</TableCell>
+                <TableCell>
+                  +
+                  {(
+                    getStatSum(artifacts, "atk") +
+                    getBonusFromPercent(
+                      artifacts,
+                      "atk_",
+                      database.characters?.find(
+                        (char) => char.key === build.character
+                      )
+                    )
+                  ).toFixed(0)}
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>CRIT Dmg</TableCell>
-                <TableCell>+{getStatSum(artifacts, "critDMG_")}%</TableCell>
+                <TableCell>
+                  +{getStatSum(artifacts, "critDMG_").toFixed(1)}%
+                </TableCell>
                 <TableCell>HP</TableCell>
-                {/* TODO: Calculate in HP% stats */}
-                <TableCell>+{getStatSum(artifacts, "hp")}</TableCell>
+                <TableCell>
+                  +
+                  {(
+                    getStatSum(artifacts, "hp") +
+                    getBonusFromPercent(
+                      artifacts,
+                      "hp_",
+                      database.characters?.find(
+                        (char) => char.key === build.character
+                      )
+                    )
+                  ).toFixed(0)}
+                </TableCell>
               </TableRow>
               <TableRow>
-                {/* TODO: Calculate in DEF% stats */}
                 <TableCell>DEF</TableCell>
-                <TableCell>+{getStatSum(artifacts, "def")}</TableCell>
+                <TableCell>
+                  +
+                  {(
+                    getStatSum(artifacts, "def") +
+                    getBonusFromPercent(
+                      artifacts,
+                      "def_",
+                      database.characters?.find(
+                        (char) => char.key === build.character
+                      )
+                    )
+                  ).toFixed(0)}
+                </TableCell>
                 <TableCell>EM</TableCell>
-                <TableCell>+{getStatSum(artifacts, "eleMas")}</TableCell>
+                <TableCell>
+                  +{getStatSum(artifacts, "eleMas").toFixed(0)}
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>ER</TableCell>
-                <TableCell>+{getStatSum(artifacts, "enerRech_")}%</TableCell>
+                <TableCell>
+                  +{getStatSum(artifacts, "enerRech_").toFixed(1)}%
+                </TableCell>
                 <TableCell>Healing Bonus</TableCell>
-                <TableCell>+{getStatSum(artifacts, "heal_")}%</TableCell>
+                <TableCell>
+                  +{getStatSum(artifacts, "heal_").toFixed(1)}%
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Elemental Bonus</TableCell>
-                {/* TODO: Add in all the various special goblet stats */}
-                <TableCell>+%</TableCell>
+                <TableCell>
+                  +
+                  {[
+                    "physical_dmg_",
+                    "anemo_dmg_",
+                    "geo_dmg_",
+                    "electro_dmg_",
+                    "hydro_dmg_",
+                    "pyro_dmg_",
+                    "cryo_dmg_",
+                    "dendro_dmg_",
+                  ]
+                    .map((stat) => getStatSum(artifacts, stat as StatKey))
+                    .find((val) => val !== 0)
+                    ?.toFixed(1) ?? 0}
+                  %
+                </TableCell>
               </TableRow>
             </TableHead>
           </Table>
         </FormControl>
 
-        <Stack spacing={2} sx={{ width: "100%" }}>
+        <Stack spacing={2} sx={{ width: "50%" }}>
           <ArtifactSelector
             allArtifacts={database.artifacts!}
             slot="flower"

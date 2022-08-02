@@ -1,0 +1,45 @@
+{
+  "name": "Bloodstained Chivalry",
+  "pieces": {
+    "goblet": {
+      "name": "BloodstainedChevaliersGoblet",
+      "id": 82310,
+      "icon": "UI_RelicIcon_15008_1",
+      "text_map_key": "511805676",
+      "slot": "goblet",
+      "set_id": 15008
+    },
+    "plume": {
+      "name": "BloodstainedBlackPlume",
+      "id": 82320,
+      "icon": "UI_RelicIcon_15008_2",
+      "text_map_key": "78894836",
+      "slot": "plume",
+      "set_id": 15008
+    },
+    "circlet": {
+      "name": "BloodstainedIronMask",
+      "id": 82330,
+      "icon": "UI_RelicIcon_15008_3",
+      "text_map_key": "441371804",
+      "slot": "circlet",
+      "set_id": 15008
+    },
+    "flower": {
+      "name": "BloodstainedFlowerofIron",
+      "id": 82340,
+      "icon": "UI_RelicIcon_15008_4",
+      "text_map_key": "4293364300",
+      "slot": "flower",
+      "set_id": 15008
+    },
+    "sands": {
+      "name": "BloodstainedFinalHour",
+      "id": 82350,
+      "icon": "UI_RelicIcon_15008_5",
+      "text_map_key": "3671134780",
+      "slot": "sands",
+      "set_id": 15008
+    }
+  }
+}

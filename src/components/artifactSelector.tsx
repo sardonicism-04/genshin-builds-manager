@@ -1,16 +1,22 @@
 import {
   Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Chip,
   Modal,
   Paper,
-  Select,
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import data from "../constants.json";
+import artifactData from "../data/artifacts";
 import { IArtifact, SlotKey } from "../types/artifact";
 import { IBuild } from "../types/build";
-import { artifactID } from "../utils/artifactID";
+import { artifactID, formatStat, getMainStat } from "../utils/artifactUtil";
+
+const { ArtifactSetNames } = data;
 
 interface IProps {
   allArtifacts: IArtifact[];
@@ -44,41 +50,71 @@ export const ArtifactSelector = ({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            height: "50%",
-            width: "50%",
+            height: "75%",
+            width: "75%",
+
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            overflow: "scroll",
           }}
         >
-          {/* TODO: Replace this with a gallery of artifact cards */}
-          <FormControl fullWidth>
-            <InputLabel id={`artifact-selector-${slot}-label`}>
-              {slot[0].toUpperCase()}
-              {slot.slice(1)}
-            </InputLabel>
-            <Select
-              labelId={`artifact-selector-${slot}-label`}
-              value={build.artifacts?.[slot] ?? ""}
-              label={slot[0].toUpperCase() + slot.slice(1)}
-              onChange={(evt) => {
-                setBuild({
-                  ...build,
-                  artifacts: {
-                    ...build.artifacts,
-                    [slot]: evt.target.value,
-                  },
-                });
-              }}
-            >
-              <MenuItem value="">Leave Slot Empty</MenuItem>
-              {artifacts.map((arti) => {
-                const id = artifactID(arti);
-                return (
-                  <MenuItem value={id} key={id}>
-                    {id}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
+          {artifacts.map((arti) => {
+            const id = artifactID(arti);
+            return (
+              <Card
+                sx={{
+                  height: "440px",
+                  m: 1,
+                  // maxWidth: "320px",
+                  backgroundColor:
+                    build.artifacts?.[slot] === id ? "#515151" : "black",
+                }}
+                key={id}
+              >
+                <CardActionArea
+                  sx={{ height: "100%" }}
+                  onClick={() =>
+                    setBuild({
+                      ...build,
+                      artifacts: {
+                        ...build.artifacts,
+                        [slot]: id,
+                      },
+                    })
+                  }
+                >
+                  <CardMedia
+                    component="img"
+                    height="256"
+                    image={artifactData?.[arti.setKey]?.[arti.slotKey]}
+                    alt="le artifact"
+                  />
+                  <CardContent>
+                    <Typography>
+                      <Chip size="small" label={`Lvl ${arti.level}`} />
+                      <b> {ArtifactSetNames[arti.setKey] ?? "Unknown Set"}</b>
+                      <br />
+                      {formatStat(arti.mainStatKey)}:{" "}
+                      {getMainStat(arti).toFixed(1)}
+                      {arti.mainStatKey.endsWith("_") ? "%" : ""}
+                    </Typography>
+                    {arti.substats.map((substat) => (
+                      <Typography
+                        variant="subtitle2"
+                        key={`${substat.key}${substat.value}`}
+                      >
+                        {substat.key ? (
+                          `${formatStat(substat.key)}: ${substat.value}`
+                        ) : (
+                          <br />
+                        )}
+                      </Typography>
+                    ))}
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            );
+          })}
         </Paper>
       </Modal>
     </>

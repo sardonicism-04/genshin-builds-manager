@@ -1,0 +1,45 @@
+{
+  "name": "Noblesse Oblige",
+  "pieces": {
+    "goblet": {
+      "name": "RoyalSilverUrn",
+      "id": 81310,
+      "icon": "UI_RelicIcon_15007_1",
+      "text_map_key": "1716677620",
+      "slot": "goblet",
+      "set_id": 15007
+    },
+    "plume": {
+      "name": "RoyalPlume",
+      "id": 81320,
+      "icon": "UI_RelicIcon_15007_2",
+      "text_map_key": "605169836",
+      "slot": "plume",
+      "set_id": 15007
+    },
+    "circlet": {
+      "name": "RoyalMasque",
+      "id": 81330,
+      "icon": "UI_RelicIcon_15007_3",
+      "text_map_key": "609401788",
+      "slot": "circlet",
+      "set_id": 15007
+    },
+    "flower": {
+      "name": "RoyalFlora",
+      "id": 81340,
+      "icon": "UI_RelicIcon_15007_4",
+      "text_map_key": "506098300",
+      "slot": "flower",
+      "set_id": 15007
+    },
+    "sands": {
+      "name": "RoyalPocketWatch",
+      "id": 81350,
+      "icon": "UI_RelicIcon_15007_5",
+      "text_map_key": "2162178732",
+      "slot": "sands",
+      "set_id": 15007
+    }
+  }
+}

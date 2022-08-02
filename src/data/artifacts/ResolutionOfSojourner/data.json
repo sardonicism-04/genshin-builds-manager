@@ -1,0 +1,45 @@
+{
+  "name": "Resolution Of Sojourner",
+  "pieces": {
+    "goblet": {
+      "name": "GobletoftheSojourner",
+      "id": 51110,
+      "icon": "UI_RelicIcon_10001_1",
+      "text_map_key": "3492048612",
+      "slot": "goblet",
+      "set_id": 10001
+    },
+    "plume": {
+      "name": "FeatherofHomecoming",
+      "id": 51120,
+      "icon": "UI_RelicIcon_10001_2",
+      "text_map_key": "3114338660",
+      "slot": "plume",
+      "set_id": 10001
+    },
+    "circlet": {
+      "name": "CrownofParting",
+      "id": 51130,
+      "icon": "UI_RelicIcon_10001_3",
+      "text_map_key": "1516923756",
+      "slot": "circlet",
+      "set_id": 10001
+    },
+    "flower": {
+      "name": "HeartofComradeship",
+      "id": 51140,
+      "icon": "UI_RelicIcon_10001_4",
+      "text_map_key": "1445795932",
+      "slot": "flower",
+      "set_id": 10001
+    },
+    "sands": {
+      "name": "SundialoftheSojourner",
+      "id": 51150,
+      "icon": "UI_RelicIcon_10001_5",
+      "text_map_key": "1658110324",
+      "slot": "sands",
+      "set_id": 10001
+    }
+  }
+}

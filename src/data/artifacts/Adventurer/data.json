@@ -1,0 +1,45 @@
+{
+  "name": "Adventurer",
+  "pieces": {
+    "goblet": {
+      "name": "AdventurersGoldenGoblet",
+      "id": 60110,
+      "icon": "UI_RelicIcon_10010_1",
+      "text_map_key": "228768948",
+      "slot": "goblet",
+      "set_id": 10010
+    },
+    "plume": {
+      "name": "AdventurersTailFeather",
+      "id": 60120,
+      "icon": "UI_RelicIcon_10010_2",
+      "text_map_key": "1361849460",
+      "slot": "plume",
+      "set_id": 10010
+    },
+    "circlet": {
+      "name": "AdventurersBandana",
+      "id": 60130,
+      "icon": "UI_RelicIcon_10010_3",
+      "text_map_key": "1724042012",
+      "slot": "circlet",
+      "set_id": 10010
+    },
+    "flower": {
+      "name": "AdventurersFlower",
+      "id": 60140,
+      "icon": "UI_RelicIcon_10010_4",
+      "text_map_key": "57791340",
+      "slot": "flower",
+      "set_id": 10010
+    },
+    "sands": {
+      "name": "AdventurersPocketWatch",
+      "id": 60150,
+      "icon": "UI_RelicIcon_10010_5",
+      "text_map_key": "3634286204",
+      "slot": "sands",
+      "set_id": 10010
+    }
+  }
+}

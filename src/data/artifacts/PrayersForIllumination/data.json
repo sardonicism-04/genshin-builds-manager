@@ -1,0 +1,13 @@
+{
+  "name": "Prayers For Illumination",
+  "pieces": {
+    "circlet": {
+      "name": "TiaraofFlame",
+      "id": 83330,
+      "icon": "UI_RelicIcon_15009_3",
+      "text_map_key": "1349215084",
+      "slot": "circlet",
+      "set_id": 15009
+    }
+  }
+}

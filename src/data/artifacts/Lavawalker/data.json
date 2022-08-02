@@ -1,0 +1,45 @@
+{
+  "name": "Lavawalker",
+  "pieces": {
+    "goblet": {
+      "name": "LavawalkersEpiphany",
+      "id": 73310,
+      "icon": "UI_RelicIcon_14003_1",
+      "text_map_key": "2219352860",
+      "slot": "goblet",
+      "set_id": 14003
+    },
+    "plume": {
+      "name": "LavawalkersSalvation",
+      "id": 73320,
+      "icon": "UI_RelicIcon_14003_2",
+      "text_map_key": "2633787044",
+      "slot": "plume",
+      "set_id": 14003
+    },
+    "circlet": {
+      "name": "LavawalkersWisdom",
+      "id": 73330,
+      "icon": "UI_RelicIcon_14003_3",
+      "text_map_key": "3677898068",
+      "slot": "circlet",
+      "set_id": 14003
+    },
+    "flower": {
+      "name": "LavawalkersResolution",
+      "id": 73340,
+      "icon": "UI_RelicIcon_14003_4",
+      "text_map_key": "3210375772",
+      "slot": "flower",
+      "set_id": 14003
+    },
+    "sands": {
+      "name": "LavawalkersTorment",
+      "id": 73350,
+      "icon": "UI_RelicIcon_14003_5",
+      "text_map_key": "3725731108",
+      "slot": "sands",
+      "set_id": 14003
+    }
+  }
+}

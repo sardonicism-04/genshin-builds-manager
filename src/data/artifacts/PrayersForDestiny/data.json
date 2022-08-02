@@ -1,0 +1,13 @@
+{
+  "name": "Prayers For Destiny",
+  "pieces": {
+    "circlet": {
+      "name": "TiaraofTorrents",
+      "id": 84330,
+      "icon": "UI_RelicIcon_15010_3",
+      "text_map_key": "3293851596",
+      "slot": "circlet",
+      "set_id": 15010
+    }
+  }
+}

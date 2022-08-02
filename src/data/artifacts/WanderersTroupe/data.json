@@ -1,0 +1,45 @@
+{
+  "name": "Wanderer's Troupe",
+  "pieces": {
+    "goblet": {
+      "name": "WanderersString-Kettle",
+      "id": 77310,
+      "icon": "UI_RelicIcon_15003_1",
+      "text_map_key": "3082750644",
+      "slot": "goblet",
+      "set_id": 15003
+    },
+    "plume": {
+      "name": "BardsArrowFeather",
+      "id": 77320,
+      "icon": "UI_RelicIcon_15003_2",
+      "text_map_key": "1591240212",
+      "slot": "plume",
+      "set_id": 15003
+    },
+    "circlet": {
+      "name": "ConductorsTopHat",
+      "id": 77330,
+      "icon": "UI_RelicIcon_15003_3",
+      "text_map_key": "1069900300",
+      "slot": "circlet",
+      "set_id": 15003
+    },
+    "flower": {
+      "name": "TroupesDawnlight",
+      "id": 77340,
+      "icon": "UI_RelicIcon_15003_4",
+      "text_map_key": "962538140",
+      "slot": "flower",
+      "set_id": 15003
+    },
+    "sands": {
+      "name": "ConcertsFinalHour",
+      "id": 77350,
+      "icon": "UI_RelicIcon_15003_5",
+      "text_map_key": "335598708",
+      "slot": "sands",
+      "set_id": 15003
+    }
+  }
+}

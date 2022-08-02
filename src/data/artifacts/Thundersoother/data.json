@@ -1,0 +1,45 @@
+{
+  "name": "Thundersoother",
+  "pieces": {
+    "goblet": {
+      "name": "ThundersoothersGoblet",
+      "id": 72310,
+      "icon": "UI_RelicIcon_14002_1",
+      "text_map_key": "1165988380",
+      "slot": "goblet",
+      "set_id": 14002
+    },
+    "plume": {
+      "name": "ThundersoothersPlume",
+      "id": 72320,
+      "icon": "UI_RelicIcon_14002_2",
+      "text_map_key": "1331477796",
+      "slot": "plume",
+      "set_id": 14002
+    },
+    "circlet": {
+      "name": "ThundersoothersDiadem",
+      "id": 72330,
+      "icon": "UI_RelicIcon_14002_3",
+      "text_map_key": "1056372524",
+      "slot": "circlet",
+      "set_id": 14002
+    },
+    "flower": {
+      "name": "ThundersoothersHeart",
+      "id": 72340,
+      "icon": "UI_RelicIcon_14002_4",
+      "text_map_key": "448015732",
+      "slot": "flower",
+      "set_id": 14002
+    },
+    "sands": {
+      "name": "HourofSoothingThunder",
+      "id": 72350,
+      "icon": "UI_RelicIcon_14002_5",
+      "text_map_key": "1749721516",
+      "slot": "sands",
+      "set_id": 14002
+    }
+  }
+}

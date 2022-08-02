@@ -1,0 +1,45 @@
+{
+  "name": "Berserker",
+  "pieces": {
+    "goblet": {
+      "name": "BerserkersBoneGoblet",
+      "id": 55110,
+      "icon": "UI_RelicIcon_10005_1",
+      "text_map_key": "750064948",
+      "slot": "goblet",
+      "set_id": 10005
+    },
+    "plume": {
+      "name": "BerserkersIndigoFeather",
+      "id": 55120,
+      "icon": "UI_RelicIcon_10005_2",
+      "text_map_key": "2233479140",
+      "slot": "plume",
+      "set_id": 10005
+    },
+    "circlet": {
+      "name": "BerserkersBattleMask",
+      "id": 55130,
+      "icon": "UI_RelicIcon_10005_3",
+      "text_map_key": "471492732",
+      "slot": "circlet",
+      "set_id": 10005
+    },
+    "flower": {
+      "name": "BerserkersRose",
+      "id": 55140,
+      "icon": "UI_RelicIcon_10005_4",
+      "text_map_key": "3288745244",
+      "slot": "flower",
+      "set_id": 10005
+    },
+    "sands": {
+      "name": "BerserkersTimepiece",
+      "id": 55150,
+      "icon": "UI_RelicIcon_10005_5",
+      "text_map_key": "2060782292",
+      "slot": "sands",
+      "set_id": 10005
+    }
+  }
+}

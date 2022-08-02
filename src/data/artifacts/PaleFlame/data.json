@@ -1,0 +1,45 @@
+{
+  "name": "Pale Flame",
+  "pieces": {
+    "goblet": {
+      "name": "SurpassingCup",
+      "id": 92310,
+      "icon": "UI_RelicIcon_15018_1",
+      "text_map_key": "1454538188",
+      "slot": "goblet",
+      "set_id": 15018
+    },
+    "plume": {
+      "name": "WiseDoctorsPinion",
+      "id": 92320,
+      "icon": "UI_RelicIcon_15018_2",
+      "text_map_key": "2605600084",
+      "slot": "plume",
+      "set_id": 15018
+    },
+    "circlet": {
+      "name": "MockingMask",
+      "id": 92330,
+      "icon": "UI_RelicIcon_15018_3",
+      "text_map_key": "1171494620",
+      "slot": "circlet",
+      "set_id": 15018
+    },
+    "flower": {
+      "name": "StainlessBloom",
+      "id": 92340,
+      "icon": "UI_RelicIcon_15018_4",
+      "text_map_key": "1276109836",
+      "slot": "flower",
+      "set_id": 15018
+    },
+    "sands": {
+      "name": "MomentofCessation",
+      "id": 92350,
+      "icon": "UI_RelicIcon_15018_5",
+      "text_map_key": "3916130268",
+      "slot": "sands",
+      "set_id": 15018
+    }
+  }
+}

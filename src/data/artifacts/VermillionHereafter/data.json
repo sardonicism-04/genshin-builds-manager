@@ -1,0 +1,45 @@
+{
+  "name": "Vermillion Hereafter",
+  "pieces": {
+    "goblet": {
+      "name": "MomentofthePact",
+      "id": 97412,
+      "icon": "UI_RelicIcon_15023_1",
+      "text_map_key": "1317296644",
+      "slot": "goblet",
+      "set_id": 15023
+    },
+    "plume": {
+      "name": "FeatherofNascentLight",
+      "id": 97422,
+      "icon": "UI_RelicIcon_15023_2",
+      "text_map_key": "583297276",
+      "slot": "plume",
+      "set_id": 15023
+    },
+    "circlet": {
+      "name": "ThunderingPoise",
+      "id": 97432,
+      "icon": "UI_RelicIcon_15023_3",
+      "text_map_key": "2637888852",
+      "slot": "circlet",
+      "set_id": 15023
+    },
+    "flower": {
+      "name": "FloweringLife",
+      "id": 97442,
+      "icon": "UI_RelicIcon_15023_4",
+      "text_map_key": "4286903444",
+      "slot": "flower",
+      "set_id": 15023
+    },
+    "sands": {
+      "name": "SolarRelic",
+      "id": 97452,
+      "icon": "UI_RelicIcon_15023_5",
+      "text_map_key": "3161046692",
+      "slot": "sands",
+      "set_id": 15023
+    }
+  }
+}

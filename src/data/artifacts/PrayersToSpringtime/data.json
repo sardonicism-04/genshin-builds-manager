@@ -1,0 +1,13 @@
+{
+  "name": "Prayers To Springtime",
+  "pieces": {
+    "circlet": {
+      "name": "TiaraofFrost",
+      "id": 87330,
+      "icon": "UI_RelicIcon_15013_3",
+      "text_map_key": "2801067940",
+      "slot": "circlet",
+      "set_id": 15013
+    }
+  }
+}

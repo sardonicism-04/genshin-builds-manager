@@ -1,4 +1,6 @@
-from typing import Literal, TypedDict
+from __future__ import annotations
+
+from typing import TypedDict
 
 
 class CharacterBases(TypedDict):
@@ -25,3 +27,25 @@ class CharacterData(TypedDict):
 class CharacterScaling(TypedDict):
     level_scaled: list[CharacterBases]
     ascension_values: dict[int, CharacterBases]
+
+
+class ArtifactSet(TypedDict):
+    id: int
+    text_map_key: str
+    pieces: ArtifactSetPieces
+
+
+class ArtifactData(TypedDict):
+    id: int
+    icon: str
+    text_map_key: str
+    slot: str
+    set_id: int
+
+
+class ArtifactSetPieces(TypedDict):
+    plume: ArtifactData
+    flower: ArtifactData
+    sands: ArtifactData
+    goblet: ArtifactData
+    circlet: ArtifactData
