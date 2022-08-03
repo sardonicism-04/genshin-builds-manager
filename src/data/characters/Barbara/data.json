@@ -4,6 +4,7 @@
   "ascension_id": 14,
   "icon": "UI_AvatarIcon_Barbara",
   "text_map_key": "3775299170",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 820.6118774414062,
     "atk": 13.355999946594238,

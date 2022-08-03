@@ -4,6 +4,7 @@
   "ascension_id": 38,
   "icon": "UI_AvatarIcon_Albedo",
   "text_map_key": "4108620722",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1029.5855712890625,
     "atk": 19.551000595092773,

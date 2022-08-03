@@ -1,16 +1,3 @@
-# Textures:
-# - Characters: https://github.com/Escartem/GenshinTextures/tree/master/Texture2D/UI/AvatarIcon
-# - Artifacts: https://github.com/Escartem/GenshinTextures/tree/master/Texture2D/UI/RelicIcon
-# - Weapons: https://github.com/Escartem/GenshinTextures/tree/master/Texture2D/UI/EquipIcon
-
-# Data:
-# - Characters: https://github.com/Dimbreath/GenshinData/blob/master/ExcelBinOutput/AvatarExcelConfigData.json
-# - Scaling Curves: https://github.com/Dimbreath/GenshinData/blob/master/ExcelBinOutput/AvatarCurveExcelConfigData.json
-# - Weapon Data: https://github.com/Dimbreath/GenshinData/blob/master/ExcelBinOutput/WeaponExcelConfigData.json
-# - Text Map [EN]: https://raw.githubusercontent.com/Dimbreath/GenshinData/master/TextMap/TextMapEN.json
-# - Artifact Data: https://raw.githubusercontent.com/Dimbreath/GenshinData/master/ExcelBinOutput/ReliquaryExcelConfigData.json
-# - Artifact Scaling Data: https://github.com/Dimbreath/GenshinData/blob/master/ExcelBinOutput/ReliquaryLevelExcelConfigData.json
-
 from __future__ import annotations
 
 import pathlib
@@ -19,10 +6,15 @@ from typing import TYPE_CHECKING
 
 import requests
 
-from constants import SLOT_MAPPING, STAT_MAPPING, DataFileBase
+from constants import (
+    SLOT_MAPPING,
+    STAT_MAPPING,
+    WEAPON_TYPE_MAPPING,
+    DataFileBase,
+)
 
 if TYPE_CHECKING:
-    from _types import ArtifactData, CharacterBases, CharacterData
+    from _types import ArtifactData, CharacterBases, CharacterData, WeaponData
 
 OUTPUT_DIR = pathlib.Path("./output")
 
@@ -57,6 +49,7 @@ def get_character_data() -> list[CharacterData]:
                 "ascension_id": obj["avatarPromoteId"],
                 "icon": obj["iconName"],
                 "text_map_key": str(obj["nameTextMapHash"]),
+                "weapon_type": WEAPON_TYPE_MAPPING[obj["weaponType"]],
                 "base": {
                     "hp": obj["hpBase"],
                     "atk": obj["attackBase"],
@@ -82,7 +75,7 @@ def get_character_data() -> list[CharacterData]:
     return output
 
 
-def get_scaling_curves() -> list[dict[str, dict[str, int]]]:
+def get_character_curves() -> list[dict[str, dict[str, int]]]:
     resp = requests.get(
         str(DataFileBase / "ExcelBinOutput" / "AvatarCurveExcelConfigData.json")
     )
@@ -143,7 +136,7 @@ def get_artifact_data() -> list[ArtifactData]:
                 "icon": obj["icon"],
                 "text_map_key": str(obj["nameTextMapHash"]),
                 "slot": SLOT_MAPPING[obj["equipType"]],
-                "set_id": obj["setId"]
+                "set_id": obj["setId"],
             }
         except KeyError:
             continue
@@ -169,3 +162,49 @@ def get_artifact_scaling():
         }
 
     return scaling
+
+
+def get_weapon_data() -> list[WeaponData]:
+    resp = requests.get(
+        str(DataFileBase / "ExcelBinOutput" / "WeaponExcelConfigData.json")
+    )
+    data = resp.json()
+
+    weapons = []
+    for obj in data:
+        try:
+            weapon_data: WeaponData = {
+                "id": obj["id"],
+                "icon": obj["icon"],
+                "text_map_key": str(obj["nameTextMapHash"]),
+                "type": WEAPON_TYPE_MAPPING[obj["weaponType"]],
+                "stats": {
+                    STAT_MAPPING.get(prop["propType"], prop["propType"]): {
+                        "type": prop["propType"],
+                        "base_value": prop["initValue"],
+                        "curve": prop["type"],
+                    }
+                    for prop in obj["weaponProp"]
+                },
+            }
+            weapon_data["stats"]["base_atk"] = weapon_data["stats"].pop(
+                "FIGHT_PROP_BASE_ATTACK"
+            )
+        except KeyError:
+            continue
+        else:
+            weapons.append(weapon_data)
+
+    return weapons
+
+
+def get_weapon_curves() -> list[dict[str, int]]:
+    resp = requests.get(
+        str(DataFileBase / "ExcelBinOutput" / "WeaponCurveExcelConfigData.json")
+    )
+    data = resp.json()
+
+    return [
+        {curve_info["type"]: curve_info["value"] for curve_info in curve["curveInfos"]}
+        for curve in data
+    ]

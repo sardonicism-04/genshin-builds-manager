@@ -4,6 +4,7 @@
   "ascension_id": 33,
   "icon": "UI_AvatarIcon_Tartaglia",
   "text_map_key": "3847143266",
+  "weapon_type": "Bow",
   "base": {
     "hp": 1020.0524291992188,
     "atk": 23.461200714111328,

@@ -4,6 +4,7 @@
   "ascension_id": 41,
   "icon": "UI_AvatarIcon_Mona",
   "text_map_key": "1113306282",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 810.322021484375,
     "atk": 22.3439998626709,

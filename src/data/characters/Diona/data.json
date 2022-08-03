@@ -4,6 +4,7 @@
   "ascension_id": 39,
   "icon": "UI_AvatarIcon_Diona",
   "text_map_key": "1468367538",
+  "weapon_type": "Bow",
   "base": {
     "hp": 802.3760986328125,
     "atk": 17.808000564575195,

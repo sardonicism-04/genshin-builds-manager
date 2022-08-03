@@ -4,6 +4,7 @@
   "ascension_id": 65,
   "icon": "UI_AvatarIcon_Shinobu",
   "text_map_key": "1940821986",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1030.3238525390625,
     "atk": 17.808000564575195,

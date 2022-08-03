@@ -4,6 +4,7 @@
   "ascension_id": 58,
   "icon": "UI_AvatarIcon_Yae",
   "text_map_key": "2713453234",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 807.4620361328125,
     "atk": 26.440399169921875,

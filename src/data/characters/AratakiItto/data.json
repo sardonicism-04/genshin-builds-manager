@@ -4,6 +4,7 @@
   "ascension_id": 57,
   "icon": "UI_AvatarIcon_Itto",
   "text_map_key": "3068316954",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 1000.9860229492188,
     "atk": 17.68899917602539,

@@ -4,6 +4,7 @@
   "ascension_id": 45,
   "icon": "UI_AvatarIcon_Rosaria",
   "text_map_key": "4260733330",
+  "weapon_type": "Pole",
   "base": {
     "hp": 1030.3238525390625,
     "atk": 20.12303924560547,

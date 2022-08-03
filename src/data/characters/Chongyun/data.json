@@ -4,6 +4,7 @@
   "ascension_id": 36,
   "icon": "UI_AvatarIcon_Chongyun",
   "text_map_key": "2876340530",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 920.908935546875,
     "atk": 18.698400497436523,

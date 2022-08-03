@@ -4,6 +4,7 @@
   "ascension_id": 31,
   "icon": "UI_AvatarIcon_Fischl",
   "text_map_key": "3277782506",
+  "weapon_type": "Bow",
   "base": {
     "hp": 770.46337890625,
     "atk": 20.47920036315918,

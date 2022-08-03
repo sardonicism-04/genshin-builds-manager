@@ -4,6 +4,7 @@
   "ascension_id": 27,
   "icon": "UI_AvatarIcon_Ningguang",
   "text_map_key": "4127888970",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 820.6118774414062,
     "atk": 17.808000564575195,

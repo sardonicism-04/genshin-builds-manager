@@ -4,6 +4,7 @@
   "ascension_id": 55,
   "icon": "UI_AvatarIcon_Gorou",
   "text_map_key": "3400133546",
+  "weapon_type": "Bow",
   "base": {
     "hp": 802.3760986328125,
     "atk": 15.31488037109375,

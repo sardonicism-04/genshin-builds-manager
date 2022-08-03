@@ -4,6 +4,7 @@
   "ascension_id": 23,
   "icon": "UI_AvatarIcon_Xiangling",
   "text_map_key": "1130996346",
+  "weapon_type": "Pole",
   "base": {
     "hp": 911.791015625,
     "atk": 18.876480102539062,

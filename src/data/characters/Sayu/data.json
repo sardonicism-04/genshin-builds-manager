@@ -4,6 +4,7 @@
   "ascension_id": 53,
   "icon": "UI_AvatarIcon_Sayu",
   "text_map_key": "2388785242",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 993.8521728515625,
     "atk": 20.47920036315918,

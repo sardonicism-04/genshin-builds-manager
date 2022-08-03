@@ -34,3 +34,11 @@ SLOT_MAPPING = {
     "EQUIP_NECKLACE": "plume",
     "EQUIP_DRESS": "circlet",
 }
+
+WEAPON_TYPE_MAPPING = {
+    "WEAPON_BOW": "Bow",
+    "WEAPON_CATALYST": "Catalyst",
+    "WEAPON_CLAYMORE": "Claymore",
+    "WEAPON_POLE": "Pole",
+    "WEAPON_SWORD_ONE_HAND": "Sword"
+}

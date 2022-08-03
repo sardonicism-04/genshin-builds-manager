@@ -4,6 +4,7 @@
   "ascension_id": 51,
   "icon": "UI_AvatarIcon_Eula",
   "text_map_key": "3717667418",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 1029.5855712890625,
     "atk": 26.62660026550293,

@@ -4,6 +4,7 @@
   "ascension_id": 3,
   "icon": "UI_AvatarIcon_Qin",
   "text_map_key": "3221566250",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1143.9840087890625,
     "atk": 18.6200008392334,

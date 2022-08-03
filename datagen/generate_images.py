@@ -1,6 +1,6 @@
 from __future__ import annotations
-from pathlib import Path
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import requests
@@ -8,7 +8,7 @@ import requests
 from constants import TexturesBase
 
 if TYPE_CHECKING:
-    from _types import CharacterData, ArtifactData
+    from _types import ArtifactData, CharacterData, WeaponData
 
 
 def get_character_image(path: Path, character: CharacterData):
@@ -31,6 +31,27 @@ def get_artifact_image(path: Path, artifact: ArtifactData):
         return
 
     image_path = path / f"{artifact['slot']}.png"
+    image_path.unlink(missing_ok=True)
+    with image_path.open("b+w") as file:
+        file.write(resp.content)
+    print(f"Wrote {image_path}")
+
+
+def get_weapon_image(path: Path, weapon: WeaponData):
+    url_path = "UI/EquipIcon"
+    resp = requests.get(
+        str(
+            TexturesBase
+            / url_path
+            / weapon["type"]
+            / weapon["icon"].split("_")[-1]
+            / (weapon["icon"] + ".png")
+        )
+    )
+    if resp.status_code != 200:
+        return
+
+    image_path = path / "icon.png"
     image_path.unlink(missing_ok=True)
     with image_path.open("b+w") as file:
         file.write(resp.content)

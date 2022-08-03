@@ -4,6 +4,7 @@
   "ascension_id": 2,
   "icon": "UI_AvatarIcon_Ayaka",
   "text_map_key": "1006042610",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1000.9860229492188,
     "atk": 26.62660026550293,

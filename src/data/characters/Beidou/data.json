@@ -4,6 +4,7 @@
   "ascension_id": 24,
   "icon": "UI_AvatarIcon_Beidou",
   "text_map_key": "2646367730",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 1094.149169921875,
     "atk": 18.876480102539062,

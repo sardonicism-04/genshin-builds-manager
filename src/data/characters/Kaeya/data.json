@@ -4,6 +4,7 @@
   "ascension_id": 15,
   "icon": "UI_AvatarIcon_Kaeya",
   "text_map_key": "4119663210",
+  "weapon_type": "Sword",
   "base": {
     "hp": 975.6163940429688,
     "atk": 18.698400497436523,

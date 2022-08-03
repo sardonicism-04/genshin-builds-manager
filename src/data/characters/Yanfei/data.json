@@ -4,6 +4,7 @@
   "ascension_id": 48,
   "icon": "UI_AvatarIcon_Feiyan",
   "text_map_key": "697277554",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 784.1402587890625,
     "atk": 20.12303924560547,

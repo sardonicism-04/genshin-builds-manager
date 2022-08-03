@@ -4,6 +4,7 @@
   "ascension_id": 66,
   "icon": "UI_AvatarIcon_Ayato",
   "text_map_key": "1588620330",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1067.7183837890625,
     "atk": 23.274999618530273,

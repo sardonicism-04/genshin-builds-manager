@@ -4,6 +4,7 @@
   "ascension_id": 49,
   "icon": "UI_AvatarIcon_Yoimiya",
   "text_map_key": "2504399314",
+  "weapon_type": "Bow",
   "base": {
     "hp": 791.255615234375,
     "atk": 25.136999130249023,

@@ -4,6 +4,7 @@
   "ascension_id": 42,
   "icon": "UI_AvatarIcon_Keqing",
   "text_map_key": "1864015138",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1020.0524291992188,
     "atk": 25.136999130249023,

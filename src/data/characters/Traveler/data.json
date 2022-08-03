@@ -4,6 +4,7 @@
   "ascension_id": 12,
   "icon": "UI_AvatarIcon_PlayerGirl",
   "text_map_key": "3816664530",
+  "weapon_type": "Sword",
   "base": {
     "hp": 911.791015625,
     "atk": 17.808000564575195,

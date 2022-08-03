@@ -4,6 +4,7 @@
   "ascension_id": 46,
   "icon": "UI_AvatarIcon_Hutao",
   "text_map_key": "1940919994",
+  "weapon_type": "Pole",
   "base": {
     "hp": 1210.7164306640625,
     "atk": 8.285900115966797,

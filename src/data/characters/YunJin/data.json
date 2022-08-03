@@ -4,6 +4,7 @@
   "ascension_id": 64,
   "icon": "UI_AvatarIcon_Yunjin",
   "text_map_key": "655825874",
+  "weapon_type": "Pole",
   "base": {
     "hp": 893.55517578125,
     "atk": 16.02720069885254,

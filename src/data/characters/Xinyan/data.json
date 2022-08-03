@@ -4,6 +4,7 @@
   "ascension_id": 44,
   "icon": "UI_AvatarIcon_Xinyan",
   "text_map_key": "4273845410",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 939.1447143554688,
     "atk": 20.835359573364258,

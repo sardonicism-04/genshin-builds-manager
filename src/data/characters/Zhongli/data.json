@@ -4,6 +4,7 @@
   "ascension_id": 30,
   "icon": "UI_AvatarIcon_Zhongli",
   "text_map_key": "3862787418",
+  "weapon_type": "Pole",
   "base": {
     "hp": 1143.9840087890625,
     "atk": 19.551000595092773,

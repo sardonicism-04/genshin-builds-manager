@@ -23,3 +23,4 @@ copy_character_data = partial(
 copy_artifact_data = partial(
     copy_data, BASE_OUTPUT / "artifacts", BASE_DATA / "artifacts"
 )
+copy_weapon_data = partial(copy_data, BASE_OUTPUT / "weapons", BASE_DATA / "weapons")

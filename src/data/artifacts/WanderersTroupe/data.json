@@ -2,7 +2,7 @@
   "name": "Wanderer's Troupe",
   "pieces": {
     "goblet": {
-      "name": "WanderersString-Kettle",
+      "name": "WanderersStringKettle",
       "id": 77310,
       "icon": "UI_RelicIcon_15003_1",
       "text_map_key": "3082750644",

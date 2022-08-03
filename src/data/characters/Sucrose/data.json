@@ -4,6 +4,7 @@
   "ascension_id": 43,
   "icon": "UI_AvatarIcon_Sucrose",
   "text_map_key": "1053433018",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 775.0223388671875,
     "atk": 14.246399879455566,

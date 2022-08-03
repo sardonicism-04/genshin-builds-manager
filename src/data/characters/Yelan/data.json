@@ -4,6 +4,7 @@
   "ascension_id": 60,
   "icon": "UI_AvatarIcon_Yelan",
   "text_map_key": "2848374378",
+  "weapon_type": "Bow",
   "base": {
     "hp": 1124.9176025390625,
     "atk": 18.992399215698242,

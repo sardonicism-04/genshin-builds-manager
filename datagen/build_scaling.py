@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from fetch_data import get_ascension_values, get_scaling_curves
+from fetch_data import get_ascension_values, get_character_curves
 
 if TYPE_CHECKING:
     from _types import CharacterData, CharacterScaling
 
-CURVES = get_scaling_curves()
+CURVES = get_character_curves()
 ASCENSION_VALUES = get_ascension_values()
 
 

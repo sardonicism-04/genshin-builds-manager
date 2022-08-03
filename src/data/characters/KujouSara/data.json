@@ -4,6 +4,7 @@
   "ascension_id": 56,
   "icon": "UI_AvatarIcon_Sara",
   "text_map_key": "1483922610",
+  "weapon_type": "Bow",
   "base": {
     "hp": 802.3760986328125,
     "atk": 16.383359909057617,

@@ -4,6 +4,7 @@
   "ascension_id": 59,
   "icon": "UI_AvatarIcon_Heizo",
   "text_map_key": "646032090",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 893.55517578125,
     "atk": 18.876480102539062,

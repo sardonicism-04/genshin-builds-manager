@@ -4,6 +4,7 @@
   "ascension_id": 34,
   "icon": "UI_AvatarIcon_Noel",
   "text_map_key": "1921418842",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 1012.0880126953125,
     "atk": 16.02720069885254,

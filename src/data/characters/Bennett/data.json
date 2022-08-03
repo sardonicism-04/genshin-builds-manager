@@ -4,6 +4,7 @@
   "ascension_id": 32,
   "icon": "UI_AvatarIcon_Bennett",
   "text_map_key": "968893378",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1039.4417724609375,
     "atk": 16.02720069885254,

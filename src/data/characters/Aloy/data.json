@@ -4,6 +4,7 @@
   "ascension_id": 62,
   "icon": "UI_AvatarIcon_Aloy",
   "text_map_key": "3689108098",
+  "weapon_type": "Bow",
   "base": {
     "hp": 848.4547729492188,
     "atk": 18.210359573364258,

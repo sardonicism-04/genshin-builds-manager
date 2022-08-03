@@ -4,6 +4,7 @@
   "ascension_id": 29,
   "icon": "UI_AvatarIcon_Klee",
   "text_map_key": "3339083250",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 800.788818359375,
     "atk": 24.20599937438965,

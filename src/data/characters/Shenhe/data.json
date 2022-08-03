@@ -4,6 +4,7 @@
   "ascension_id": 63,
   "icon": "UI_AvatarIcon_Shenhe",
   "text_map_key": "334242634",
+  "weapon_type": "Pole",
   "base": {
     "hp": 1011.4725341796875,
     "atk": 23.64739990234375,

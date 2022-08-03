@@ -4,6 +4,7 @@
   "ascension_id": 21,
   "icon": "UI_AvatarIcon_Ambor",
   "text_map_key": "1966438658",
+  "weapon_type": "Bow",
   "base": {
     "hp": 793.2581787109375,
     "atk": 18.698400497436523,

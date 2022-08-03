@@ -4,6 +4,7 @@
   "ascension_id": 54,
   "icon": "UI_AvatarIcon_Kokomi",
   "text_map_key": "3914045794",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 1048.6519775390625,
     "atk": 18.247600555419922,

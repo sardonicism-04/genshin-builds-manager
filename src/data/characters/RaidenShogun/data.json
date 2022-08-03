@@ -4,6 +4,7 @@
   "ascension_id": 52,
   "icon": "UI_AvatarIcon_Shougun",
   "text_map_key": "3024507506",
+  "weapon_type": "Pole",
   "base": {
     "hp": 1004.7992553710938,
     "atk": 26.254199981689453,

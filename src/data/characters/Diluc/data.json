@@ -4,6 +4,7 @@
   "ascension_id": 16,
   "icon": "UI_AvatarIcon_Diluc",
   "text_map_key": "3608180322",
+  "weapon_type": "Claymore",
   "base": {
     "hp": 1010.5192260742188,
     "atk": 26.06800079345703,

@@ -4,6 +4,7 @@
   "ascension_id": 4,
   "icon": "UI_AvatarIcon_Lisa",
   "text_map_key": "3344622722",
+  "weapon_type": "Catalyst",
   "base": {
     "hp": 802.3760986328125,
     "atk": 19.410720825195312,

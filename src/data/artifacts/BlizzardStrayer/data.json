@@ -2,7 +2,7 @@
   "name": "Blizzard Strayer",
   "pieces": {
     "goblet": {
-      "name": "Frost-WeavedDignity",
+      "name": "FrostWeavedDignity",
       "id": 71310,
       "icon": "UI_RelicIcon_14001_1",
       "text_map_key": "4095885972",

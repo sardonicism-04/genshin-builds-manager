@@ -10,7 +10,7 @@
       "set_id": 15017
     },
     "plume": {
-      "name": "CeremonialWar-Plume",
+      "name": "CeremonialWarPlume",
       "id": 91320,
       "icon": "UI_RelicIcon_15017_2",
       "text_map_key": "298622532",
@@ -34,7 +34,7 @@
       "set_id": 15017
     },
     "sands": {
-      "name": "OrichalceousTime-Dial",
+      "name": "OrichalceousTimeDial",
       "id": 91350,
       "icon": "UI_RelicIcon_15017_5",
       "text_map_key": "2532545548",

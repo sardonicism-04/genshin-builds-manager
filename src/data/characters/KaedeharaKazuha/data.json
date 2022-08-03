@@ -4,6 +4,7 @@
   "ascension_id": 47,
   "icon": "UI_AvatarIcon_Kazuha",
   "text_map_key": "88505754",
+  "weapon_type": "Sword",
   "base": {
     "hp": 1039.1187744140625,
     "atk": 23.08880043029785,

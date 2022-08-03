@@ -4,6 +4,7 @@
   "ascension_id": 50,
   "icon": "UI_AvatarIcon_Tohma",
   "text_map_key": "3555115602",
+  "weapon_type": "Pole",
   "base": {
     "hp": 866.2014770507812,
     "atk": 16.917600631713867,

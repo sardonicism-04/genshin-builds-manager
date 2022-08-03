@@ -4,6 +4,7 @@
   "ascension_id": 37,
   "icon": "UI_AvatarIcon_Ganyu",
   "text_map_key": "2679781122",
+  "weapon_type": "Bow",
   "base": {
     "hp": 762.656005859375,
     "atk": 26.06800079345703,

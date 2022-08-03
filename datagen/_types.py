@@ -22,6 +22,7 @@ class CharacterData(TypedDict):
     text_map_key: str
     base: CharacterBases
     curves: CharacterCurves
+    weapon_type: str
 
 
 class CharacterScaling(TypedDict):
@@ -51,6 +52,15 @@ class ArtifactSetPieces(TypedDict):
     circlet: ArtifactData
 
 
+class WeaponStat(TypedDict):
+    type: str
+    base_value: int
+    curve: str
+
+
 class WeaponData(TypedDict):
     id: int
+    icon: str
     text_map_key: str
+    type: str
+    stats: dict[str, WeaponStat]
