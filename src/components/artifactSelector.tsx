@@ -40,9 +40,24 @@ export const ArtifactSelector = ({
       <Button
         onClick={() => setOpen(true)}
         variant="outlined"
-        sx={{ height: "56px" }}
-        color={build.artifacts?.[slot] ? "success" : "info"}
+        sx={{ height: "65px" }}
+        color={build.artifacts?.[slot] ? "primary" : "info"}
       >
+        {build.artifacts?.[slot] && (
+          <img
+            src={
+              artifactData[
+                artifacts.find(
+                  (arti) => artifactID(arti) === build.artifacts[slot]
+                )!.setKey
+              ][slot]
+            }
+            height="32px"
+            width="32px"
+            alt="Artifact Icon"
+            style={{ marginRight: 8 }}
+          />
+        )}
         {build.artifacts?.[slot] ? "Change" : "Select"} {slot}
       </Button>
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -116,8 +131,8 @@ export const ArtifactSelector = ({
                     alt="le artifact"
                   />
                   <CardContent>
+                    <Chip size="small" label={`Lvl ${arti.level}`} />
                     <Typography gutterBottom>
-                      <Chip size="small" label={`Lvl ${arti.level}`} />
                       <b> {ArtifactSetNames[arti.setKey] ?? "Unknown Set"}</b>
                     </Typography>
                     <Typography>

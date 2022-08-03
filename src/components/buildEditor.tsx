@@ -23,10 +23,14 @@ import {
 } from "@mui/material";
 import { useSnackbar } from "notistack";
 import characters from "../data/characters";
+import weapons from "../data/weapons";
 import { IArtifact } from "../types/artifact";
 import { ICharacter } from "../types/character";
+import { IWeapon } from "../types/weapon";
 import { artifactID, getMainStat } from "../utils/artifactUtil";
-import { getCharacterBaseStats } from "../utils/characterUtil";
+import { getCharacter, getCharacterBaseStats } from "../utils/characterUtil";
+import { getWeaponSubstat } from "../utils/weaponUtil";
+import { WeaponSelector } from "./weaponSelector";
 
 interface IProps {
   database: IGOOD;
@@ -39,7 +43,12 @@ const DefaultBuild: IBuild = {
   artifacts: {},
 };
 
-const getStatSum = (artifacts: IArtifact[], stat: StatKey): number => {
+const getStatSum = (
+  artifacts: IArtifact[],
+  stat: StatKey,
+  character?: ICharacter,
+  weapon?: IWeapon
+): number => {
   const allStats = artifacts
     .map((arti) => [
       arti.mainStatKey === stat &&
@@ -53,15 +62,22 @@ const getStatSum = (artifacts: IArtifact[], stat: StatKey): number => {
     .flat(2);
   let total = 0;
   allStats.forEach((val) => (total += val));
+
+  if (weapon && character) {
+    const weaponStat = getWeaponSubstat(weapon, stat) ?? 0;
+    total += weaponStat < 1 ? weaponStat * 100 : weaponStat;
+  }
+
   return total;
 };
 
 const getBonusFromPercent = (
   artifacts: IArtifact[],
   stat: "hp_" | "atk_" | "def_",
-  character?: ICharacter
+  character?: ICharacter,
+  weapon?: IWeapon
 ): number => {
-  const base = getCharacterBaseStats(character);
+  const base = getCharacterBaseStats(character, weapon);
   let totalPercent = 0;
   const allPercentStats = artifacts
     .map((arti) => [
@@ -73,6 +89,12 @@ const getBonusFromPercent = (
     .flat(2);
 
   allPercentStats.forEach((val) => (totalPercent += val));
+
+  if (weapon && character) {
+    const weaponStat = getWeaponSubstat(weapon, stat) ?? 0;
+    totalPercent += weaponStat * 100;
+  }
+
   return (totalPercent / 100) * (base[stat.replace(/(atk|hp)_/g, "$1")] ?? 1);
 };
 
@@ -86,9 +108,26 @@ export const BuildEditor = ({
     existingBuild ?? structuredClone(DefaultBuild)
   );
   const buildStorage = new Store("storedBuilds");
+
   const artifacts = database.artifacts!.filter((arti) =>
     Object.values(build.artifacts).includes(artifactID(arti))
   );
+
+  let weaponsAvailable: IWeapon[] = [];
+  if (build.character) {
+    // Get character's relevant weapon type
+    const weaponType = characters[build.character].data.weapon_type;
+    const matchingWeapons = Object.entries(weapons)
+      .filter(([_, w]) => w.data.type === weaponType)
+      .map(([k, w]) => k);
+    // Filter weapons in database such that only weapons usable by
+    // the character are shown
+    for (const weapon of database.weapons ?? []) {
+      if (matchingWeapons.includes(weapon.key)) {
+        weaponsAvailable.push(weapon);
+      }
+    }
+  }
 
   return (
     <Stack component={Paper} spacing={2} sx={{ p: 2 }}>
@@ -96,48 +135,69 @@ export const BuildEditor = ({
         label="Build Name"
         variant="outlined"
         onChange={(evt) => setBuild({ ...build, label: evt.target.value })}
-        value={existingBuild?.label}
+        defaultValue={existingBuild?.label}
+        sx={{ height: "65px" }}
       />
 
       <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
         <FormControl fullWidth>
-          <InputLabel id="build-editor-character-label">
-            Select Character
-          </InputLabel>
-          <Select
-            labelId="build-editor-character-label"
-            value={build?.character ?? ""}
-            label="Select Character"
-            onChange={(evt) =>
-              setBuild({
-                ...build,
-                character: evt.target.value as CharacterKey,
-              })
-            }
-            sx={{ maxHeight: "56px" }}
-          >
-            <MenuItem value="">Select a character</MenuItem>
-            {database.characters!.map((char) => (
-              <MenuItem value={char.key} key={char.key}>
-                <Stack direction="row" alignItems="center">
-                  <img
-                    src={characters[char.key].avatar}
-                    alt={char.key}
-                    height="32px"
-                    width="32px"
-                    style={{ marginRight: 8 }}
-                  />
-                  <ListItemText>{characters[char.key].data.name}</ListItemText>
-                </Stack>
-              </MenuItem>
-            ))}
-          </Select>
+          <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
+            <span style={{ width: "100%" }}>
+              <InputLabel id="build-editor-character-label">
+                Select Character
+              </InputLabel>
+              <Select
+                fullWidth
+                labelId="build-editor-character-label"
+                value={build?.character ?? ""}
+                label="Select Character"
+                onChange={(evt) =>
+                  setBuild({
+                    ...build,
+                    character: evt.target.value as CharacterKey,
+                  })
+                }
+                sx={{ height: "65px" }}
+              >
+                <MenuItem value="">Select a character</MenuItem>
+                {database.characters!.map((char) => (
+                  <MenuItem value={char.key} key={char.key}>
+                    <Stack direction="row" alignItems="center">
+                      <img
+                        src={characters[char.key].avatar}
+                        alt={char.key}
+                        height="32px"
+                        width="32px"
+                        style={{ marginRight: 8 }}
+                      />
+                      <ListItemText>
+                        {characters[char.key].data.name}
+                      </ListItemText>
+                    </Stack>
+                  </MenuItem>
+                ))}
+              </Select>
+            </span>
+            <WeaponSelector
+              weapons={weaponsAvailable}
+              build={build}
+              setBuild={setBuild}
+            ></WeaponSelector>
+          </Stack>
+
           <Table>
             <TableHead>
               <TableRow>
                 <TableCell>CRIT Rate</TableCell>
                 <TableCell>
-                  +{getStatSum(artifacts, "critRate_").toFixed(1)}%
+                  +
+                  {getStatSum(
+                    artifacts,
+                    "critRate_",
+                    getCharacter(database, build.character),
+                    build.weapon
+                  ).toFixed(1)}
+                  %
                 </TableCell>
                 <TableCell>ATK</TableCell>
                 <TableCell>
@@ -149,7 +209,8 @@ export const BuildEditor = ({
                       "atk_",
                       database.characters?.find(
                         (char) => char.key === build.character
-                      )
+                      ),
+                      build.weapon
                     )
                   ).toFixed(0)}
                 </TableCell>
@@ -157,19 +218,30 @@ export const BuildEditor = ({
               <TableRow>
                 <TableCell>CRIT Dmg</TableCell>
                 <TableCell>
-                  +{getStatSum(artifacts, "critDMG_").toFixed(1)}%
+                  +
+                  {getStatSum(
+                    artifacts,
+                    "critDMG_",
+                    getCharacter(database, build.character),
+                    build.weapon
+                  ).toFixed(1)}
+                  %
                 </TableCell>
                 <TableCell>HP</TableCell>
                 <TableCell>
                   +
                   {(
-                    getStatSum(artifacts, "hp") +
+                    getStatSum(
+                      artifacts,
+                      "hp",
+                      getCharacter(database, build.character),
+                      build.weapon
+                    ) +
                     getBonusFromPercent(
                       artifacts,
                       "hp_",
-                      database.characters?.find(
-                        (char) => char.key === build.character
-                      )
+                      getCharacter(database, build.character),
+                      build.weapon
                     )
                   ).toFixed(0)}
                 </TableCell>
@@ -183,25 +255,44 @@ export const BuildEditor = ({
                     getBonusFromPercent(
                       artifacts,
                       "def_",
-                      database.characters?.find(
-                        (char) => char.key === build.character
-                      )
+                      getCharacter(database, build.character),
+                      build.weapon
                     )
                   ).toFixed(0)}
                 </TableCell>
                 <TableCell>EM</TableCell>
                 <TableCell>
-                  +{getStatSum(artifacts, "eleMas").toFixed(0)}
+                  +
+                  {getStatSum(
+                    artifacts,
+                    "eleMas",
+                    getCharacter(database, build.character),
+                    build.weapon
+                  ).toFixed(0)}
                 </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>ER</TableCell>
                 <TableCell>
-                  +{getStatSum(artifacts, "enerRech_").toFixed(1)}%
+                  +
+                  {getStatSum(
+                    artifacts,
+                    "enerRech_",
+                    getCharacter(database, build.character),
+                    build.weapon
+                  ).toFixed(1)}
+                  %
                 </TableCell>
                 <TableCell>Healing Bonus</TableCell>
                 <TableCell>
-                  +{getStatSum(artifacts, "heal_").toFixed(1)}%
+                  +
+                  {getStatSum(
+                    artifacts,
+                    "heal_",
+                    getCharacter(database, build.character),
+                    build.weapon
+                  ).toFixed(1)}
+                  %
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -218,7 +309,14 @@ export const BuildEditor = ({
                     "cryo_dmg_",
                     "dendro_dmg_",
                   ]
-                    .map((stat) => getStatSum(artifacts, stat as StatKey))
+                    .map((stat) =>
+                      getStatSum(
+                        artifacts,
+                        stat as StatKey,
+                        getCharacter(database, build.character),
+                        build.weapon
+                      )
+                    )
                     .find((val) => val !== 0)
                     ?.toFixed(1) ?? 0}
                   %
@@ -282,6 +380,14 @@ export const BuildEditor = ({
                 build.label.replace(/\s/g, "_"),
                 JSON.stringify(build)
               );
+
+              // Delete the original copy from storage if it was renamed
+              if (existingBuild && existingBuild.label !== build.label) {
+                buildStorage.deleteItem(
+                  existingBuild.label.replace(/\s/g, "_")
+                );
+              }
+
               setAction(Action.None);
             }
           }}

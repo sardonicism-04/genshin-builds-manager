@@ -1,6 +1,7 @@
 import json
 import re
 from pathlib import Path
+from shutil import rmtree
 from typing import TYPE_CHECKING, cast
 
 from build_scaling import build_scaling
@@ -10,6 +11,7 @@ from fetch_data import (
     get_artifact_data,
     get_artifact_scaling,
     get_character_data,
+    get_weapon_ascension_base_atk,
     get_weapon_curves,
     get_weapon_data,
 )
@@ -42,6 +44,11 @@ def generate_character_dirs(no_images=False):
         path = OUTPUT_PATH / "characters" / "".join(filter(str.isalpha, name))
         path.mkdir(exist_ok=True, parents=True)
 
+        if no_images is False:
+            if get_character_image(path, char_data) is False:
+                rmtree(str(path), ignore_errors=True)
+                continue
+
         json_path = path / "data.json"
         json_path.unlink(missing_ok=True)
         with json_path.open("x") as file:
@@ -51,9 +58,6 @@ def generate_character_dirs(no_images=False):
                 "scalings": scaling_data[char_data["id"]],
             }
             json.dump(data, file, indent=2)
-
-        if no_images is False:
-            get_character_image(path, char_data)
 
         codegen_path = path / "index.tsx"
         codegen_path.unlink(missing_ok=True)
@@ -117,7 +121,8 @@ def generate_artifact_dirs(no_images=False):
                     **piece,
                 }
                 if no_images is False:
-                    get_artifact_image(path, piece)
+                    if get_artifact_image(path, piece) is False:
+                        continue
 
             set_data = {
                 "name": CONSTANTS["ArtifactSetNames"][set_name],
@@ -173,19 +178,20 @@ def generate_artifact_dirs(no_images=False):
 def generate_weapon_data(no_images=False):
     data = get_weapon_data()
     curves_data = get_weapon_curves()
+    ascension_scaling = get_weapon_ascension_base_atk(data)
 
     for weapon in data:
         if weapon["text_map_key"] not in TEXTMAP:
             continue
         name = TEXTMAP[weapon["text_map_key"]]
 
-        path = (
-            OUTPUT_PATH
-            / "weapons"
-            / weapon["type"]
-            / "".join(filter(str.isalpha, name))
-        )
+        path = OUTPUT_PATH / "weapons" / "".join(filter(str.isalpha, name))
         path.mkdir(exist_ok=True, parents=True)
+
+        if no_images is False:
+            if get_weapon_image(path, weapon) is False:
+                rmtree(str(path), ignore_errors=True)
+                continue
 
         json_path = path / "data.json"
         json_path.unlink(missing_ok=True)
@@ -197,11 +203,13 @@ def generate_weapon_data(no_images=False):
                     multipliers.append(curves_data[lvl][stat_data["curve"]])
                 scalings[stat] = multipliers
 
-            json_data = {"name": name, **weapon, "scalings": scalings}
+            json_data = {
+                "name": name,
+                **weapon,
+                "scalings": scalings,
+                "ascension_base_atk": ascension_scaling[weapon["id"]],
+            }
             json.dump(json_data, file, indent=2)
-
-        if no_images is False:
-            get_weapon_image(path, weapon)
 
         codegen_path = path / "index.tsx"
         codegen_path.unlink(missing_ok=True)
@@ -218,48 +226,29 @@ def generate_weapon_data(no_images=False):
             )
             file.write(code)
 
-    for weapon_type in WEAPON_TYPE_MAPPING.values():
-        path = OUTPUT_PATH / "weapons" / weapon_type
-        category_weapons = [
-            child.name for child in path.iterdir() if not child.name.endswith(".tsx")
-        ]
+    modules = [
+        mod
+        for mod in (OUTPUT_PATH / "weapons").iterdir()
+        if not mod.name.endswith(".tsx")
+    ]
 
-        index_path = path / "index.tsx"
-        index_path.unlink(missing_ok=True)
-        with index_path.open("x") as file:
-            code = re.sub(
-                r"^\s*",
-                "",
-                """
-                {0}
-                const weapons = {{ {1} }};
-                export default weapons;
-                """.format(
-                    "\n".join(
-                        f"import {module} from './{module}';"
-                        for module in category_weapons
-                    ),
-                    ", ".join(category_weapons),
-                ),
-                flags=re.M,
-            )
-            file.write(code)
-
-    weapons_index_path = OUTPUT_PATH / "weapons" / "index.tsx"
-    weapons_index_path.unlink(missing_ok=True)
-    with weapons_index_path.open("x") as file:
+    index_path = OUTPUT_PATH / "weapons" / "index.tsx"
+    index_path.unlink(missing_ok=True)
+    with index_path.open("x") as file:
         code = re.sub(
             r"^\s*",
             "",
             """
-            import Bow from "./Bow";
-            import Catalyst from "./Catalyst";
-            import Claymore from "./Claymore";
-            import Pole from "./Pole";
-            import Sword from "./Sword";
-            const toExport = { Bow, Catalyst, Claymore, Pole, Sword };
-            export default toExport;
-            """,
+            {0}
+            const weapons = {{ {1} }};
+            export default weapons;
+            """.format(
+                "\n".join(
+                    f"import {module.name} from './{module.name}';"
+                    for module in modules
+                ),
+                ", ".join(mod.name for mod in modules),
+            ),
             flags=re.M,
         )
         file.write(code)

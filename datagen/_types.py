@@ -60,6 +60,7 @@ class WeaponStat(TypedDict):
 
 class WeaponData(TypedDict):
     id: int
+    ascension_id: int
     icon: str
     text_map_key: str
     type: str

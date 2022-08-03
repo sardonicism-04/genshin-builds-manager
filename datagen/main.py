@@ -14,10 +14,10 @@ def main():
 
     args = parser.parse_args()
 
-    print("Generating character data")
-    generate_character_dirs(no_images=args.no_images)
-    print("Generating artifact data")
-    generate_artifact_dirs(no_images=args.no_images)
+    # print("Generating character data")
+    # generate_character_dirs(no_images=args.no_images)
+    # print("Generating artifact data")
+    # generate_artifact_dirs(no_images=args.no_images)
     print("Generating weapon data")
     generate_weapon_data(no_images=args.no_images)
 

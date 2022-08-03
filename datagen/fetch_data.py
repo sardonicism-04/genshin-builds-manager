@@ -175,6 +175,7 @@ def get_weapon_data() -> list[WeaponData]:
         try:
             weapon_data: WeaponData = {
                 "id": obj["id"],
+                "ascension_id": obj["weaponPromoteId"],
                 "icon": obj["icon"],
                 "text_map_key": str(obj["nameTextMapHash"]),
                 "type": WEAPON_TYPE_MAPPING[obj["weaponType"]],
@@ -208,3 +209,29 @@ def get_weapon_curves() -> list[dict[str, int]]:
         {curve_info["type"]: curve_info["value"] for curve_info in curve["curveInfos"]}
         for curve in data
     ]
+
+
+def get_weapon_ascension_base_atk(weapons: list[WeaponData]) -> dict[int, int]:
+    resp = requests.get(
+        str(DataFileBase / "ExcelBinOutput" / "WeaponPromoteExcelConfigData.json")
+    )
+    data = resp.json()
+
+    values = {}
+    for weapon in weapons:
+        values[weapon["id"]] = {}
+        for obj in data:
+            if obj["weaponPromoteId"] != weapon["ascension_id"]:
+                continue
+
+            try:
+                values[weapon["id"]][obj.get("promoteLevel", 0)] = next(
+                    filter(
+                        lambda prop: prop["propType"] == "FIGHT_PROP_BASE_ATTACK",
+                        obj["addProps"],
+                    )
+                ).get("value", 0)
+            except StopIteration:
+                continue
+
+    return values
