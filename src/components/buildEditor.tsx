@@ -19,7 +19,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TextField,
+  TextField
 } from "@mui/material";
 import { useSnackbar } from "notistack";
 import characters from "../data/characters";
@@ -73,7 +73,6 @@ const getBonusFromPercent = (
     .flat(2);
 
   allPercentStats.forEach((val) => (totalPercent += val));
-  console.log(base);
   return (totalPercent / 100) * (base[stat.replace(/(atk|hp)_/g, "$1")] ?? 1);
 };
 

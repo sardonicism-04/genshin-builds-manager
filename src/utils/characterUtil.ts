@@ -14,14 +14,14 @@ export const getCharacterBaseStats = (
     return {} as CharacterStats;
   }
   const charData = characters[character.key];
-  const levelScaled: CharacterStats =
-    charData.data.scalings.level_scaled[character.level - 1];
+  const levelMults: CharacterStats =
+    charData.data.scalings.level_multipliers[character.level - 1];
   const ascensionScaled: CharacterStats =
     charData.data.scalings.ascension_values[String(character.ascension)];
 
   return {
-    hp: levelScaled.hp + ascensionScaled.hp,
-    atk: levelScaled.atk + ascensionScaled.atk,
-    def_: levelScaled.def_ + ascensionScaled.def_,
+    hp: charData.data.base.hp * levelMults.hp + ascensionScaled.hp,
+    atk: charData.data.base.atk * levelMults.atk + ascensionScaled.atk,
+    def_: charData.data.base.def_ * levelMults.def_ + ascensionScaled.def_,
   };
 };

@@ -25,7 +25,7 @@ class CharacterData(TypedDict):
 
 
 class CharacterScaling(TypedDict):
-    level_scaled: list[CharacterBases]
+    level_multipliers: list[CharacterBases]
     ascension_values: dict[int, CharacterBases]
 
 
@@ -49,3 +49,8 @@ class ArtifactSetPieces(TypedDict):
     sands: ArtifactData
     goblet: ArtifactData
     circlet: ArtifactData
+
+
+class WeaponData(TypedDict):
+    id: int
+    text_map_key: str

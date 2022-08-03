@@ -15,12 +15,11 @@ def build_scaling(data: list[CharacterData]) -> dict[int, CharacterScaling]:
     scalings: dict[int, CharacterScaling] = {}
     for character in data:
         scalings[character["id"]] = {  # type: ignore
-            "level_scaled": [
+            "level_multipliers": [
                 {
-                    k: character["base"][k] * (CURVES[lvl][k][character["curves"][k]])
+                    k: CURVES[lvl][k][character["curves"][k]]
                     for k in ["hp", "atk", "def_"]
-                }
-                for lvl in range(100)
+                } for lvl in range(100)
             ],
             "ascension_values": {
                 ascension: {

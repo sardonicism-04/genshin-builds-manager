@@ -21,7 +21,7 @@ with open("../src/constants.json") as file:
     CONSTANTS = json.load(file)
 
 
-def generate_character_dirs():
+def generate_character_dirs(no_images=False):
     data = get_character_data()
     scaling_data = build_scaling(data)
 
@@ -45,7 +45,8 @@ def generate_character_dirs():
             }
             json.dump(data, file, indent=2)
 
-        get_character_image(path, char_data)
+        if no_images is False:
+            get_character_image(path, char_data)
 
         codegen_path = path / "index.tsx"
         codegen_path.unlink(missing_ok=True)
@@ -84,7 +85,7 @@ def generate_character_dirs():
         file.write(code)
 
 
-def generate_artifact_dirs():
+def generate_artifact_dirs(no_images=False):
     data: list[ArtifactData] = get_artifact_data()
     scaling_data = get_artifact_scaling()
 
@@ -108,7 +109,8 @@ def generate_artifact_dirs():
                     "name": piece_name.replace(" ", "").replace("'", ""),
                     **piece,
                 }
-                get_artifact_image(path, piece)
+                if no_images is False:
+                    get_artifact_image(path, piece)
 
             set_data = {
                 "name": CONSTANTS["ArtifactSetNames"][set_name],
