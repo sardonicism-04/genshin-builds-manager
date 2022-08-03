@@ -1,3 +1,7 @@
+export const sanitizeStoreKey = (content: string): string => {
+  return content.replace(/[^a-z0-9]*/gi, "").toLowerCase();
+};
+
 export class Store {
   private localStorageKey: string;
   private internalStore: Map<string, string>;

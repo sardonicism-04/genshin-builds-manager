@@ -1,4 +1,5 @@
 import Clear from "@mui/icons-material/Clear";
+import ContentCopy from "@mui/icons-material/ContentCopy";
 import DeleteForever from "@mui/icons-material/DeleteForever";
 import Edit from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
@@ -19,20 +20,14 @@ import weapons from "../data/weapons";
 import { IArtifact } from "../types/artifact";
 import { IBuild } from "../types/build";
 import { IGOOD } from "../types/GOOD";
-import { Store } from "../utils/storage";
+import { sanitizeStoreKey, Store } from "../utils/storage";
 import { ConfirmationDialog } from "./confirmationDialog";
 import {
   ArtifactComponent,
   CharacterComponent,
-  WeaponComponent,
+  WeaponComponent
 } from "./equipmentComponents";
 import { StatsTable } from "./statsTable";
-
-interface IProps {
-  database: IGOOD;
-  setAction: (action: Action) => void;
-  setBuild: (build: IBuild) => void;
-}
 
 const getBuildArtifacts = (build: IBuild): (IArtifact | null)[] => {
   let artifacts: (IArtifact | null)[] = [];
@@ -42,10 +37,18 @@ const getBuildArtifacts = (build: IBuild): (IArtifact | null)[] => {
   return artifacts;
 };
 
+interface IProps {
+  database: IGOOD;
+  setAction: (action: Action) => void;
+  setBuild: (build: IBuild) => void;
+  rerender: () => void;
+}
+
 export const BuildBrowser = ({
   database,
   setAction,
   setBuild,
+  rerender,
 }: IProps): React.ReactElement => {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -80,10 +83,11 @@ export const BuildBrowser = ({
             return (
               <Card raised sx={{ my: 1 }} key={uniqueId()}>
                 <CardContent>
-                  <Stack direction="row" spacing={2}>
+                  <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
                     <Typography variant="h5">{build.label}</Typography>
                     <Button
                       onClick={() => {
+                        // Trigger the build editor
                         setBuild(build);
                         setAction(Action.Edit);
                       }}
@@ -91,8 +95,10 @@ export const BuildBrowser = ({
                     >
                       Edit
                     </Button>
+
                     <Button
                       onClick={() => {
+                        // Trigger the deletion confirmation dialog
                         setPendingDeletion(build);
                         setDeletionDialogOpen(true);
                       }}
@@ -100,6 +106,35 @@ export const BuildBrowser = ({
                       color="error"
                     >
                       Delete
+                    </Button>
+
+                    <Button
+                      onClick={() => {
+                        const sKey = sanitizeStoreKey(build.label);
+                        // Find a number to add to the key
+                        const numCopies = [...buildStorage.keys()].filter(
+                          (key) => new RegExp(`${sKey}copy\\d`).exec(key)
+                        ).length;
+
+                        // Make a clone of the build data, with the label indicating it's
+                        // a copy
+                        buildStorage.setItem(
+                          `${sKey}copy${numCopies}`,
+                          JSON.stringify(
+                            structuredClone({
+                              ...build,
+                              label: `${build.label} Copy ${numCopies}`,
+                            })
+                          )
+                        );
+                        // Rerender so the changes are visible
+                        rerender();
+                        enqueueSnackbar(`Duplicated build "${build.label}"`);
+                      }}
+                      startIcon={<ContentCopy />}
+                      color="info"
+                    >
+                      Duplicate
                     </Button>
                   </Stack>
                   <Stack direction="row" spacing={2}>
@@ -150,12 +185,8 @@ export const BuildBrowser = ({
                         {buildArtis.map((artifact) =>
                           artifact ? (
                             <Tooltip
-                              title={
-                                <ArtifactComponent
-                                  artifact={artifact}
-                                  key={uniqueId()}
-                                />
-                              }
+                              title={<ArtifactComponent artifact={artifact} />}
+                              key={uniqueId()}
                             >
                               <img
                                 src={
@@ -195,7 +226,8 @@ export const BuildBrowser = ({
           open={deletionDialogOpen}
           setOpen={setDeletionDialogOpen}
           onConfirm={() => {
-            buildStorage.deleteItem(pendingDeletion.label.replace(/\s/g, "_"));
+            // Delete the build
+            buildStorage.deleteItem(sanitizeStoreKey(pendingDeletion.label));
             enqueueSnackbar(
               `Build "${pendingDeletion.label}" has been deleted`
             );

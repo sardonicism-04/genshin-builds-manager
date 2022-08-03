@@ -1,6 +1,5 @@
 import characters from "../data/characters";
 import { ICharacter } from "../types/character";
-import { IGOOD } from "../types/GOOD";
 import { IWeapon } from "../types/weapon";
 import { getWeaponBaseAtk } from "./weaponUtil";
 
@@ -34,11 +33,4 @@ export const getCharacterBaseStats = (
   }
 
   return bases;
-};
-
-export const getCharacter = (
-  database: IGOOD,
-  charName?: string
-): ICharacter | undefined => {
-  return database.characters?.find((char) => char.key === charName);
 };

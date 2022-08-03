@@ -19,6 +19,8 @@ const getStatSum = (
   character?: ICharacter,
   weapon?: IWeapon
 ): number => {
+  // Get all of the main stats / substats of the given artifacts
+  // except those that map to HP%, ATK%, or DEF% (which are calculated elsewhere)
   const allStats = artifacts
     .map((arti) => [
       arti.mainStatKey === stat &&
@@ -33,6 +35,7 @@ const getStatSum = (
   let total = 0;
   allStats.forEach((val) => (total += val));
 
+  // If a weapon was passed, add its substat value into the total
   if (weapon && character) {
     const weaponStat = getWeaponSubstat(weapon, stat) ?? 0;
     total += weaponStat < 1 ? weaponStat * 100 : weaponStat;
@@ -49,6 +52,8 @@ const getBonusFromPercent = (
 ): number => {
   const base = getCharacterBaseStats(character, weapon);
   let totalPercent = 0;
+  // Get the sum of the stats which influence one of
+  // HP%, ATK%, or DEF%
   const allPercentStats = artifacts
     .map((arti) => [
       arti.mainStatKey === stat ? getMainStat(arti) : 0,
@@ -60,11 +65,13 @@ const getBonusFromPercent = (
 
   allPercentStats.forEach((val) => (totalPercent += val));
 
+  // If the weapon influences a relevant stat, add its value to the multiplier
   if (weapon && character) {
     const weaponStat = getWeaponSubstat(weapon, stat) ?? 0;
     totalPercent += weaponStat * 100;
   }
 
+  // Multiply the total percentage by the base stat of the character
   return (totalPercent / 100) * (base[stat.replace(/(atk|hp)_/g, "$1")] ?? 1);
 };
 

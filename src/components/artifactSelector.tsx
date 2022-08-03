@@ -27,6 +27,7 @@ export const ArtifactSelector = ({
   build,
   setBuild,
 }: IProps): React.ReactElement => {
+  // Only artifacts from current slot
   const artifacts = allArtifacts.filter((arti) => arti.slotKey === slot);
   const [open, setOpen] = useState(false);
 
@@ -41,6 +42,8 @@ export const ArtifactSelector = ({
         {build.artifacts?.[slot] && (
           <img
             src={
+              // Find the artifact whose object is an exact copy of
+              // the one in the build
               artifactData[
                 artifacts.find((arti) => isEqual(arti, build.artifacts[slot]))!
                   .setKey
@@ -107,6 +110,7 @@ export const ArtifactSelector = ({
               >
                 <CardActionArea
                   sx={{ height: "100%" }}
+                  // When the artifact is clicked, change the slotted value
                   onClick={() => {
                     setBuild({
                       ...build,

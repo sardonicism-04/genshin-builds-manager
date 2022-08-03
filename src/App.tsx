@@ -32,15 +32,18 @@ function App() {
 
   let content: React.ReactElement;
   switch (action) {
+    // Main page UI
     case Action.None:
       content = (
         <BuildBrowser
           database={database ?? ({} as IGOOD)}
           setAction={setAction}
           setBuild={setBuild}
+          rerender={rerender}
         />
       );
       break;
+    // Build editor UI (with existing build)
     case Action.Edit:
       content = (
         <BuildEditor
@@ -50,6 +53,7 @@ function App() {
         />
       );
       break;
+    // Build editor UI (without existing build)
     case Action.Create:
       content = <BuildEditor database={database!} setAction={setAction} />;
       break;

@@ -3,7 +3,7 @@ import { Action } from "../App";
 import { IBuild } from "../types/build";
 import { CharacterKey } from "../types/constants";
 import { IGOOD } from "../types/GOOD";
-import { Store } from "../utils/storage";
+import { sanitizeStoreKey, Store } from "../utils/storage";
 import { ArtifactSelector } from "./artifactSelector";
 
 import Info from "@mui/icons-material/Info";
@@ -208,15 +208,13 @@ export const BuildEditor = ({
 
             if (buildValidated) {
               buildStorage.setItem(
-                build.label.replace(/\s/g, "_"),
+                sanitizeStoreKey(build.label),
                 JSON.stringify(build)
               );
 
               // Delete the original copy from storage if it was renamed
               if (existingBuild && existingBuild.label !== build.label) {
-                buildStorage.deleteItem(
-                  existingBuild.label.replace(/\s/g, "_")
-                );
+                buildStorage.deleteItem(sanitizeStoreKey(existingBuild.label));
               }
 
               setAction(Action.None);
