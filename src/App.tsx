@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { BuildBrowser } from "./components/buildBrowser";
 import { BuildEditor } from "./components/buildEditor";
@@ -17,6 +18,11 @@ export enum Action {
 }
 
 function App() {
+  const [render, setRerender] = useState(true);
+  const rerender = () => setRerender(!render);
+
+  const { enqueueSnackbar } = useSnackbar();
+
   const loaded = window.localStorage.getItem("GOODDatabase");
   const [database, setDatabase] = useState<IGOOD | null>(
     loaded ? JSON.parse(loaded) : null
@@ -77,8 +83,22 @@ function App() {
 
                 reader.addEventListener("load", () => {
                   const databaseString = String(reader.result);
+                  const parsed = JSON.parse(databaseString);
+                  if (parsed?.format !== "GOOD") {
+                    enqueueSnackbar(
+                      "Invalid database file provided. Nothing has been loaded.",
+                      { variant: "error" }
+                    );
+                    return;
+                  }
+
                   window.localStorage.setItem("GOODDatabase", databaseString);
-                  setDatabase(JSON.parse(databaseString));
+                  window.localStorage.removeItem("storedBuilds");
+                  setDatabase(parsed);
+                  rerender();
+                  enqueueSnackbar(
+                    "Database has been loaded. Your previous builds have been deleted."
+                  );
                 });
 
                 reader.readAsText(file);
@@ -88,8 +108,55 @@ function App() {
         </Tooltip>
 
         <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
-          <Button fullWidth>Load saved builds</Button>
-          <Button fullWidth>Backup current builds</Button>
+          <Button fullWidth component="label">
+            Load saved builds
+            <input
+              type="file"
+              accept=".json"
+              hidden
+              onChange={(evt) => {
+                const [file] = evt.target.files!;
+                const reader = new FileReader();
+
+                reader.addEventListener("load", () => {
+                  const buildsSaveString = String(reader.result);
+                  window.localStorage.setItem("storedBuilds", buildsSaveString);
+                  rerender();
+                  enqueueSnackbar("Saved builds have been loaded!");
+                });
+
+                reader.readAsText(file);
+              }}
+            />
+          </Button>
+          <Button
+            fullWidth
+            onClick={() => {
+              const buildsJSON = window.localStorage.getItem("storedBuilds");
+              if (!buildsJSON) {
+                enqueueSnackbar("You don't have any builds to save!", {
+                  variant: "error",
+                });
+                return;
+              }
+
+              const url = window.URL.createObjectURL(
+                new Blob([buildsJSON], { type: "application/json" })
+              );
+              const link = document.createElement("a");
+              link.href = url;
+              link.setAttribute(
+                "download",
+                `GenshinBuildsManager_save_${Date.now()}.json`
+              );
+
+              document.body.appendChild(link);
+              link.click();
+              link.parentNode?.removeChild(link);
+            }}
+          >
+            Backup current builds
+          </Button>
         </Stack>
       </Stack>
 

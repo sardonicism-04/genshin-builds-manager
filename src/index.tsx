@@ -12,6 +12,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <SnackbarProvider
+        variant="info"
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <App />

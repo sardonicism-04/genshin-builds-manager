@@ -171,52 +171,12 @@ export const BuildBrowser = ({
           onConfirm={() => {
             buildStorage.deleteItem(pendingDeletion.label.replace(/\s/g, "_"));
             enqueueSnackbar(
-              `Build "${pendingDeletion.label}" has been deleted`,
-              { variant: "info" }
+              `Build "${pendingDeletion.label}" has been deleted`
             );
             setPendingDeletion(null);
           }}
           onCancel={() => setPendingDeletion(null)}
         />
-        // <Dialog
-        //   open={deletionDialogOpen}
-        //   onClose={() => setDeletionDialogOpen(false)}
-        // >
-        //   <DialogTitle>Delete Build?</DialogTitle>
-        //   <DialogContent>
-        //     <DialogContentText>
-        //       The <b>{pendingDeletion.label}</b> build will be permanently
-        //       deleted.
-        //     </DialogContentText>
-        //   </DialogContent>
-        //   <DialogActions>
-        //     <Button
-        //       autoFocus
-        //       onClick={() => {
-        //         setPendingDeletion(null);
-        //         setDeletionDialogOpen(false);
-        //       }}
-        //     >
-        //       Cancel
-        //     </Button>
-        //     <Button
-        //       onClick={() => {
-        //         buildStorage.deleteItem(
-        //           pendingDeletion.label.replace(/\s/g, "_")
-        //         );
-        //         setPendingDeletion(null);
-        //         setDeletionDialogOpen(false);
-        //         enqueueSnackbar(
-        //           `Build "${pendingDeletion.label}" has been deleted`,
-        //           { variant: "info" }
-        //         );
-        //       }}
-        //       color="error"
-        //     >
-        //       Confirm Deletion
-        //     </Button>
-        //   </DialogActions>
-        // </Dialog>
       )}
     </>
   );
