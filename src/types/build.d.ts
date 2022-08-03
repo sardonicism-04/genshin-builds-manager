@@ -1,15 +1,16 @@
-import { CharacterKey } from "./constants";
+import { IArtifact } from "./artifact";
 import { IWeapon } from "./weapon";
+import { ICharacter } from "./character";
 
 export interface IBuild {
   label: string;
-  character?: CharacterKey;
+  character?: ICharacter;
   artifacts: {
-    flower?: string;
-    plume?: string;
-    sands?: string;
-    goblet?: string;
-    circlet?: string;
+    flower?: IArtifact;
+    plume?: IArtifact;
+    sands?: IArtifact;
+    goblet?: IArtifact;
+    circlet?: IArtifact;
   };
   weapon?: IWeapon;
 }

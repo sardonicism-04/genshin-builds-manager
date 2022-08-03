@@ -2,7 +2,7 @@
   "name": "Thundering Fury",
   "pieces": {
     "goblet": {
-      "name": "OmenofThunderstorm",
+      "name": "OmenOfThunderstorm",
       "id": 79310,
       "icon": "UI_RelicIcon_15005_1",
       "text_map_key": "3178572852",
@@ -10,7 +10,7 @@
       "set_id": 15005
     },
     "plume": {
-      "name": "SurvivorofCatastrophe",
+      "name": "SurvivorOfCatastrophe",
       "id": 79320,
       "icon": "UI_RelicIcon_15005_2",
       "text_map_key": "4198064884",
@@ -34,7 +34,7 @@
       "set_id": 15005
     },
     "sands": {
-      "name": "HourglassofThunder",
+      "name": "HourglassOfThunder",
       "id": 79350,
       "icon": "UI_RelicIcon_15005_5",
       "text_map_key": "1937623084",

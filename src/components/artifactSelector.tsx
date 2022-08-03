@@ -1,21 +1,20 @@
 import DeleteForever from "@mui/icons-material/DeleteForever";
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Chip,
-  Modal,
-  Paper,
-  Typography,
-} from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Chip from "@mui/material/Chip";
+import Modal from "@mui/material/Modal";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import { isEqual, uniqueId } from "lodash";
 import React, { useState } from "react";
 import data from "../constants.json";
 import artifactData from "../data/artifacts";
 import { IArtifact, SlotKey } from "../types/artifact";
 import { IBuild } from "../types/build";
-import { artifactID, formatStat, getMainStat } from "../utils/artifactUtil";
+import { formatStat, getMainStat } from "../utils/artifactUtil";
 
 const { ArtifactSetNames } = data;
 
@@ -47,9 +46,8 @@ export const ArtifactSelector = ({
           <img
             src={
               artifactData[
-                artifacts.find(
-                  (arti) => artifactID(arti) === build.artifacts[slot]
-                )!.setKey
+                artifacts.find((arti) => isEqual(arti, build.artifacts[slot]))!
+                  .setKey
               ][slot]
             }
             height="32px"
@@ -100,16 +98,16 @@ export const ArtifactSelector = ({
             </CardActionArea>
           </Card>
           {artifacts.map((arti) => {
-            const id = artifactID(arti);
             return (
               <Card
                 sx={{
                   height: "450px",
                   m: 1,
-                  backgroundColor:
-                    build.artifacts?.[slot] === id ? "#515151" : "black",
+                  backgroundColor: isEqual(arti, build.artifacts?.[slot])
+                    ? "#515151"
+                    : "black",
                 }}
-                key={id}
+                key={uniqueId()}
               >
                 <CardActionArea
                   sx={{ height: "100%" }}
@@ -118,7 +116,7 @@ export const ArtifactSelector = ({
                       ...build,
                       artifacts: {
                         ...build.artifacts,
-                        [slot]: id,
+                        [slot]: arti,
                       },
                     });
                     setOpen(false);

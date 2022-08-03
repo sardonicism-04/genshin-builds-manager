@@ -30,6 +30,14 @@ with open("../src/constants.json") as file:
     CONSTANTS = json.load(file)
 
 
+def format_pascal_key(text: str) -> str:
+    formatted = ""
+    parts = text.split(" ")
+    for part in parts:
+        formatted += "".join(filter(str.isalpha, part)).title()
+    return formatted
+
+
 def generate_character_dirs(no_images=False):
     data = get_character_data()
     scaling_data = build_scaling(data)
@@ -41,7 +49,7 @@ def generate_character_dirs(no_images=False):
         if "".join(filter(str.isalpha, name)) not in CONSTANTS["Characters"]:
             continue
 
-        path = OUTPUT_PATH / "characters" / "".join(filter(str.isalpha, name))
+        path = OUTPUT_PATH / "characters" / format_pascal_key(name)
         path.mkdir(exist_ok=True, parents=True)
 
         if no_images is False:
@@ -117,7 +125,7 @@ def generate_artifact_dirs(no_images=False):
                     continue
                 piece_name = TEXTMAP[piece["text_map_key"]]
                 pieces[piece["slot"]] = {
-                    "name": "".join(filter(str.isalpha, piece_name)),
+                    "name": format_pascal_key(piece_name),
                     **piece,
                 }
                 if no_images is False:
@@ -185,7 +193,7 @@ def generate_weapon_data(no_images=False):
             continue
         name = TEXTMAP[weapon["text_map_key"]]
 
-        path = OUTPUT_PATH / "weapons" / "".join(filter(str.isalpha, name))
+        path = OUTPUT_PATH / "weapons" / format_pascal_key(name)
         path.mkdir(exist_ok=True, parents=True)
 
         if no_images is False:

@@ -2,7 +2,7 @@
   "name": "Husk Of Opulent Dreams",
   "pieces": {
     "goblet": {
-      "name": "CalabashofAwakening",
+      "name": "CalabashOfAwakening",
       "id": 95412,
       "icon": "UI_RelicIcon_15021_1",
       "text_map_key": "2291977340",
@@ -10,7 +10,7 @@
       "set_id": 15021
     },
     "plume": {
-      "name": "PlumeofLuxury",
+      "name": "PlumeOfLuxury",
       "id": 95422,
       "icon": "UI_RelicIcon_15021_2",
       "text_map_key": "2643392284",
@@ -34,7 +34,7 @@
       "set_id": 15021
     },
     "sands": {
-      "name": "SongofLife",
+      "name": "SongOfLife",
       "id": 95452,
       "icon": "UI_RelicIcon_15021_5",
       "text_map_key": "2465380076",

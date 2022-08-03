@@ -1,17 +1,14 @@
-import {
-  Box,
-  Button,
-  Container,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Stack,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
+import { BuildBrowser } from "./components/buildBrowser";
 import { BuildEditor } from "./components/buildEditor";
 import { IBuild } from "./types/build";
 import { IGOOD } from "./types/GOOD";
-import { Store } from "./utils/storage";
 
 export enum Action {
   None,
@@ -25,35 +22,17 @@ function App() {
     loaded ? JSON.parse(loaded) : null
   );
   const [action, setAction] = useState(Action.None);
-
   const [build, setBuild] = useState<IBuild>({} as IBuild);
-  const buildStorage = new Store("storedBuilds");
 
   let content: React.ReactElement;
   switch (action) {
     case Action.None:
       content = (
-        <>
-          <Button onClick={() => setAction(Action.Create)} disabled={!database}>
-            Create new build
-          </Button>
-          <Select
-            value=""
-            disabled={!database}
-            displayEmpty
-            onChange={(evt: SelectChangeEvent) => {
-              setBuild(buildStorage.getItem(evt.target.value));
-              setAction(Action.Edit);
-            }}
-          >
-            <MenuItem value="">Select an existing build</MenuItem>
-            {[...buildStorage.keys()].map((build) => (
-              <MenuItem key={build} value={build}>
-                {build.replace(/_/g, " ")}
-              </MenuItem>
-            ))}
-          </Select>
-        </>
+        <BuildBrowser
+          database={database ?? ({} as IGOOD)}
+          setAction={setAction}
+          setBuild={setBuild}
+        />
       );
       break;
     case Action.Edit:
@@ -77,30 +56,40 @@ function App() {
         spacing={2}
         sx={{ p: 2, position: "absolute", width: "100%" }}
       >
-        <Button component="label" fullWidth>
-          Load Database File
-          <input
-            type="file"
-            accept=".json"
-            hidden
-            onChange={(evt) => {
-              const [file] = evt.target.files!;
-              const reader = new FileReader();
+        <Tooltip
+          title={
+            <Typography>
+              Loading a new database will{" "}
+              <b>delete all of your currently saved builds in the process</b>.
+              Make sure you have a backup before doing this!
+            </Typography>
+          }
+        >
+          <Button component="label" fullWidth>
+            Load Database File
+            <input
+              type="file"
+              accept=".json"
+              hidden
+              onChange={(evt) => {
+                const [file] = evt.target.files!;
+                const reader = new FileReader();
 
-              reader.addEventListener("load", () => {
-                const databaseString = String(reader.result);
-                window.localStorage.setItem("GOODDatabase", databaseString);
-                setDatabase(JSON.parse(databaseString));
-              });
+                reader.addEventListener("load", () => {
+                  const databaseString = String(reader.result);
+                  window.localStorage.setItem("GOODDatabase", databaseString);
+                  setDatabase(JSON.parse(databaseString));
+                });
 
-              reader.readAsText(file);
-            }}
-          />
-        </Button>
+                reader.readAsText(file);
+              }}
+            />
+          </Button>
+        </Tooltip>
 
         <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
           <Button fullWidth>Load saved builds</Button>
-          <Button fullWidth>Save current builds</Button>
+          <Button fullWidth>Backup current builds</Button>
         </Stack>
       </Stack>
 

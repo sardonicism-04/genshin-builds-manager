@@ -1,15 +1,13 @@
-import { DeleteForever } from "@mui/icons-material";
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Chip,
-  Modal,
-  Paper,
-  Typography,
-} from "@mui/material";
+import DeleteForever from "@mui/icons-material/DeleteForever";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Chip from "@mui/material/Chip";
+import Modal from "@mui/material/Modal";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import { isEqual, uniqueId } from "lodash";
 import React, { useState } from "react";
 import weaponData from "../data/weapons";

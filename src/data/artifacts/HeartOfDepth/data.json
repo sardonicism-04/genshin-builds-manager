@@ -2,7 +2,7 @@
   "name": "Heart Of Depth",
   "pieces": {
     "goblet": {
-      "name": "GobletofThunderingDeep",
+      "name": "GobletOfThunderingDeep",
       "id": 90310,
       "icon": "UI_RelicIcon_15016_1",
       "text_map_key": "1240815132",
@@ -10,7 +10,7 @@
       "set_id": 15016
     },
     "plume": {
-      "name": "GustofNostalgia",
+      "name": "GustOfNostalgia",
       "id": 90320,
       "icon": "UI_RelicIcon_15016_2",
       "text_map_key": "202451868",
@@ -18,7 +18,7 @@
       "set_id": 15016
     },
     "circlet": {
-      "name": "WineStainedTricorne",
+      "name": "WinestainedTricorne",
       "id": 90330,
       "icon": "UI_RelicIcon_15016_3",
       "text_map_key": "3283302740",

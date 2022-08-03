@@ -2,7 +2,7 @@
   "name": "Vermillion Hereafter",
   "pieces": {
     "goblet": {
-      "name": "MomentofthePact",
+      "name": "MomentOfThePact",
       "id": 97412,
       "icon": "UI_RelicIcon_15023_1",
       "text_map_key": "1317296644",
@@ -10,7 +10,7 @@
       "set_id": 15023
     },
     "plume": {
-      "name": "FeatherofNascentLight",
+      "name": "FeatherOfNascentLight",
       "id": 97422,
       "icon": "UI_RelicIcon_15023_2",
       "text_map_key": "583297276",

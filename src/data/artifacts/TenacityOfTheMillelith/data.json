@@ -10,7 +10,7 @@
       "set_id": 15017
     },
     "plume": {
-      "name": "CeremonialWarPlume",
+      "name": "CeremonialWarplume",
       "id": 91320,
       "icon": "UI_RelicIcon_15017_2",
       "text_map_key": "298622532",
@@ -26,7 +26,7 @@
       "set_id": 15017
     },
     "flower": {
-      "name": "FlowerofAccolades",
+      "name": "FlowerOfAccolades",
       "id": 91340,
       "icon": "UI_RelicIcon_15017_4",
       "text_map_key": "2374569956",
@@ -34,7 +34,7 @@
       "set_id": 15017
     },
     "sands": {
-      "name": "OrichalceousTimeDial",
+      "name": "OrichalceousTimedial",
       "id": 91350,
       "icon": "UI_RelicIcon_15017_5",
       "text_map_key": "2532545548",

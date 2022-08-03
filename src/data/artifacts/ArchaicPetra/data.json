@@ -2,7 +2,7 @@
   "name": "Archaic Petra",
   "pieces": {
     "goblet": {
-      "name": "GobletofChiseledCrag",
+      "name": "GobletOfChiseledCrag",
       "id": 88310,
       "icon": "UI_RelicIcon_15014_1",
       "text_map_key": "3887584276",
@@ -10,7 +10,7 @@
       "set_id": 15014
     },
     "plume": {
-      "name": "FeatherofJaggedPeaks",
+      "name": "FeatherOfJaggedPeaks",
       "id": 88320,
       "icon": "UI_RelicIcon_15014_2",
       "text_map_key": "1951255452",
@@ -18,7 +18,7 @@
       "set_id": 15014
     },
     "circlet": {
-      "name": "MaskofSolitudeBasalt",
+      "name": "MaskOfSolitudeBasalt",
       "id": 88330,
       "icon": "UI_RelicIcon_15014_3",
       "text_map_key": "2743637772",
@@ -26,7 +26,7 @@
       "set_id": 15014
     },
     "flower": {
-      "name": "FlowerofCrevicedCliff",
+      "name": "FlowerOfCrevicedCliff",
       "id": 88340,
       "icon": "UI_RelicIcon_15014_4",
       "text_map_key": "3273650028",
@@ -34,7 +34,7 @@
       "set_id": 15014
     },
     "sands": {
-      "name": "SundialofEnduringJade",
+      "name": "SundialOfEnduringJade",
       "id": 88350,
       "icon": "UI_RelicIcon_15014_5",
       "text_map_key": "337471076",

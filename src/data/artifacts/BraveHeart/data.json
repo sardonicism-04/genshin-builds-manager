@@ -2,7 +2,7 @@
   "name": "Brave Heart",
   "pieces": {
     "goblet": {
-      "name": "OutsetoftheBrave",
+      "name": "OutsetOfTheBrave",
       "id": 52110,
       "icon": "UI_RelicIcon_10002_1",
       "text_map_key": "2705164436",
@@ -10,7 +10,7 @@
       "set_id": 10002
     },
     "plume": {
-      "name": "ProspectoftheBrave",
+      "name": "ProspectOfTheBrave",
       "id": 52120,
       "icon": "UI_RelicIcon_10002_2",
       "text_map_key": "723367108",
@@ -18,7 +18,7 @@
       "set_id": 10002
     },
     "circlet": {
-      "name": "CrownoftheBrave",
+      "name": "CrownOfTheBrave",
       "id": 52130,
       "icon": "UI_RelicIcon_10002_3",
       "text_map_key": "1290511100",
@@ -26,7 +26,7 @@
       "set_id": 10002
     },
     "flower": {
-      "name": "MedaloftheBrave",
+      "name": "MedalOfTheBrave",
       "id": 52140,
       "icon": "UI_RelicIcon_10002_4",
       "text_map_key": "3199766924",
@@ -34,7 +34,7 @@
       "set_id": 10002
     },
     "sands": {
-      "name": "FortitudeoftheBrave",
+      "name": "FortitudeOfTheBrave",
       "id": 52150,
       "icon": "UI_RelicIcon_10002_5",
       "text_map_key": "3787302940",

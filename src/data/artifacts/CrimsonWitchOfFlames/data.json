@@ -10,7 +10,7 @@
       "set_id": 15006
     },
     "plume": {
-      "name": "WitchsEverBurningPlume",
+      "name": "WitchsEverburningPlume",
       "id": 80320,
       "icon": "UI_RelicIcon_15006_2",
       "text_map_key": "852500780",
@@ -26,7 +26,7 @@
       "set_id": 15006
     },
     "flower": {
-      "name": "WitchsFlowerofBlaze",
+      "name": "WitchsFlowerOfBlaze",
       "id": 80340,
       "icon": "UI_RelicIcon_15006_4",
       "text_map_key": "1048327996",

@@ -18,7 +18,7 @@
       "set_id": 15022
     },
     "circlet": {
-      "name": "CrownofWatatsumi",
+      "name": "CrownOfWatatsumi",
       "id": 96432,
       "icon": "UI_RelicIcon_15022_3",
       "text_map_key": "3554489260",
@@ -26,7 +26,7 @@
       "set_id": 15022
     },
     "flower": {
-      "name": "SeaDyedBlossom",
+      "name": "SeadyedBlossom",
       "id": 96442,
       "icon": "UI_RelicIcon_15022_4",
       "text_map_key": "2165032812",
@@ -34,7 +34,7 @@
       "set_id": 15022
     },
     "sands": {
-      "name": "CowryofParting",
+      "name": "CowryOfParting",
       "id": 96452,
       "icon": "UI_RelicIcon_15022_5",
       "text_map_key": "1444931908",

@@ -2,7 +2,7 @@
   "name": "Echoes Of An Offering",
   "pieces": {
     "goblet": {
-      "name": "ChaliceoftheFont",
+      "name": "ChaliceOfTheFont",
       "id": 98412,
       "icon": "UI_RelicIcon_15024_1",
       "text_map_key": "2032060660",
@@ -34,7 +34,7 @@
       "set_id": 15024
     },
     "sands": {
-      "name": "SymbolofFelicitation",
+      "name": "SymbolOfFelicitation",
       "id": 98452,
       "icon": "UI_RelicIcon_15024_5",
       "text_map_key": "4008135244",
