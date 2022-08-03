@@ -6,6 +6,7 @@ import { IGOOD } from "../types/GOOD";
 import { Store } from "../utils/storage";
 import { ArtifactSelector } from "./artifactSelector";
 
+import { Info } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -19,7 +20,9 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TextField
+  TextField,
+  Tooltip,
+  Typography,
 } from "@mui/material";
 import { useSnackbar } from "notistack";
 import characters from "../data/characters";
@@ -324,6 +327,33 @@ export const BuildEditor = ({
               </TableRow>
             </TableHead>
           </Table>
+          <Tooltip
+            placement="top-start"
+            title={
+              <Typography>
+                Stats are currently calculated based <b>only</b> on your
+                weapon's <i>Base ATK</i>, <i>substat</i>,{" "}
+                <i>artifact main stats</i>, and <i>artifact substats</i>.
+                Bonuses from 2- and 4-piece artifact sets are currently{" "}
+                <i>not</i> included in calculations.
+              </Typography>
+            }
+          >
+            <Typography
+              variant="subtitle2"
+              color="primary"
+              fontStyle="italic"
+              sx={{
+                mt: 1,
+                display: "flex",
+                alignItems: "center",
+                width: "fit-content",
+              }}
+            >
+              Why do my stats look wrong?{" "}
+              <Info sx={{ ml: 1 }} fontSize="small" />
+            </Typography>
+          </Tooltip>
         </FormControl>
 
         <Stack spacing={2} sx={{ width: "50%" }}>
