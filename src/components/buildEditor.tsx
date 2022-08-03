@@ -130,7 +130,6 @@ export const BuildEditor = ({
           </Stack>
           <StatsTable database={database} artifacts={artifacts} build={build} />
           <Tooltip
-            placement="top-start"
             title={
               <Typography>
                 Stats are currently calculated based <b>only</b> on your

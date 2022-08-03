@@ -4,19 +4,15 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Chip from "@mui/material/Chip";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { isEqual, uniqueId } from "lodash";
 import React, { useState } from "react";
-import data from "../constants.json";
 import artifactData from "../data/artifacts";
 import { IArtifact, SlotKey } from "../types/artifact";
 import { IBuild } from "../types/build";
-import { formatStat, getMainStat } from "../utils/artifactUtil";
-
-const { ArtifactSetNames } = data;
+import { ArtifactComponent } from "./equipmentComponents";
 
 interface IProps {
   allArtifacts: IArtifact[];
@@ -129,27 +125,7 @@ export const ArtifactSelector = ({
                     alt="le artifact"
                   />
                   <CardContent>
-                    <Chip size="small" label={`Lvl ${arti.level}`} />
-                    <Typography gutterBottom>
-                      <b> {ArtifactSetNames[arti.setKey] ?? "Unknown Set"}</b>
-                    </Typography>
-                    <Typography>
-                      {formatStat(arti.mainStatKey)}:{" "}
-                      {getMainStat(arti).toFixed(1)}
-                      {arti.mainStatKey.endsWith("_") ? "%" : ""}
-                    </Typography>
-                    {arti.substats.map((substat) => (
-                      <Typography
-                        variant="subtitle2"
-                        key={`${substat.key}${substat.value}`}
-                      >
-                        {substat.key ? (
-                          `${formatStat(substat.key)}: ${substat.value}`
-                        ) : (
-                          <br />
-                        )}
-                      </Typography>
-                    ))}
+                    <ArtifactComponent artifact={arti} />
                   </CardContent>
                 </CardActionArea>
               </Card>

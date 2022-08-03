@@ -6,6 +6,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { uniqueId } from "lodash";
@@ -20,6 +21,11 @@ import { IBuild } from "../types/build";
 import { IGOOD } from "../types/GOOD";
 import { Store } from "../utils/storage";
 import { ConfirmationDialog } from "./confirmationDialog";
+import {
+  ArtifactComponent,
+  CharacterComponent,
+  WeaponComponent,
+} from "./equipmentComponents";
 import { StatsTable } from "./statsTable";
 
 interface IProps {
@@ -114,32 +120,52 @@ export const BuildBrowser = ({
                         gap: 2,
                       }}
                     >
-                      <img
-                        src={characters[build.character!.key]?.avatar}
-                        alt="Build Character"
-                        width="180px"
-                        height="180px"
-                      />
+                      <Tooltip
+                        title={
+                          <CharacterComponent character={build.character!} />
+                        }
+                      >
+                        <img
+                          src={characters[build.character!.key]?.avatar}
+                          alt="Build Character"
+                          width="180px"
+                          height="180px"
+                        />
+                      </Tooltip>
                       <Stack direction="row" spacing={2}>
                         {build.weapon ? (
-                          <img
-                            src={weapons[build.weapon!.key]?.icon}
-                            alt="Build Weapon"
-                            width="48px"
-                            height="48px"
-                          />
+                          <Tooltip
+                            title={<WeaponComponent weapon={build.weapon} />}
+                          >
+                            <img
+                              src={weapons[build.weapon!.key]?.icon}
+                              alt="Build Weapon"
+                              width="48px"
+                              height="48px"
+                            />
+                          </Tooltip>
                         ) : (
                           <Clear sx={{ fontSize: "48px" }} />
                         )}
                         {buildArtis.map((artifact) =>
                           artifact ? (
-                            <img
-                              src={artifacts[artifact.setKey][artifact.slotKey]}
-                              alt="Build Artifact"
-                              width="48px"
-                              height="48px"
-                              key={uniqueId()}
-                            />
+                            <Tooltip
+                              title={
+                                <ArtifactComponent
+                                  artifact={artifact}
+                                  key={uniqueId()}
+                                />
+                              }
+                            >
+                              <img
+                                src={
+                                  artifacts[artifact.setKey][artifact.slotKey]
+                                }
+                                alt="Build Artifact"
+                                width="48px"
+                                height="48px"
+                              />
+                            </Tooltip>
                           ) : (
                             <Clear sx={{ fontSize: "48px" }} key={uniqueId()} />
                           )

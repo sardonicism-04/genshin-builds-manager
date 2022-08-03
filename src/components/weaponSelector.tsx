@@ -4,7 +4,6 @@ import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Chip from "@mui/material/Chip";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -12,10 +11,8 @@ import { isEqual, uniqueId } from "lodash";
 import React, { useState } from "react";
 import weaponData from "../data/weapons";
 import { IBuild } from "../types/build";
-import { StatKey } from "../types/constants";
 import { IWeapon } from "../types/weapon";
-import { formatStat } from "../utils/artifactUtil";
-import { getWeaponBaseAtk, getWeaponSubstat } from "../utils/weaponUtil";
+import { WeaponComponent } from "./equipmentComponents";
 
 interface IProps {
   weapons: IWeapon[];
@@ -95,14 +92,6 @@ export const WeaponSelector = ({
               return <></>;
             }
 
-            const substat = Object.keys(_weapon.data.stats).find(
-              (stat) => stat !== "base_atk"
-            );
-            let statVal = 0;
-            if (substat) {
-              statVal = getWeaponSubstat(weapon, substat as StatKey)!;
-            }
-
             return (
               <Card
                 sx={{
@@ -131,22 +120,7 @@ export const WeaponSelector = ({
                     alt="le artifact"
                   />
                   <CardContent>
-                    <Chip
-                      size="small"
-                      label={`Lvl ${weapon.level} R${weapon.refinement}`}
-                    />
-                    <Typography gutterBottom>
-                      <b> {_weapon.data.name ?? "Unknown Set"}</b>
-                    </Typography>
-                    <Typography>
-                      Base ATK: {getWeaponBaseAtk(weapon).toFixed(0)}
-                    </Typography>
-                    {substat && (
-                      <Typography variant="subtitle2">
-                        {formatStat(substat)}:{" "}
-                        {(statVal < 1 ? statVal * 100 : statVal).toFixed(1)}
-                      </Typography>
-                    )}
+                    <WeaponComponent weapon={weapon} />
                   </CardContent>
                 </CardActionArea>
               </Card>

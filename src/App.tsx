@@ -65,6 +65,17 @@ function App() {
         <Tooltip
           title={
             <Typography>
+              Load a new Genshin database (using the{" "}
+              <a
+                href="https://frzyc.github.io/genshin-optimizer/#/doc"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GOOD
+              </a>{" "}
+              data format)
+              <br />
+              <br />
               Loading a new database will{" "}
               <b>delete all of your currently saved builds in the process</b>.
               Make sure you have a backup before doing this!
@@ -108,55 +119,78 @@ function App() {
         </Tooltip>
 
         <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
-          <Button fullWidth component="label">
-            Load saved builds
-            <input
-              type="file"
-              accept=".json"
-              hidden
-              onChange={(evt) => {
-                const [file] = evt.target.files!;
-                const reader = new FileReader();
-
-                reader.addEventListener("load", () => {
-                  const buildsSaveString = String(reader.result);
-                  window.localStorage.setItem("storedBuilds", buildsSaveString);
-                  rerender();
-                  enqueueSnackbar("Saved builds have been loaded!");
-                });
-
-                reader.readAsText(file);
-              }}
-            />
-          </Button>
-          <Button
-            fullWidth
-            onClick={() => {
-              const buildsJSON = window.localStorage.getItem("storedBuilds");
-              if (!buildsJSON) {
-                enqueueSnackbar("You don't have any builds to save!", {
-                  variant: "error",
-                });
-                return;
-              }
-
-              const url = window.URL.createObjectURL(
-                new Blob([buildsJSON], { type: "application/json" })
-              );
-              const link = document.createElement("a");
-              link.href = url;
-              link.setAttribute(
-                "download",
-                `GenshinBuildsManager_save_${Date.now()}.json`
-              );
-
-              document.body.appendChild(link);
-              link.click();
-              link.parentNode?.removeChild(link);
-            }}
+          <Tooltip
+            title={
+              <Typography>
+                Load build presets from a JSON file. You can save a build preset
+                via <b>Backup Current Builds</b>!
+                <br />
+                <br />
+                Note: Loading from a file will{" "}
+                <b>overwrite all current builds</b>.
+              </Typography>
+            }
           >
-            Backup current builds
-          </Button>
+            <Button fullWidth component="label">
+              Load saved builds
+              <input
+                type="file"
+                accept=".json"
+                hidden
+                onChange={(evt) => {
+                  const [file] = evt.target.files!;
+                  const reader = new FileReader();
+
+                  reader.addEventListener("load", () => {
+                    const buildsSaveString = String(reader.result);
+                    window.localStorage.setItem(
+                      "storedBuilds",
+                      buildsSaveString
+                    );
+                    rerender();
+                    enqueueSnackbar("Saved builds have been loaded!");
+                  });
+
+                  reader.readAsText(file);
+                }}
+              />
+            </Button>
+          </Tooltip>
+          <Tooltip
+            title={
+              <Typography>
+                Save the current builds into a JSON file, so that they can be
+                loaded again later.
+              </Typography>
+            }
+          >
+            <Button
+              fullWidth
+              onClick={() => {
+                const buildsJSON = window.localStorage.getItem("storedBuilds");
+                if (!buildsJSON) {
+                  enqueueSnackbar("You don't have any builds to save!", {
+                    variant: "error",
+                  });
+                  return;
+                }
+                const url = window.URL.createObjectURL(
+                  new Blob([buildsJSON], { type: "application/json" })
+                );
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute(
+                  "download",
+                  `GenshinBuildsManager_save_${Date.now()}.json`
+                );
+                document.body.appendChild(link);
+                link.click();
+                link.parentNode?.removeChild(link);
+              }}
+            >
+              Backup current builds
+            </Button>
+          </Tooltip>
         </Stack>
       </Stack>
 
