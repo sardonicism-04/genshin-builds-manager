@@ -1,4 +1,5 @@
 import DeleteForever from "@mui/icons-material/DeleteForever";
+import { useTheme } from "@mui/material";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -25,6 +26,8 @@ export const WeaponSelector = ({
   build,
   setBuild,
 }: IProps): React.ReactElement => {
+  const theme = useTheme();
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -58,11 +61,11 @@ export const WeaponSelector = ({
             width: "75%",
 
             display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
             overflow: "scroll",
           }}
         >
-          <Card sx={{ height: "450px", m: 1 }}>
+          <Card sx={{ height: "450px", m: 1 }} variant="outlined">
             <CardActionArea
               sx={{ height: "100%" }}
               onClick={() => {
@@ -98,9 +101,10 @@ export const WeaponSelector = ({
                   height: "450px",
                   m: 1,
                   backgroundColor: isEqual(weapon, build.weapon)
-                    ? "#515151"
-                    : "black",
+                    ? theme.palette.action.selected
+                    : "none",
                 }}
+                variant="outlined"
                 key={uniqueId(weapon.key)}
               >
                 <CardActionArea

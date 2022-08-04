@@ -1,18 +1,29 @@
 import DeleteForever from "@mui/icons-material/DeleteForever";
+import { useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
+import Select from "@mui/material/Select";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { isEqual, uniqueId } from "lodash";
+import { debounce, isEqual, uniqueId } from "lodash";
 import React, { useState } from "react";
+import constants from "../constants.json";
 import artifactData from "../data/artifacts";
 import { IArtifact, SlotKey } from "../types/artifact";
 import { IBuild } from "../types/build";
 import { ArtifactComponent } from "./equipmentComponents";
+
+const { ArtifactSetNames } = constants;
 
 interface IProps {
   allArtifacts: IArtifact[];
@@ -27,9 +38,28 @@ export const ArtifactSelector = ({
   build,
   setBuild,
 }: IProps): React.ReactElement => {
+  const theme = useTheme();
+
   // Only artifacts from current slot
   const artifacts = allArtifacts.filter((arti) => arti.slotKey === slot);
   const [open, setOpen] = useState(false);
+
+  const [levelFilter, setLevelFilter] = useState(-1);
+  const [filteredArtifacts, setFilteredArtifacts] = useState(artifacts);
+
+  // Debounce build label updating to keep UX smooth
+  const updateSetFilter = debounce(
+    (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setFilteredArtifacts(
+        artifacts.filter((artifact) =>
+          ArtifactSetNames[artifact.setKey]
+            .toLowerCase()
+            .includes(evt.target.value)
+        )
+      );
+    },
+    500
+  );
 
   return (
     <>
@@ -66,75 +96,120 @@ export const ArtifactSelector = ({
             transform: "translate(-50%, -50%)",
             height: "75%",
             width: "75%",
-
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
             overflow: "scroll",
           }}
         >
-          <Card sx={{ height: "450px", m: 1 }}>
-            <CardActionArea
-              sx={{ height: "100%" }}
-              onClick={() => {
-                setBuild({
-                  ...build,
-                  artifacts: { ...build.artifacts, [slot]: null },
-                });
-                setOpen(false);
-              }}
+          <FormControl
+            sx={{
+              mx: 1,
+              my: 2,
+              display: "flex",
+              flexDirection: "row",
+              gap: 1,
+            }}
+          >
+            <InputLabel id="artifact-level-filter">Filter by Level</InputLabel>
+            <Select
+              fullWidth
+              sx={{ height: "56px" }}
+              label="Filter by Level"
+              labelId="artifact-level-filter"
+              value={levelFilter}
+              onChange={(evt) => setLevelFilter(evt.target.value as number)}
             >
-              <CardContent
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "column",
+              <MenuItem value={-1}>No Filter</MenuItem>
+              {Array.from({ length: 21 }, (_, i) => 0 + i).map((lvl) => (
+                <MenuItem value={lvl} key={lvl}>
+                  <ListItemText>{lvl}</ListItemText>
+                </MenuItem>
+              ))}
+            </Select>
+            <TextField
+              fullWidth
+              label="Filter by Set Name"
+              variant="outlined"
+              onChange={updateSetFilter}
+              sx={{ height: "65px" }}
+            />
+          </FormControl>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+            }}
+          >
+            <Card sx={{ height: "450px", m: 1 }} variant="outlined">
+              <CardActionArea
+                sx={{ height: "100%" }}
+                onClick={() => {
+                  const _artifacts = { ...build.artifacts };
+                  delete _artifacts[slot];
+                  setBuild({
+                    ...build,
+                    artifacts: { ..._artifacts },
+                  });
+                  setOpen(false);
                 }}
               >
-                <DeleteForever sx={{ fontSize: 256 }} />
-                <Typography>Clear Slot</Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-          {artifacts.map((arti) => {
-            return (
-              <Card
-                sx={{
-                  height: "450px",
-                  m: 1,
-                  backgroundColor: isEqual(arti, build.artifacts?.[slot])
-                    ? "#515151"
-                    : "black",
-                }}
-                key={uniqueId()}
-              >
-                <CardActionArea
-                  sx={{ height: "100%" }}
-                  // When the artifact is clicked, change the slotted value
-                  onClick={() => {
-                    setBuild({
-                      ...build,
-                      artifacts: {
-                        ...build.artifacts,
-                        [slot]: arti,
-                      },
-                    });
-                    setOpen(false);
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="256"
-                    image={artifactData?.[arti.setKey]?.[arti.slotKey]}
-                    alt="le artifact"
-                  />
-                  <CardContent>
-                    <ArtifactComponent artifact={arti} />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            );
-          })}
+                  <DeleteForever sx={{ fontSize: 256 }} />
+                  <Typography>Clear Slot</Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+
+            {filteredArtifacts
+              .filter((arti) =>
+                levelFilter === -1 ? true : arti.level === levelFilter
+              )
+              .map((arti) => {
+                return (
+                  <Card
+                    sx={{
+                      height: "450px",
+                      m: 1,
+                      backgroundColor: isEqual(arti, build.artifacts?.[slot])
+                        ? theme.palette.action.selected
+                        : "none",
+                    }}
+                    variant="outlined"
+                    key={uniqueId()}
+                  >
+                    <CardActionArea
+                      sx={{ height: "100%" }}
+                      // When the artifact is clicked, change the slotted value
+                      onClick={() => {
+                        setBuild({
+                          ...build,
+                          artifacts: {
+                            ...build.artifacts,
+                            [slot]: arti,
+                          },
+                        });
+                        setOpen(false);
+                      }}
+                    >
+                      <CardMedia
+                        component="img"
+                        height="256"
+                        image={artifactData?.[arti.setKey]?.[arti.slotKey]}
+                        alt="le artifact"
+                      />
+                      <CardContent>
+                        <ArtifactComponent artifact={arti} />
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                );
+              })}
+          </Box>
         </Paper>
       </Modal>
     </>

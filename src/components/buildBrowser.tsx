@@ -7,10 +7,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
-import { uniqueId } from "lodash";
+import { debounce, uniqueId } from "lodash";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { Action } from "../App";
@@ -25,7 +26,7 @@ import { ConfirmationDialog } from "./confirmationDialog";
 import {
   ArtifactComponent,
   CharacterComponent,
-  WeaponComponent
+  WeaponComponent,
 } from "./equipmentComponents";
 import { StatsTable } from "./statsTable";
 
@@ -56,7 +57,22 @@ export const BuildBrowser = ({
   const [pendingDeletion, setPendingDeletion] = useState<IBuild | null>(null);
 
   const buildStorage = new Store("storedBuilds");
+  const builds: IBuild[] = [...buildStorage.values()].map((b) => JSON.parse(b));
+
   const databaseLoaded = Object.keys(database).length !== 0;
+
+  const [filteredBuilds, setFilteredBuilds] = useState(builds);
+
+  const updateBuildFilter = debounce(
+    (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setFilteredBuilds(
+        builds.filter((build) =>
+          build.label.toLowerCase().includes(evt.target.value)
+        )
+      );
+    },
+    250
+  );
 
   return (
     <>
@@ -68,17 +84,30 @@ export const BuildBrowser = ({
           p: 2,
         }}
       >
-        <Button
-          fullWidth
-          onClick={() => setAction(Action.Create)}
-          disabled={!databaseLoaded}
-          sx={{ position: "sticky", top: 0, zIndex: 1000 }}
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ position: "sticky", top: 0, zIndex: 1000, p: 1 }}
+          component={Paper}
+          elevation={10}
         >
-          Create new build
-        </Button>
+          <Button
+            fullWidth
+            onClick={() => setAction(Action.Create)}
+            disabled={!databaseLoaded}
+          >
+            Create new build
+          </Button>
+          <TextField
+            fullWidth
+            label="Filter by Build Name"
+            variant="outlined"
+            onChange={updateBuildFilter}
+            disabled={!databaseLoaded}
+          />
+        </Stack>
         {databaseLoaded ? (
-          [...buildStorage.values()].map((_build) => {
-            const build = JSON.parse(_build) as IBuild;
+          filteredBuilds.map((build) => {
             const buildArtis = getBuildArtifacts(build);
             return (
               <Card raised sx={{ my: 1 }} key={uniqueId()}>

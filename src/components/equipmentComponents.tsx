@@ -24,6 +24,7 @@ export const ArtifactComponent = ({
   return (
     <>
       <Chip size="small" label={`Lvl ${artifact.level}`} />
+      <Chip size="small" label={"⭐ ".repeat(artifact.rarity)} sx={{ ml: 1 }} />
       <Typography gutterBottom>
         <b> {ArtifactSetNames[artifact.setKey] ?? "Unknown Set"}</b>
       </Typography>
