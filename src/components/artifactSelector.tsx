@@ -15,12 +15,13 @@ import Paper from "@mui/material/Paper";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { debounce, isEqual, uniqueId } from "lodash";
+import { debounce, uniqueId } from "lodash";
 import React, { useState } from "react";
 import constants from "../constants.json";
 import artifactData from "../data/artifacts";
 import { IArtifact, SlotKey } from "../types/artifact";
 import { IBuild } from "../types/build";
+import { isArtifactEqual } from "../utils/artifactUtil";
 import { ArtifactComponent } from "./equipmentComponents";
 
 const { ArtifactSetNames } = constants;
@@ -71,14 +72,16 @@ export const ArtifactSelector = ({
         color={build.artifacts?.[slot] ? "primary" : "info"}
       >
         {build.artifacts?.[slot] &&
-          allArtifacts.find((arti) => isEqual(arti, build.artifacts[slot])) && (
+          allArtifacts.find((arti) =>
+            isArtifactEqual(arti, build.artifacts[slot])
+          ) && (
             <img
               src={
                 // Find the artifact whose object is an exact copy of
                 // the one in the build
                 artifactData[
                   allArtifacts.find((arti) =>
-                    isEqual(arti, build.artifacts[slot])
+                    isArtifactEqual(arti, build.artifacts[slot])
                   )!.setKey
                 ][slot]
               }
@@ -183,7 +186,10 @@ export const ArtifactSelector = ({
                   sx={{
                     height: "450px",
                     m: 1,
-                    backgroundColor: isEqual(arti, build.artifacts?.[slot])
+                    backgroundColor: isArtifactEqual(
+                      arti,
+                      build.artifacts[slot]
+                    )
                       ? theme.palette.action.selected
                       : "none",
                   }}

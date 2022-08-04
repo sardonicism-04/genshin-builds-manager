@@ -8,11 +8,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { isEqual, uniqueId } from "lodash";
+import { uniqueId } from "lodash";
 import React, { useState } from "react";
 import weaponData from "../data/weapons";
 import { IBuild } from "../types/build";
 import { IWeapon } from "../types/weapon";
+import { isWeaponEqual } from "../utils/weaponUtil";
 import { WeaponComponent } from "./equipmentComponents";
 
 interface IProps {
@@ -39,15 +40,16 @@ export const WeaponSelector = ({
         sx={{ height: "65px" }}
         color={build.weapon ? "primary" : "info"}
       >
-        {build.weapon && weapons.find((w) => isEqual(w, build.weapon)) && (
-          <img
-            src={weaponData[build.weapon.key].icon}
-            height="32px"
-            width="32px"
-            alt="Weapon Icon"
-            style={{ marginRight: 8 }}
-          />
-        )}
+        {build.weapon &&
+          weapons.find((w) => isWeaponEqual(w, build.weapon)) && (
+            <img
+              src={weaponData[build.weapon.key].icon}
+              height="32px"
+              width="32px"
+              alt="Weapon Icon"
+              style={{ marginRight: 8 }}
+            />
+          )}
         {build.weapon ? "Change" : "Select"} Weapon
       </Button>
       <Modal open={open} onClose={() => setOpen(false)}>
@@ -102,7 +104,7 @@ export const WeaponSelector = ({
                   sx={{
                     height: "450px",
                     m: 1,
-                    backgroundColor: isEqual(weapon, build.weapon)
+                    backgroundColor: isWeaponEqual(weapon, build.weapon)
                       ? theme.palette.action.selected
                       : "none",
                   }}

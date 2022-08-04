@@ -1,6 +1,8 @@
-import { IWeapon } from "../types/weapon";
+import isEqual from "lodash/isEqual";
+import pick from "lodash/pick";
 import weapons from "../data/weapons";
 import { StatKey } from "../types/constants";
+import { IWeapon } from "../types/weapon";
 
 export const getWeaponBaseAtk = (weapon: IWeapon): number => {
   const data = weapons[weapon.key as keyof typeof weapons].data;
@@ -22,4 +24,11 @@ export const getWeaponSubstat = (
     return scaled;
   }
   return undefined;
+};
+
+export const isWeaponEqual = (weapon: IWeapon, other?: IWeapon): boolean => {
+  return isEqual(
+    pick(weapon, ["key", "level", "ascension", "refinement"]),
+    pick(other, ["key", "level", "ascension", "refinement"])
+  );
 };

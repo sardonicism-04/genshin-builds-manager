@@ -1,3 +1,5 @@
+import isEqual from "lodash/isEqual";
+import pick from "lodash/pick";
 import artifactScaling from "../data/artifacts/scaling.json";
 import { IArtifact } from "../types/artifact";
 
@@ -52,4 +54,28 @@ const StatMapping = {
 
 export const formatStat = (stat: string): string => {
   return StatMapping[stat] ?? stat;
+};
+
+export const isArtifactEqual = (
+  artifact: IArtifact,
+  other?: IArtifact
+): boolean => {
+  return isEqual(
+    pick(artifact, [
+      "setKey",
+      "slotKey",
+      "level",
+      "rarity",
+      "mainStatKey",
+      "substats",
+    ]),
+    pick(other, [
+      "setKey",
+      "slotKey",
+      "level",
+      "rarity",
+      "mainStatKey",
+      "substats",
+    ])
+  );
 };
