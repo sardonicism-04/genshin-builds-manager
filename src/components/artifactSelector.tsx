@@ -70,23 +70,24 @@ export const ArtifactSelector = ({
         sx={{ height: "65px" }}
         color={build.artifacts?.[slot] ? "primary" : "info"}
       >
-        {build.artifacts?.[slot] && (
-          <img
-            src={
-              // Find the artifact whose object is an exact copy of
-              // the one in the build
-              artifactData[
-                allArtifacts.find((arti) =>
-                  isEqual(arti, build.artifacts[slot])
-                )!.setKey
-              ][slot]
-            }
-            height="32px"
-            width="32px"
-            alt="Artifact Icon"
-            style={{ marginRight: 8 }}
-          />
-        )}
+        {build.artifacts?.[slot] &&
+          allArtifacts.find((arti) => isEqual(arti, build.artifacts[slot])) && (
+            <img
+              src={
+                // Find the artifact whose object is an exact copy of
+                // the one in the build
+                artifactData[
+                  allArtifacts.find((arti) =>
+                    isEqual(arti, build.artifacts[slot])
+                  )!.setKey
+                ][slot]
+              }
+              height="32px"
+              width="32px"
+              alt="Artifact Icon"
+              style={{ marginRight: 8 }}
+            />
+          )}
         {build.artifacts?.[slot] ? "Change" : "Select"} {slot}
       </Button>
       <Modal

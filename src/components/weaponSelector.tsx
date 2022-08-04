@@ -39,7 +39,7 @@ export const WeaponSelector = ({
         sx={{ height: "65px" }}
         color={build.weapon ? "primary" : "info"}
       >
-        {build.weapon && (
+        {build.weapon && weapons.find((w) => isEqual(w, build.weapon)) && (
           <img
             src={weaponData[build.weapon.key].icon}
             height="32px"
