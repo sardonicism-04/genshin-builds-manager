@@ -11,6 +11,7 @@ from generate_data import (
 def main():
     parser = ArgumentParser()
     parser.add_argument("--no-images", action="store_true")
+    parser.add_argument("--no-copy", action="store_true")
 
     args = parser.parse_args()
 
@@ -21,12 +22,13 @@ def main():
     print("Generating weapon data")
     generate_weapon_data(no_images=args.no_images)
 
-    print("Copying character data")
-    copy_character_data()
-    print("Copying artifact data")
-    copy_artifact_data()
-    print("Copying weapon data")
-    copy_weapon_data()
+    if not args.no_copy:
+        print("Copying character data")
+        copy_character_data()
+        print("Copying artifact data")
+        copy_artifact_data()
+        print("Copying weapon data")
+        copy_weapon_data()
 
 
 if __name__ == "__main__":
