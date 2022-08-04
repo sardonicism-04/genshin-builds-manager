@@ -41,25 +41,26 @@ export const ArtifactSelector = ({
   const theme = useTheme();
 
   // Only artifacts from current slot
-  const artifacts = allArtifacts.filter((arti) => arti.slotKey === slot);
   const [open, setOpen] = useState(false);
 
   const [levelFilter, setLevelFilter] = useState(-1);
-  const [filteredArtifacts, setFilteredArtifacts] = useState(artifacts);
+  const [filter, setFilter] = useState("");
 
   // Debounce build label updating to keep UX smooth
   const updateSetFilter = debounce(
     (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setFilteredArtifacts(
-        artifacts.filter((artifact) =>
-          ArtifactSetNames[artifact.setKey]
-            .toLowerCase()
-            .includes(evt.target.value)
-        )
-      );
+      setFilter(evt.target.value.toLowerCase());
     },
     500
   );
+
+  const artifacts = allArtifacts
+    .filter((arti) => arti.slotKey === slot)
+    .filter((arti) =>
+      ArtifactSetNames[arti.setKey].toLowerCase().includes(filter)
+    )
+    .filter((arti) => (levelFilter === -1 ? true : arti.level === levelFilter))
+    .sort((a, b) => a.setKey.localeCompare(b.setKey));
 
   return (
     <>
@@ -87,7 +88,14 @@ export const ArtifactSelector = ({
         )}
         {build.artifacts?.[slot] ? "Change" : "Select"} {slot}
       </Button>
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal
+        open={open}
+        onClose={() => {
+          setFilter("");
+          setLevelFilter(-1);
+          setOpen(false);
+        }}
+      >
         <Paper
           sx={{
             position: "absolute",
@@ -135,7 +143,7 @@ export const ArtifactSelector = ({
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
             }}
           >
             <Card sx={{ height: "450px", m: 1 }} variant="outlined">
@@ -148,6 +156,8 @@ export const ArtifactSelector = ({
                     ...build,
                     artifacts: { ..._artifacts },
                   });
+                  setFilter("");
+                  setLevelFilter(-1);
                   setOpen(false);
                 }}
               >
@@ -165,50 +175,48 @@ export const ArtifactSelector = ({
               </CardActionArea>
             </Card>
 
-            {filteredArtifacts
-              .filter((arti) =>
-                levelFilter === -1 ? true : arti.level === levelFilter
-              )
-              .map((arti) => {
-                return (
-                  <Card
-                    sx={{
-                      height: "450px",
-                      m: 1,
-                      backgroundColor: isEqual(arti, build.artifacts?.[slot])
-                        ? theme.palette.action.selected
-                        : "none",
+            {artifacts.map((arti) => {
+              return (
+                <Card
+                  sx={{
+                    height: "450px",
+                    m: 1,
+                    backgroundColor: isEqual(arti, build.artifacts?.[slot])
+                      ? theme.palette.action.selected
+                      : "none",
+                  }}
+                  variant="outlined"
+                  key={uniqueId()}
+                >
+                  <CardActionArea
+                    sx={{ height: "100%" }}
+                    // When the artifact is clicked, change the slotted value
+                    onClick={() => {
+                      setBuild({
+                        ...build,
+                        artifacts: {
+                          ...build.artifacts,
+                          [slot]: arti,
+                        },
+                      });
+                      setFilter("");
+                      setLevelFilter(-1);
+                      setOpen(false);
                     }}
-                    variant="outlined"
-                    key={uniqueId()}
                   >
-                    <CardActionArea
-                      sx={{ height: "100%" }}
-                      // When the artifact is clicked, change the slotted value
-                      onClick={() => {
-                        setBuild({
-                          ...build,
-                          artifacts: {
-                            ...build.artifacts,
-                            [slot]: arti,
-                          },
-                        });
-                        setOpen(false);
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        height="256"
-                        image={artifactData?.[arti.setKey]?.[arti.slotKey]}
-                        alt="le artifact"
-                      />
-                      <CardContent>
-                        <ArtifactComponent artifact={arti} />
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                );
-              })}
+                    <CardMedia
+                      component="img"
+                      height="256"
+                      image={artifactData?.[arti.setKey]?.[arti.slotKey]}
+                      alt="le artifact"
+                    />
+                    <CardContent>
+                      <ArtifactComponent artifact={arti} />
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              );
+            })}
           </Box>
         </Paper>
       </Modal>

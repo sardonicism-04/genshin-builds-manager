@@ -61,7 +61,7 @@ export const WeaponSelector = ({
             width: "75%",
 
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
             overflow: "scroll",
           }}
         >
@@ -89,47 +89,49 @@ export const WeaponSelector = ({
               </CardContent>
             </CardActionArea>
           </Card>
-          {weapons.map((weapon) => {
-            const _weapon = weaponData[weapon.key as keyof typeof weaponData];
-            if (!weapon) {
-              return <></>;
-            }
+          {weapons
+            .sort((a, b) => a.key.localeCompare(b.key))
+            .map((weapon) => {
+              const _weapon = weaponData[weapon.key as keyof typeof weaponData];
+              if (!weapon) {
+                return <></>;
+              }
 
-            return (
-              <Card
-                sx={{
-                  height: "450px",
-                  m: 1,
-                  backgroundColor: isEqual(weapon, build.weapon)
-                    ? theme.palette.action.selected
-                    : "none",
-                }}
-                variant="outlined"
-                key={uniqueId(weapon.key)}
-              >
-                <CardActionArea
-                  sx={{ height: "100%" }}
-                  onClick={() => {
-                    setBuild({
-                      ...build,
-                      weapon,
-                    });
-                    setOpen(false);
+              return (
+                <Card
+                  sx={{
+                    height: "450px",
+                    m: 1,
+                    backgroundColor: isEqual(weapon, build.weapon)
+                      ? theme.palette.action.selected
+                      : "none",
                   }}
+                  variant="outlined"
+                  key={uniqueId(weapon.key)}
                 >
-                  <CardMedia
-                    component="img"
-                    height="256"
-                    image={_weapon.icon}
-                    alt="le artifact"
-                  />
-                  <CardContent>
-                    <WeaponComponent weapon={weapon} />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            );
-          })}
+                  <CardActionArea
+                    sx={{ height: "100%" }}
+                    onClick={() => {
+                      setBuild({
+                        ...build,
+                        weapon,
+                      });
+                      setOpen(false);
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="256"
+                      image={_weapon.icon}
+                      alt="le artifact"
+                    />
+                    <CardContent>
+                      <WeaponComponent weapon={weapon} />
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              );
+            })}
         </Paper>
       </Modal>
     </>

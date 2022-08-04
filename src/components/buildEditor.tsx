@@ -83,7 +83,11 @@ export const BuildEditor = ({
 
       <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
         <FormControl fullWidth>
-          <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{ width: "100%", height: "65px" }}
+          >
             <span style={{ width: "100%" }}>
               <InputLabel id="build-editor-character-label">
                 Select Character
@@ -104,22 +108,24 @@ export const BuildEditor = ({
                 sx={{ height: "65px" }}
               >
                 <MenuItem value="">Select a character</MenuItem>
-                {database.characters!.map((char) => (
-                  <MenuItem value={char.key} key={char.key}>
-                    <Stack direction="row" alignItems="center">
-                      <img
-                        src={characters[char.key].avatar}
-                        alt={char.key}
-                        height="32px"
-                        width="32px"
-                        style={{ marginRight: 8 }}
-                      />
-                      <ListItemText>
-                        {characters[char.key].data.name}
-                      </ListItemText>
-                    </Stack>
-                  </MenuItem>
-                ))}
+                {database
+                  .characters!.sort((a, b) => a.key.localeCompare(b.key))
+                  .map((char) => (
+                    <MenuItem value={char.key} key={char.key}>
+                      <Stack direction="row" alignItems="center">
+                        <img
+                          src={characters[char.key].avatar}
+                          alt={char.key}
+                          height="32px"
+                          width="32px"
+                          style={{ marginRight: 8 }}
+                        />
+                        <ListItemText>
+                          {characters[char.key].data.name}
+                        </ListItemText>
+                      </Stack>
+                    </MenuItem>
+                  ))}
               </Select>
             </span>
             <WeaponSelector

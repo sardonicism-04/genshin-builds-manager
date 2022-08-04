@@ -26,7 +26,7 @@ import { ConfirmationDialog } from "./confirmationDialog";
 import {
   ArtifactComponent,
   CharacterComponent,
-  WeaponComponent,
+  WeaponComponent
 } from "./equipmentComponents";
 import { StatsTable } from "./statsTable";
 
@@ -57,22 +57,19 @@ export const BuildBrowser = ({
   const [pendingDeletion, setPendingDeletion] = useState<IBuild | null>(null);
 
   const buildStorage = new Store("storedBuilds");
-  const builds: IBuild[] = [...buildStorage.values()].map((b) => JSON.parse(b));
-
   const databaseLoaded = Object.keys(database).length !== 0;
 
-  const [filteredBuilds, setFilteredBuilds] = useState(builds);
-
+  const [filter, setFilter] = useState("");
   const updateBuildFilter = debounce(
     (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setFilteredBuilds(
-        builds.filter((build) =>
-          build.label.toLowerCase().includes(evt.target.value)
-        )
-      );
+      setFilter(evt.target.value.toLowerCase());
     },
     250
   );
+
+  const builds: IBuild[] = [...buildStorage.values()]
+    .map((b) => JSON.parse(b))
+    .filter((build) => build.label.toLowerCase().includes(filter));
 
   return (
     <>
@@ -107,7 +104,7 @@ export const BuildBrowser = ({
           />
         </Stack>
         {databaseLoaded ? (
-          filteredBuilds.map((build) => {
+          builds.map((build) => {
             const buildArtis = getBuildArtifacts(build);
             return (
               <Card raised sx={{ my: 1 }} key={uniqueId()}>

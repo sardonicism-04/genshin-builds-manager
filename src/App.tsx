@@ -18,8 +18,8 @@ export enum Action {
 }
 
 function App() {
-  const [render, setRerender] = useState(true);
-  const rerender = () => setRerender(!render);
+  const [, setRerender] = useState(true);
+  const rerender = () => setRerender((old) => !old);
 
   const { enqueueSnackbar } = useSnackbar();
 
