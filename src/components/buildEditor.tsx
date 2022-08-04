@@ -68,7 +68,7 @@ export const BuildEditor = ({
 
   // Debounce build label updating to keep UX smooth
   const updateBuildLabel = debounce((evt) => {
-    setBuild({ ...build, label: evt.target.value });
+    setBuild({ ...build, label: evt.target.value.slice(0, 50) });
   }, 500);
 
   return (

@@ -26,7 +26,7 @@ import { ConfirmationDialog } from "./confirmationDialog";
 import {
   ArtifactComponent,
   CharacterComponent,
-  WeaponComponent
+  WeaponComponent,
 } from "./equipmentComponents";
 import { StatsTable } from "./statsTable";
 
@@ -110,7 +110,6 @@ export const BuildBrowser = ({
               <Card raised sx={{ my: 1 }} key={uniqueId()}>
                 <CardContent>
                   <Stack direction="row" spacing={2} sx={{ mb: 1 }}>
-                    <Typography variant="h5">{build.label}</Typography>
                     <Button
                       onClick={() => {
                         // Trigger the build editor
@@ -162,6 +161,18 @@ export const BuildBrowser = ({
                     >
                       Duplicate
                     </Button>
+
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        maxWidth: "75%",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {build.label}
+                    </Typography>
                   </Stack>
                   <Stack direction="row" spacing={2}>
                     <StatsTable
