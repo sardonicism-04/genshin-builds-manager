@@ -76,7 +76,7 @@ export const BuildBrowser = ({
       <Paper
         sx={{
           overflowY: "scroll",
-          height: databaseLoaded ? "75%" : "fit-content",
+          height: databaseLoaded ? "85%" : "fit-content",
           textAlign: "center",
           p: 2,
         }}

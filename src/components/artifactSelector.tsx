@@ -76,8 +76,9 @@ export const ArtifactSelector = ({
               // Find the artifact whose object is an exact copy of
               // the one in the build
               artifactData[
-                artifacts.find((arti) => isEqual(arti, build.artifacts[slot]))!
-                  .setKey
+                allArtifacts.find((arti) =>
+                  isEqual(arti, build.artifacts[slot])
+                )!.setKey
               ][slot]
             }
             height="32px"

@@ -1,6 +1,8 @@
+import GitHub from "@mui/icons-material/GitHub";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
@@ -147,10 +149,17 @@ function App() {
 
                   reader.addEventListener("load", () => {
                     const buildsSaveString = String(reader.result);
-                    window.localStorage.setItem(
-                      "storedBuilds",
-                      buildsSaveString
-                    );
+
+                    const parsed = JSON.parse(buildsSaveString);
+                    if (parsed?.format !== "GBM") {
+                      enqueueSnackbar(
+                        "Invalid save file provided. Nothing has been loaded.",
+                        { variant: "error" }
+                      );
+                      return;
+                    }
+
+                    window.localStorage.setItem("storedBuilds", parsed.data);
                     rerender();
                     enqueueSnackbar("Saved builds have been loaded!");
                   });
@@ -179,7 +188,10 @@ function App() {
                   return;
                 }
                 const url = window.URL.createObjectURL(
-                  new Blob([buildsJSON], { type: "application/json" })
+                  new Blob(
+                    [JSON.stringify({ format: "GBM", data: buildsJSON })],
+                    { type: "application/json" }
+                  )
                 );
                 const link = document.createElement("a");
                 link.href = url;
@@ -211,6 +223,20 @@ function App() {
           {content}
         </Box>
       </Container>
+
+      <Typography
+        sx={{ position: "absolute", bottom: 8, left: 8, fontSize: 12 }}
+      >
+        Genshin Builds Manager is not affiliated with or endorsed by HoYoverse
+      </Typography>
+      <Link
+        sx={{ position: "absolute", bottom: 8, right: 8 }}
+        href="/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <GitHub fontSize="small" />
+      </Link>
     </>
   );
 }
