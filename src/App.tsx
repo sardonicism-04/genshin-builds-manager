@@ -229,14 +229,14 @@ function App() {
       >
         Genshin Builds Manager is not affiliated with or endorsed by HoYoverse
       </Typography>
-      {/* <Link
+      <Link
         sx={{ position: "absolute", bottom: 8, right: 8 }}
-        href="/"
+        href="https://github.com/sardonicism-04/genshin-builds-manager"
         target="_blank"
         rel="noreferrer"
       >
         <GitHub fontSize="small" />
-      </Link> */}
+      </Link>
     </>
   );
 }
