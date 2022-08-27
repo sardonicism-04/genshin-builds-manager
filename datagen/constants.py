@@ -1,9 +1,7 @@
 from yarl import URL
 
-TexturesBase = URL(
-    "https://raw.githubusercontent.com/Escartem/GenshinTextures/master/Texture2D"
-)
-DataFileBase = URL("https://raw.githubusercontent.com/Dimbreath/GenshinData/master")
+TexturesBase = URL("https://upload-os-bbs.mihoyo.com/game_record/genshin")
+DataFileBase = URL("https://raw.githubusercontent.com/Dimbreath/GenshinData/master/ExcelBinOutput")
 
 STAT_MAPPING = {
     "FIGHT_PROP_HP": "hp",
@@ -40,5 +38,5 @@ WEAPON_TYPE_MAPPING = {
     "WEAPON_CATALYST": "Catalyst",
     "WEAPON_CLAYMORE": "Claymore",
     "WEAPON_POLE": "Pole",
-    "WEAPON_SWORD_ONE_HAND": "Sword"
+    "WEAPON_SWORD_ONE_HAND": "Sword",
 }

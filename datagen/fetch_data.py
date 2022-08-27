@@ -20,7 +20,7 @@ OUTPUT_DIR = pathlib.Path("./output")
 
 
 def get_textmap() -> dict[str, str]:
-    resp = requests.get(str(DataFileBase / "TextMap" / "TextMapEN.json"))
+    resp = requests.get(str(DataFileBase / ".." / "TextMap" / "TextMapEN.json"))
     data: dict[str, str] = resp.json()
     return data
 
@@ -36,9 +36,7 @@ def find(data: list[dict], **kv_pairs):
 
 
 def get_character_data() -> list[CharacterData]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "AvatarExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "AvatarExcelConfigData.json"))
     data: list[dict] = resp.json()
 
     output = []
@@ -76,9 +74,7 @@ def get_character_data() -> list[CharacterData]:
 
 
 def get_character_curves() -> list[dict[str, dict[str, int]]]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "AvatarCurveExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "AvatarCurveExcelConfigData.json"))
     data: list[dict] = resp.json()
 
     return [
@@ -104,9 +100,7 @@ def get_character_curves() -> list[dict[str, dict[str, int]]]:
 
 
 def get_ascension_values() -> dict[int, dict[int, CharacterBases]]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "AvatarPromoteExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "AvatarPromoteExcelConfigData.json"))
     data: list[dict] = resp.json()
 
     ascension_data: defaultdict[int, dict[int, dict[str, int]]] = defaultdict(dict)
@@ -122,10 +116,30 @@ def get_ascension_values() -> dict[int, dict[int, CharacterBases]]:
     return ascension_data  # type: ignore
 
 
+def get_artifact_sets() -> dict[int, str]:
+    resp_sets = requests.get(str(DataFileBase / "ReliquarySetExcelConfigData.json"))
+    resp_affix = requests.get(str(DataFileBase / "EquipAffixExcelConfigData.json"))
+
+    raw_sets = resp_sets.json()
+    affixes = resp_affix.json()
+
+    sets: dict[int, str] = {}
+    for _set in raw_sets:
+        try:
+            affix_id: int = _set["EquipAffixId"]
+            equip_data: dict = next(
+                filter(lambda obj: obj.get("id") == affix_id, affixes)
+            )
+            set_name = TEXTMAP[str(equip_data["nameTextMapHash"])]
+            sets[_set["setId"]] = set_name
+        except (KeyError, StopIteration):
+            continue
+
+    return sets
+
+
 def get_artifact_data() -> list[ArtifactData]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "ReliquaryExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "ReliquaryExcelConfigData.json"))
     data = resp.json()
 
     output = []
@@ -147,9 +161,7 @@ def get_artifact_data() -> list[ArtifactData]:
 
 
 def get_artifact_scaling():
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "ReliquaryLevelExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "ReliquaryLevelExcelConfigData.json"))
     data = resp.json()
 
     scaling = {0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}}
@@ -165,9 +177,7 @@ def get_artifact_scaling():
 
 
 def get_weapon_data() -> list[WeaponData]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "WeaponExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "WeaponExcelConfigData.json"))
     data = resp.json()
 
     weapons = []
@@ -186,6 +196,7 @@ def get_weapon_data() -> list[WeaponData]:
                         "curve": prop["type"],
                     }
                     for prop in obj["weaponProp"]
+                    if "propType" in prop
                 },
             }
             weapon_data["stats"]["base_atk"] = weapon_data["stats"].pop(
@@ -200,9 +211,7 @@ def get_weapon_data() -> list[WeaponData]:
 
 
 def get_weapon_curves() -> list[dict[str, int]]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "WeaponCurveExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "WeaponCurveExcelConfigData.json"))
     data = resp.json()
 
     return [
@@ -212,9 +221,7 @@ def get_weapon_curves() -> list[dict[str, int]]:
 
 
 def get_weapon_ascension_base_atk(weapons: list[WeaponData]) -> dict[int, int]:
-    resp = requests.get(
-        str(DataFileBase / "ExcelBinOutput" / "WeaponPromoteExcelConfigData.json")
-    )
+    resp = requests.get(str(DataFileBase / "WeaponPromoteExcelConfigData.json"))
     data = resp.json()
 
     values = {}

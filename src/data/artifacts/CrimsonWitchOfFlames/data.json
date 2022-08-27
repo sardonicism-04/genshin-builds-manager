@@ -1,5 +1,5 @@
 {
-  "name": "Crimson Witch Of Flames",
+  "name": "Crimson Witch of Flames",
   "pieces": {
     "goblet": {
       "name": "WitchsHeartFlames",
@@ -10,7 +10,7 @@
       "set_id": 15006
     },
     "plume": {
-      "name": "WitchsEverburningPlume",
+      "name": "WitchsEverBurningPlume",
       "id": 80320,
       "icon": "UI_RelicIcon_15006_2",
       "text_map_key": "852500780",

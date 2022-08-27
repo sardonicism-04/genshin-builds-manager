@@ -1,0 +1,45 @@
+{
+  "name": "Gilded Dreams",
+  "pieces": {
+    "goblet": {
+      "name": "HoneyedFinalFeast",
+      "id": 21412,
+      "icon": "UI_RelicIcon_15026_1",
+      "text_map_key": "3544683012",
+      "slot": "goblet",
+      "set_id": 15026
+    },
+    "plume": {
+      "name": "FeatherOfJudgment",
+      "id": 21422,
+      "icon": "UI_RelicIcon_15026_2",
+      "text_map_key": "3098409180",
+      "slot": "plume",
+      "set_id": 15026
+    },
+    "circlet": {
+      "name": "ShadowOfTheSandKing",
+      "id": 21432,
+      "icon": "UI_RelicIcon_15026_3",
+      "text_map_key": "2851585876",
+      "slot": "circlet",
+      "set_id": 15026
+    },
+    "flower": {
+      "name": "DreamingSteelbloom",
+      "id": 21442,
+      "icon": "UI_RelicIcon_15026_4",
+      "text_map_key": "2987059292",
+      "slot": "flower",
+      "set_id": 15026
+    },
+    "sands": {
+      "name": "TheSunkenYears",
+      "id": 21452,
+      "icon": "UI_RelicIcon_15026_5",
+      "text_map_key": "2158357020",
+      "slot": "sands",
+      "set_id": 15026
+    }
+  }
+}

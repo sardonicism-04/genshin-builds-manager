@@ -1,0 +1,45 @@
+{
+  "name": "Deepwood Memories",
+  "pieces": {
+    "goblet": {
+      "name": "LampOfTheLost",
+      "id": 20412,
+      "icon": "UI_RelicIcon_15025_1",
+      "text_map_key": "1676197220",
+      "slot": "goblet",
+      "set_id": 15025
+    },
+    "plume": {
+      "name": "ScholarOfVines",
+      "id": 20422,
+      "icon": "UI_RelicIcon_15025_2",
+      "text_map_key": "2574434972",
+      "slot": "plume",
+      "set_id": 15025
+    },
+    "circlet": {
+      "name": "LaurelCoronet",
+      "id": 20432,
+      "icon": "UI_RelicIcon_15025_3",
+      "text_map_key": "2887190844",
+      "slot": "circlet",
+      "set_id": 15025
+    },
+    "flower": {
+      "name": "LabyrinthWayfarer",
+      "id": 20442,
+      "icon": "UI_RelicIcon_15025_4",
+      "text_map_key": "1961752204",
+      "slot": "flower",
+      "set_id": 15025
+    },
+    "sands": {
+      "name": "ATimeOfInsight",
+      "id": 20452,
+      "icon": "UI_RelicIcon_15025_5",
+      "text_map_key": "4098729604",
+      "slot": "sands",
+      "set_id": 15025
+    }
+  }
+}

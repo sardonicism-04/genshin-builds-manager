@@ -1,0 +1,45 @@
+{
+  "name": "Glacier and Snowfield",
+  "pieces": {
+    "goblet": {
+      "name": "GobletOfAquilo",
+      "id": 78310,
+      "icon": "UI_RelicIcon_15004_1",
+      "text_map_key": "1456324212",
+      "slot": "goblet",
+      "set_id": 15004
+    },
+    "plume": {
+      "name": "PlumeOfSnow",
+      "id": 78320,
+      "icon": "UI_RelicIcon_15004_2",
+      "text_map_key": "2035865316",
+      "slot": "plume",
+      "set_id": 15004
+    },
+    "circlet": {
+      "name": "CrownOfGlacier",
+      "id": 78330,
+      "icon": "UI_RelicIcon_15004_3",
+      "text_map_key": "55108916",
+      "slot": "circlet",
+      "set_id": 15004
+    },
+    "flower": {
+      "name": "HeartOfFrost",
+      "id": 78340,
+      "icon": "UI_RelicIcon_15004_4",
+      "text_map_key": "4049398780",
+      "slot": "flower",
+      "set_id": 15004
+    },
+    "sands": {
+      "name": "GlacialSand",
+      "id": 78350,
+      "icon": "UI_RelicIcon_15004_5",
+      "text_map_key": "332761636",
+      "slot": "sands",
+      "set_id": 15004
+    }
+  }
+}
