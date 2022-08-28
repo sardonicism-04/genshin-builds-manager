@@ -199,6 +199,10 @@ def get_weapon_data() -> list[WeaponData]:
                     if "propType" in prop
                 },
             }
+
+            if obj["rankLevel"] > 2 and len(weapon_data["stats"]) < 2:
+                continue
+
             weapon_data["stats"]["base_atk"] = weapon_data["stats"].pop(
                 "FIGHT_PROP_BASE_ATTACK"
             )
