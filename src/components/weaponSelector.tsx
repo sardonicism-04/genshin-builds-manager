@@ -8,7 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { uniqueId } from "lodash";
+import { uniqueId, uniqWith } from "lodash";
 import React, { useState } from "react";
 import weaponData from "../data/weapons";
 import { IBuild } from "../types/build";
@@ -91,7 +91,7 @@ export const WeaponSelector = ({
               </CardContent>
             </CardActionArea>
           </Card>
-          {weapons
+          {uniqWith(weapons, isWeaponEqual)
             .sort((a, b) => a.key.localeCompare(b.key))
             .map((weapon) => {
               const _weapon = weaponData[weapon.key as keyof typeof weaponData];
