@@ -89,7 +89,9 @@ def generate_constants(no_file=False):
 
     for k, v in constants.items():
         if isinstance(v, set):
-            constants[k] = list(v)
+            to_assign = list(v)
+            to_assign.sort()
+            constants[k] = to_assign
 
     if no_file is False:
         constants_path = Path("../src/constants.json")

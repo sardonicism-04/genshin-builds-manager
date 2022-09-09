@@ -1,8 +1,11 @@
 from yarl import URL
 
+# Source for textures to be downloaded from
 TexturesBase = URL("https://upload-os-bbs.mihoyo.com/game_record/genshin")
+# Source for data files to be downloaded from
 DataFileBase = URL("https://raw.githubusercontent.com/Dimbreath/GenshinData/master/ExcelBinOutput")
 
+# Map data stat names to GOOD stat keys
 STAT_MAPPING = {
     "FIGHT_PROP_HP": "hp",
     "FIGHT_PROP_HP_PERCENT": "hp_",
@@ -25,6 +28,7 @@ STAT_MAPPING = {
     "FIGHT_PROP_PHYSICAL_ADD_HURT": "physical_dmg_",
 }
 
+# Map data slot names to GOOD slot keys
 SLOT_MAPPING = {
     "EQUIP_BRACER": "flower",
     "EQUIP_SHOES": "sands",
@@ -33,6 +37,7 @@ SLOT_MAPPING = {
     "EQUIP_DRESS": "circlet",
 }
 
+# Map data weapon types to GOOD weapon type keys
 WEAPON_TYPE_MAPPING = {
     "WEAPON_BOW": "Bow",
     "WEAPON_CATALYST": "Catalyst",
