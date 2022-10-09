@@ -7,8 +7,10 @@
     "Barbara",
     "Beidou",
     "Bennett",
+    "Candace",
     "Chongyun",
     "Collei",
+    "Cyno",
     "Diluc",
     "Diona",
     "Dori",
@@ -161,6 +163,7 @@
     "HarbingerOfDawn",
     "IronSting",
     "KagotsurubeIsshin",
+    "KeyOfKhajNisut",
     "LionsRoar",
     "MistsplitterReforged",
     "PrimordialJadeCutter",
@@ -177,7 +180,8 @@
     "TheAlleyFlash",
     "TheBlackSword",
     "TheFlute",
-    "TravelersHandySword"
+    "TravelersHandySword",
+    "XiphosMoonlight"
   ],
   "WeaponsClaymore": [
     "Akuoumaru",
@@ -190,6 +194,7 @@
     "KatsuragikiriNagamasa",
     "LithicBlade",
     "LuxuriousSeaLord",
+    "MakhairaAquamarine",
     "OldMercsPal",
     "PrototypeArchaic",
     "Quartz",
@@ -224,12 +229,14 @@
     "IronPoint",
     "KitainCrossSpear",
     "LithicSpear",
+    "MissiveWindspear",
     "Moonpiercer",
     "PrimordialJadeWingedSpear",
     "PrototypeStarglitter",
     "RoyalSpear",
     "SkywardSpine",
     "StaffOfHoma",
+    "StaffOfTheScarletSands",
     "TheCatch",
     "VortexVanquisher",
     "WavebreakersFin",
@@ -298,6 +305,7 @@
     "TheWidsith",
     "ThrillingTalesOfDragonSlayers",
     "TwinNephrite",
+    "WanderingEvenstar",
     "WineAndSong"
   ]
 }
