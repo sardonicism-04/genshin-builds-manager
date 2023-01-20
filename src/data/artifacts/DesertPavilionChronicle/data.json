@@ -1,0 +1,45 @@
+{
+  "name": "Desert Pavilion Chronicle",
+  "pieces": {
+    "goblet": {
+      "name": "DefenderOfTheEnchantingDream",
+      "id": 27412,
+      "icon": "UI_RelicIcon_15027_1",
+      "text_map_key": "1749874020",
+      "slot": "goblet",
+      "set_id": 15027
+    },
+    "plume": {
+      "name": "EndOfTheGoldenRealm",
+      "id": 27422,
+      "icon": "UI_RelicIcon_15027_2",
+      "text_map_key": "519167772",
+      "slot": "plume",
+      "set_id": 15027
+    },
+    "circlet": {
+      "name": "LegacyOfTheDesertHighBorn",
+      "id": 27432,
+      "icon": "UI_RelicIcon_15027_3",
+      "text_map_key": "2813217444",
+      "slot": "circlet",
+      "set_id": 15027
+    },
+    "flower": {
+      "name": "TheFirstDaysOfTheCityOfKings",
+      "id": 27442,
+      "icon": "UI_RelicIcon_15027_4",
+      "text_map_key": "2264087148",
+      "slot": "flower",
+      "set_id": 15027
+    },
+    "sands": {
+      "name": "TimepieceOfTheLostPath",
+      "id": 27452,
+      "icon": "UI_RelicIcon_15027_5",
+      "text_map_key": "2809576500",
+      "slot": "sands",
+      "set_id": 15027
+    }
+  }
+}

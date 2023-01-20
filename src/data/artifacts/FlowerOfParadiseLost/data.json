@@ -1,0 +1,45 @@
+{
+  "name": "Flower of Paradise Lost",
+  "pieces": {
+    "goblet": {
+      "name": "SecretKeepersMagicBottle",
+      "id": 28412,
+      "icon": "UI_RelicIcon_15028_1",
+      "text_map_key": "1819665068",
+      "slot": "goblet",
+      "set_id": 15028
+    },
+    "plume": {
+      "name": "WiltingFeast",
+      "id": 28422,
+      "icon": "UI_RelicIcon_15028_2",
+      "text_map_key": "3307324868",
+      "slot": "plume",
+      "set_id": 15028
+    },
+    "circlet": {
+      "name": "AmethystCrown",
+      "id": 28432,
+      "icon": "UI_RelicIcon_15028_3",
+      "text_map_key": "3827761476",
+      "slot": "circlet",
+      "set_id": 15028
+    },
+    "flower": {
+      "name": "AyKhanoumsMyriad",
+      "id": 28442,
+      "icon": "UI_RelicIcon_15028_4",
+      "text_map_key": "1724658612",
+      "slot": "flower",
+      "set_id": 15028
+    },
+    "sands": {
+      "name": "AMomentCongealed",
+      "id": 28452,
+      "icon": "UI_RelicIcon_15028_5",
+      "text_map_key": "1303563340",
+      "slot": "sands",
+      "set_id": 15028
+    }
+  }
+}

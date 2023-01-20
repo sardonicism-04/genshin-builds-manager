@@ -1,6 +1,7 @@
 {
   "Characters": [
     "Albedo",
+    "Alhaitham",
     "Aloy",
     "Amber",
     "AratakiItto",
@@ -15,6 +16,7 @@
     "Diona",
     "Dori",
     "Eula",
+    "Faruzan",
     "Fischl",
     "Ganyu",
     "Gorou",
@@ -28,8 +30,10 @@
     "Klee",
     "KujouSara",
     "KukiShinobu",
+    "Layla",
     "Lisa",
     "Mona",
+    "Nahida",
     "Nilou",
     "Ningguang",
     "Noelle",
@@ -47,12 +51,14 @@
     "Tighnari",
     "Traveler",
     "Venti",
+    "Wanderer",
     "Xiangling",
     "Xiao",
     "Xingqiu",
     "Xinyan",
     "YaeMiko",
     "Yanfei",
+    "Yaoyao",
     "Yelan",
     "Yoimiya",
     "YunJin",
@@ -101,7 +107,9 @@
     "15023": "VermillionHereafter",
     "15024": "EchoesOfAnOffering",
     "15025": "DeepwoodMemories",
-    "15026": "GildedDreams"
+    "15026": "GildedDreams",
+    "15027": "DesertPavilionChronicle",
+    "15028": "FlowerOfParadiseLost"
   },
   "ArtifactSetNames": {
     "ResolutionOfSojourner": "Resolution of Sojourner",
@@ -146,7 +154,9 @@
     "VermillionHereafter": "Vermillion Hereafter",
     "EchoesOfAnOffering": "Echoes of an Offering",
     "DeepwoodMemories": "Deepwood Memories",
-    "GildedDreams": "Gilded Dreams"
+    "GildedDreams": "Gilded Dreams",
+    "DesertPavilionChronicle": "Desert Pavilion Chronicle",
+    "FlowerOfParadiseLost": "Flower of Paradise Lost"
   },
   "WeaponsSword": [
     "AmenomaKageuchi",
@@ -165,6 +175,7 @@
     "IronSting",
     "KagotsurubeIsshin",
     "KeyOfKhajNisut",
+    "LightOfFoliarIncision",
     "LionsRoar",
     "MistsplitterReforged",
     "PrimordialJadeCutter",
@@ -181,6 +192,7 @@
     "TheAlleyFlash",
     "TheBlackSword",
     "TheFlute",
+    "ToukabouShigure",
     "TravelersHandySword",
     "XiphosMoonlight"
   ],
@@ -279,6 +291,7 @@
     "WindblumeOde"
   ],
   "WeaponsCatalyst": [
+    "AThousandFloatingDreams",
     "AmberBead",
     "ApprenticesNotes",
     "BlackcliffAgate",
@@ -305,6 +318,7 @@
     "SolarPearl",
     "TheWidsith",
     "ThrillingTalesOfDragonSlayers",
+    "TulaytullahsRemembrance",
     "TwinNephrite",
     "WanderingEvenstar",
     "WineAndSong"
