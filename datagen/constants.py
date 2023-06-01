@@ -1,9 +1,11 @@
 from yarl import URL
 
 # Source for textures to be downloaded from
-TexturesBase = URL("https://upload-os-bbs.mihoyo.com/game_record/genshin")
+TexturesBase = URL("https://enka.network/ui")
 # Source for data files to be downloaded from
-DataFileBase = URL("https://raw.githubusercontent.com/Sycamore0/GenshinData/main/ExcelBinOutput")
+DataFileBase = URL(
+    "https://raw.githubusercontent.com/Sycamore0/GenshinData/main/ExcelBinOutput"
+)
 
 # Map data stat names to GOOD stat keys
 STAT_MAPPING = {

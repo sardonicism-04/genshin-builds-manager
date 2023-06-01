@@ -12,9 +12,7 @@ if TYPE_CHECKING:
 
 
 def get_character_image(path: Path, character: CharacterData) -> bool:
-    resp = requests.get(
-        str(TexturesBase / "character_icon" / (character["icon"] + ".png"))
-    )
+    resp = requests.get(str(TexturesBase / (character["icon"] + ".png")))
     if resp.status_code != 200:
         return False
 
@@ -27,7 +25,7 @@ def get_character_image(path: Path, character: CharacterData) -> bool:
 
 
 def get_artifact_image(path: Path, artifact: ArtifactData) -> bool:
-    resp = requests.get(str(TexturesBase / "equip" / (artifact["icon"] + ".png")))
+    resp = requests.get(str(TexturesBase / (artifact["icon"] + ".png")))
     if resp.status_code != 200:
         return False
 
@@ -40,7 +38,7 @@ def get_artifact_image(path: Path, artifact: ArtifactData) -> bool:
 
 
 def get_weapon_image(path: Path, weapon: WeaponData) -> bool:
-    resp = requests.get(str(TexturesBase / "equip" / (weapon["icon"] + ".png")))
+    resp = requests.get(str(TexturesBase / (weapon["icon"] + ".png")))
     if resp.status_code != 200:
         return False
 
