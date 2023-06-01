@@ -1,0 +1,45 @@
+{
+  "name": "Nymph's Dream",
+  "pieces": {
+    "goblet": {
+      "name": "HeroesTeaParty",
+      "id": 29412,
+      "icon": "UI_RelicIcon_15029_1",
+      "text_map_key": "3623460348",
+      "slot": "goblet",
+      "set_id": 15029
+    },
+    "plume": {
+      "name": "WickedMagesPlumule",
+      "id": 29422,
+      "icon": "UI_RelicIcon_15029_2",
+      "text_map_key": "300735980",
+      "slot": "plume",
+      "set_id": 15029
+    },
+    "circlet": {
+      "name": "FellDragonsMonocle",
+      "id": 29432,
+      "icon": "UI_RelicIcon_15029_3",
+      "text_map_key": "906667788",
+      "slot": "circlet",
+      "set_id": 15029
+    },
+    "flower": {
+      "name": "OdysseanFlower",
+      "id": 29442,
+      "icon": "UI_RelicIcon_15029_4",
+      "text_map_key": "4194054668",
+      "slot": "flower",
+      "set_id": 15029
+    },
+    "sands": {
+      "name": "NymphsConstancy",
+      "id": 29452,
+      "icon": "UI_RelicIcon_15029_5",
+      "text_map_key": "569289700",
+      "slot": "sands",
+      "set_id": 15029
+    }
+  }
+}
