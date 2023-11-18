@@ -1,0 +1,45 @@
+{
+  "name": "Marechaussee Hunter",
+  "pieces": {
+    "goblet": {
+      "name": "ForgottenVessel",
+      "id": 31412,
+      "icon": "UI_RelicIcon_15031_1",
+      "text_map_key": "3155192452",
+      "slot": "goblet",
+      "set_id": 15031
+    },
+    "plume": {
+      "name": "MasterpiecesOverture",
+      "id": 31422,
+      "icon": "UI_RelicIcon_15031_2",
+      "text_map_key": "2547799604",
+      "slot": "plume",
+      "set_id": 15031
+    },
+    "circlet": {
+      "name": "VeteransVisage",
+      "id": 31432,
+      "icon": "UI_RelicIcon_15031_3",
+      "text_map_key": "1955993636",
+      "slot": "circlet",
+      "set_id": 15031
+    },
+    "flower": {
+      "name": "HuntersBrooch",
+      "id": 31442,
+      "icon": "UI_RelicIcon_15031_4",
+      "text_map_key": "2375045428",
+      "slot": "flower",
+      "set_id": 15031
+    },
+    "sands": {
+      "name": "MomentOfJudgment",
+      "id": 31452,
+      "icon": "UI_RelicIcon_15031_5",
+      "text_map_key": "1651765236",
+      "slot": "sands",
+      "set_id": 15031
+    }
+  }
+}

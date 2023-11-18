@@ -1,0 +1,45 @@
+{
+  "name": "Vourukasha's Glow",
+  "pieces": {
+    "goblet": {
+      "name": "FeastOfBoundlessJoy",
+      "id": 30412,
+      "icon": "UI_RelicIcon_15030_1",
+      "text_map_key": "1352276684",
+      "slot": "goblet",
+      "set_id": 15030
+    },
+    "plume": {
+      "name": "VibrantPinion",
+      "id": 30422,
+      "icon": "UI_RelicIcon_15030_2",
+      "text_map_key": "2606766532",
+      "slot": "plume",
+      "set_id": 15030
+    },
+    "circlet": {
+      "name": "HeartOfKhvarenasBrilliance",
+      "id": 30432,
+      "icon": "UI_RelicIcon_15030_3",
+      "text_map_key": "331647924",
+      "slot": "circlet",
+      "set_id": 15030
+    },
+    "flower": {
+      "name": "StamenOfKhvarenasOrigin",
+      "id": 30442,
+      "icon": "UI_RelicIcon_15030_4",
+      "text_map_key": "2192067188",
+      "slot": "flower",
+      "set_id": 15030
+    },
+    "sands": {
+      "name": "AncientAbscission",
+      "id": 30452,
+      "icon": "UI_RelicIcon_15030_5",
+      "text_map_key": "3947874620",
+      "slot": "sands",
+      "set_id": 15030
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Golden Troupe",
+  "pieces": {
+    "goblet": {
+      "name": "GoldenNightsBustle",
+      "id": 32412,
+      "icon": "UI_RelicIcon_15032_1",
+      "text_map_key": "1173569964",
+      "slot": "goblet",
+      "set_id": 15032
+    },
+    "plume": {
+      "name": "GoldenBirdsShedding",
+      "id": 32422,
+      "icon": "UI_RelicIcon_15032_2",
+      "text_map_key": "3679772588",
+      "slot": "plume",
+      "set_id": 15032
+    },
+    "circlet": {
+      "name": "GoldenTroupesReward",
+      "id": 32432,
+      "icon": "UI_RelicIcon_15032_3",
+      "text_map_key": "3797161348",
+      "slot": "circlet",
+      "set_id": 15032
+    },
+    "flower": {
+      "name": "GoldenSongsVariation",
+      "id": 32442,
+      "icon": "UI_RelicIcon_15032_4",
+      "text_map_key": "2592796852",
+      "slot": "flower",
+      "set_id": 15032
+    },
+    "sands": {
+      "name": "GoldenErasPrelude",
+      "id": 32452,
+      "icon": "UI_RelicIcon_15032_5",
+      "text_map_key": "3989736364",
+      "slot": "sands",
+      "set_id": 15032
+    }
+  }
+}
