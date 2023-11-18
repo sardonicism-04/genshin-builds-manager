@@ -147,6 +147,8 @@ def generate_character_dirs(constants: dict, no_images=False):
             ).strip()
             file.write(code)
 
+        print(f"Generated data for {name}")
+
     index_path = OUTPUT_PATH / "characters" / "index.tsx"
     index_path.unlink(missing_ok=True)
     with index_path.open("x") as file:
@@ -188,14 +190,15 @@ def generate_artifact_dirs(constants: dict, no_images=False):
                     continue
                 if piece["slot"] in pieces:
                     continue
+                if no_images is False:
+                    if get_artifact_image(path, piece) is False:
+                        continue
+
                 piece_name = TEXTMAP[piece["text_map_key"]]
                 pieces[piece["slot"]] = {
                     "name": format_pascal_key(piece_name),
                     **piece,
                 }
-                if no_images is False:
-                    if get_artifact_image(path, piece) is False:
-                        continue
 
             set_data = {
                 "name": constants["ArtifactSetNames"][set_name],
@@ -211,15 +214,17 @@ def generate_artifact_dirs(constants: dict, no_images=False):
                 "",
                 """{0}
                 import data from "./data.json";
-                const toExport = {{ {1}, data }};
+                const toExport = {{ {1} }};
                 export default toExport;
                 """.format(
                     "\n".join(f"import {slot} from './{slot}.png'" for slot in pieces),
-                    ", ".join(pieces),
+                    ", ".join((*pieces, "data"))
                 ),
                 flags=re.M,
             ).strip()
             file.write(code)
+
+        print(f"Generated data for {set_name}")
 
     scaling_path = OUTPUT_PATH / "artifacts" / "scaling.json"
     scaling_path.unlink(missing_ok=True)
@@ -298,6 +303,8 @@ def generate_weapon_data(constants: dict, no_images=False):
                 flags=re.M,
             )
             file.write(code)
+
+        print(f"Generated data for {name}")
 
     modules = [
         mod

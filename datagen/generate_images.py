@@ -12,9 +12,7 @@ if TYPE_CHECKING:
 
 
 def get_character_image(path: Path, character: CharacterData) -> bool:
-    resp = requests.get(
-        str(TexturesBase / (character["icon"] + ".png"))
-    )
+    resp = requests.get(str(TexturesBase / (character["icon"] + ".png")))
     if resp.status_code != 200:
         return False
 

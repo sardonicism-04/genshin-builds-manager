@@ -1,4 +1,3 @@
-import circlet from './circlet.png'
 import data from "./data.json";
-const toExport = { circlet, data };
+const toExport = { data };
 export default toExport;

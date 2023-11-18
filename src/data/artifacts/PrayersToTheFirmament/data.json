@@ -1,13 +1,4 @@
 {
   "name": "Prayers to the Firmament",
-  "pieces": {
-    "circlet": {
-      "name": "TiaraOfGales",
-      "id": 86330,
-      "icon": "UI_RelicIcon_15012_3",
-      "text_map_key": "3828731956",
-      "slot": "circlet",
-      "set_id": 15012
-    }
-  }
+  "pieces": {}
 }
